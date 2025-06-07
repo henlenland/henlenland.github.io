@@ -1,0 +1,140 @@
+
+html {
+    font-family: "Inter";
+    font-size: 18pt;
+    background-color: #333;
+    color: #fff;
+    text-align: justify;
+    letter-spacing: 0.4px;
+}
+
+body {
+    padding: 20px;
+}
+
+
+bold {
+    font-weight: bold;
+}
+
+italic {
+    font-style: italic;
+}
+
+header {
+    padding: 10px;
+    margin: 20px;
+    background-color: #000;
+    top: 20px;
+    position: sticky;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+footer {
+    padding: 15px;
+    text-align: center;
+    background-color: #000;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+main {
+    background-color: #555;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+#banner {
+    align-content: center;
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 250px;
+    display: block;
+}
+
+img {
+    border-radius: 25px;
+}
+
+.blayer {
+    position: relative;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    backdrop-filter: blur(10px);
+    align-content: center;
+    border-radius: 10px;
+    color: #fff;
+    text-shadow: 2pt 3pt #000;
+}
+
+
+nav {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    align-content: center;
+    display: inline-block;
+}
+
+table {
+    border: 2px solid #fff;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 12px;
+    text-align: center;
+}
+
+img.borderr {
+    border-radius: 10px;
+}
+
+header a,
+footer a {
+    text-decoration: none;
+    margin-inline: 15px;
+}
+
+center {
+    text-align: center;
+}
+
+a {
+    color: #fff;
+}
+
+a::after {
+    color: #fff;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/font/r.otf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/font/it.otf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/font/b.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/font/bit.otf");
+    font-weight: bold;
+    font-style: italic;
+}
