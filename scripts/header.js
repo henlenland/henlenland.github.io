@@ -8,6 +8,6 @@ Dom
 </a>
 <nav>
 <a href="/lengua">
-Lengua la Transilvanja
+Lengua la Transilvanija
 </a>
 </nav>`
