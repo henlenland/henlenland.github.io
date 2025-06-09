@@ -1,16 +1,13 @@
 
 html {
     font-family: "Inter";
-    font-size: 18pt;
+    font-size: 16pt;
     background-color: #333;
     color: #fff;
     text-align: justify;
     letter-spacing: 0.4px;
 }
 
-body {
-    padding: 20px;
-}
 
 .hidden {
     display: none;
@@ -28,7 +25,7 @@ select, button {
     background-color: #000;
     border: 2px #fff solid;
     color: #fff;
-    width: 150px;
+    width: 100px;
 }
 
 bold {
@@ -39,31 +36,58 @@ italic {
     font-style: italic;
 }
 
-#lang {
-    float: right;
+body {
+    padding: 0;
+    margin: 0;
 }
 
-header {
-    padding: 10px;
-    margin: 20px;
+#lang {
+    display: block;
+    padding: 20px;
+}
+
+sidebar {
+    margin: 0px;
+    width: 25%;
+    height: 100%;
+    position: fixed;
     background-color: #000;
-    top: 20px;
-    position: sticky;
-    border-radius: 10px;
-    z-index: 1;
+    color: #fff;
+    overflow: visible;
+} 
+
+sidebar .sec {
+    display: block;
+    border-radius: 0;
+    padding: 10px;
+    width: (100%);
+    margin: 0;
+    border: 0;
+    
+    text-align: left;
+}
+
+sidebar .sec:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+sidebar inner {
+    margin-left: 10px;
+}
+
+main, footer {
+    margin-left: 25%;
 }
 
 footer {
     padding: 15px;
     text-align: center;
     background-color: #000;
-    margin-top: 10px;
-    border-radius: 20px;
 }
 
 main {
     background-color: #555;
-    border-radius: 15px;
     padding: 25px;
 }
 
@@ -99,30 +123,21 @@ div {
     padding: 0;
 }
 
-nav {
-    background-color: #333;
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center;
-    align-content: center;
-    display: inline-block;
-}
-
 table {
     border: 2px solid #fff;
     border-collapse: collapse;
 }
 
 td, th {
-    padding: 12px;
-    text-align: center;
+    padding: 5px;
+    max-width: 60pt;
 }
 
 img.borderr {
     border-radius: 10px;
 }
 
-header a,
+sidebar a,
 footer a {
     text-decoration: none;
     margin-inline: 15px;
