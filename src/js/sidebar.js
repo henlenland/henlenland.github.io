@@ -7,5 +7,10 @@ document.getElementsByTagName("sidebar")[0].innerHTML = `
 
 <div id="lang">
     <label>Language: </label>
-    <button id="langch">en/US</button>
-</div>`
+    <select id="langch">
+        <option value="en">en/US</option>
+        <option value="hl" selected>hl/HL</option>
+        <option value="ru">ru/RU</option>
+    </select>
+</div>
+`
