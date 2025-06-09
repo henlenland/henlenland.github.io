@@ -4,7 +4,7 @@ const foldername = document.URL.split('/')
 const filename = foldername[foldername.length-2].split('#')[0]
 
 banner.innerHTML = `#banner {
-background: url("/banners/${(filename != window.location.host) ? filename : 'index'}.png");
+background: url("/src/banners/${(filename != window.location.host) ? filename : 'index'}.png");
 background-repeat: no-repeat;
 background-size: 100% 100%;
 background-position: center;

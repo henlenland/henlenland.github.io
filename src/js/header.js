@@ -4,10 +4,14 @@ let hs = document.getElementsByTagName("header")[0]
 hs.innerHTML = `
 
 <a href="/">
-Dom
+Home
 </a>
 <nav>
 <a href="/lengua">
-Lengua la Transilvanija
+Language
 </a>
-</nav>`
+</nav>
+<div id="lang">
+<label>Language: </label>
+<button id="langch">en/US</button>
+</div>`

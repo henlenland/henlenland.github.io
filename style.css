@@ -12,6 +12,24 @@ body {
     padding: 20px;
 }
 
+.hidden {
+    display: none;
+}
+
+.sep {
+    width: 50%;
+    display: inline-block;
+}
+
+select, button {
+    font-family: "Inter";
+    font-size: 18pt;
+    border-radius: 10px;
+    background-color: #000;
+    border: 2px #fff solid;
+    color: #fff;
+    width: 150px;
+}
 
 bold {
     font-weight: bold;
@@ -19,6 +37,10 @@ bold {
 
 italic {
     font-style: italic;
+}
+
+#lang {
+    float: right;
 }
 
 header {
@@ -68,9 +90,14 @@ img {
     align-content: center;
     border-radius: 10px;
     color: #fff;
-    text-shadow: 2pt 3pt #000;
+    text-shadow: 3pt 4pt #000;
 }
 
+div {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
 
 nav {
     background-color: #333;
@@ -115,26 +142,26 @@ a::after {
 
 @font-face {
     font-family: "Inter";
-    src: url("/font/r.otf");
+    src: url("/src/font/r.otf");
     font-style: normal;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("/font/it.otf");
+    src: url("/src/font/it.otf");
     font-style: italic;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("/font/b.otf");
+    src: url("/src/font/b.otf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("/font/bit.otf");
+    src: url("/src/font/bit.otf");
     font-weight: bold;
     font-style: italic;
 }
