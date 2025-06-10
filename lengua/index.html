@@ -4,20 +4,19 @@
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="/style.css"/>
         <title>Henlencyja</title>
+        <style id="banner-style"></style>
+        <script src="/src/js/banner.js"></script>
     </head>
     <body>
-        <header></header>
-        <script src="/src/js/header.js"></script>
-        <main id="trs">
-            <div id="banner">
-                <div class="blayer">
-                    <h1>Lengúa Henlencyji</h1>
-                </div>
+        <sidebar></sidebar>
+        <script src="/src/js/sidebar.js"></script>
+        <div id="banner">
+            <div class="blayer">
+                <h1>Language</h1>
             </div>
-            <style id="banner-style"></style>
-            <script src="/src/js/banner.js"></script>
-            
-            <p>* ´ simbóly ce znači le udáre. Zy zédes la práviʒ sountárion.</p>
+        </div>
+        <main id="hl">
+            <p>* ´ simbóly ce znači udárja. Zy zédes la práviʒ sountárion.</p>
 
             <h2>Alfabét & Sóunts:</h2>
 
@@ -55,7 +54,7 @@
             <h2>Mestojménja:</h2>
 
             <ul>
-                <li>y — I/me</li>
+                <li>ya — I/me</li>
                 <li>ty — you</li>
                 <li>my — we/us</li>
                 <li>vy — You</li>
@@ -69,17 +68,11 @@
                 <li>* cetot/ceta/ceto — this</li>
                 <li>* tot/ta/to — that</li>
             </ul>
-            <h4>La napisane *prinadléʒ mestojmenij* **add’te 's** ko clówu. Ko primére:</h4>
-            <ul>
-                <li>frénde, hóse → *frende's* hose;</li>
-                <li>wodá, Vlad → *Vlad's* Woda;</li>
-            </ul>
 
 
             <h2>Predlógi</h2>
 
             <ul>
-                <li>le — for/of</li>
                 <li>ko — to</li>
                 <li>káko — as/like</li>
                 <li>la — for/to</li>
@@ -391,14 +384,7 @@
                 </tr>
             </table>
         </main>
-        <main id="en" class="hidden">
-            <div id="banner">
-                <div class="blayer">
-                    <h1>Henlencian Language</h1>
-                </div>
-            </div>
-            <style id="banner-style"></style>
-            <script src="/src/js/banner.js"></script>
+        <main id="en">
             
             <p>* ´ is the accent symbol.</p>
 
@@ -438,7 +424,7 @@
             <h2>Pronounces</h2>
 
             <ul>
-                <li>y — I/me</li>
+                <li>ya — I/me</li>
                 <li>ty — you</li>
                 <li>my — we/us</li>
                 <li>vy — You</li>
@@ -452,17 +438,11 @@
                 <li>* cetot/ceta/ceto — this</li>
                 <li>* tot/ta/to — that</li>
             </ul>
-            <h4>For saying <italic>relative pronounces</italic> <bold>add 's</bold> to the word. Example:</h4>
-            <ul>
-                <li>frénde, hóse → *frende's* hose;</li>
-                <li>wodá, Vlad → *Vlad's* Woda;</li>
-            </ul>
 
 
             <h2>Predlógi</h2>
 
             <ul>
-                <li>le — for/of</li>
                 <li>ko — to</li>
                 <li>káko — as/like</li>
                 <li>la — for/to</li>
@@ -486,6 +466,376 @@
 
 
             <h2>Partitions & conculs</h2>
+            
+            <ul>
+                <li>a — but (um)</li>
+                <li>non — no</li>
+                <li>no — but</li>
+                <li>ne — not</li>
+                <li>j — and</li>
+                <li>ore — or</li>
+                <li>'ʒe/'ʒ (artističáliʒ tčasty)</li>
+            </ul>
+
+            <h2>Numbers</h2>
+            <ul>
+                <li>0 - nul</li>
+                <li>1 - odin</li>
+                <li>2 - dwa</li>
+                <li>3 - try</li>
+                <li>4 - čtyry</li>
+                <li>5 - pjač</li>
+                <li>6 - ßesč</li>
+                <li>7 - semen</li>
+                <li>8 - wosemen</li>
+                <li>9 - djevatok</li>
+                <li>10 - dzijesatok</li>
+                <li>11 - dzijesatok j odin</li>
+                <li>25 - dwa dzijesatka j odin</li>
+                <li>100 - sota</li>
+                <li>155 - sota z pjačju-dzijesatkami j pjačem</li>
+                <li>1000 - tyßa</li>
+                <li>1555 - tyßa z pjače-sotoj z pjačem-dzijesatkom j pjačem</li>
+            </ul>
+
+
+            <h2>Genders</h2>
+
+            <ul>
+                <li>muʒoj - male</li>
+                <li>nejnyj - other</li>
+                <li>ʒenyj - female</li>
+            </ul>
+
+            <h2>Declention & conjugation, singular & plural</h2>
+
+            *-y/-i* & *-o/-e/-i/-y* ­— the same.
+
+            <h3>Nouns</h3>
+
+            <h4>Types of declention</h4>
+
+            <table border>
+                <tr>
+                    <th>ending</th>
+                    <th>ʒen.</th>
+                    <th>muʒ.</th>
+                    <th>nej.</th>
+                </tr>
+                <tr>
+                    <th>-a</th>
+                    <td>-I</td>
+                    <td colspan=2></td>
+                </tr>
+                <tr>
+                    <th>-e</th>
+                    <td></td>
+                    <td>II</td>
+                    <td>IV</td>
+                </tr>
+                <tr>
+                    <th>-o</th>
+                    <td colspan=2></td>
+                    <td>IV</td>
+                </tr>
+                <tr>
+                    <th>-</th>
+                    <td></td>
+                    <td>III</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <h4>Cases & 'em examlpes</h4>
+            <table border>
+                <tr>
+                    <th>Case</th>
+                    <th>ʒyv.</th>
+                    <th>neʒyv.</th>
+                    <th>example</th>
+                </tr>
+                <tr>
+                    <th>Názvanyj</th>
+                    <td>kto?</td>
+                    <td>ßto?</td>
+                    <td><italic><bold>Koča</bold></italic> ßla.</td>
+                </tr>
+                <tr>
+                    <th>Čewótelnyj</th>
+                    <td>kavo?</td>
+                    <td>čewo?</td>
+                    <td>Non <italic><bold>koči</bold></italic>.</td>
+                </tr>
+                <tr>
+                    <th>Dátelnyj</th>
+                    <td>kamu?</td>
+                    <td>čemu?</td>
+                    <td>Dali <italic><bold>koče</bold></italic> korm.</td>
+                </tr>
+                <tr>
+                    <th>Subpatíwnyj</th>
+                    <td>kavo?</td>
+                    <td>ßto?</td>
+                    <td>Winim <italic><bold>koču</bold></italic>.</td>
+                </tr>
+                <tr>
+                    <th>Tvórnyj</th>
+                    <td>kem?</td>
+                    <td>čem?</td>
+                    <td>Ʒdelano <italic><bold>kočey</bold></italic>.</td>
+                </tr>
+            </table>
+
+            <h4>Singular</h4>
+            <table border>
+                <tr>
+                    <th>Case</th>
+                    <th>I</th>
+                    <th>II</th>
+                    <th>III</th>
+                    <th>IV</th>
+                </tr>
+                <tr>
+                    <th>Nazvanyj</th>
+                    <td>a</td>
+                    <td>-</td>
+                    <td colspan=2>e</td>
+                </tr>
+                <tr>
+                    <th>Čewotelnyj</th>
+                    <td>i</td>
+                    <td colspan=3>a</td>
+                </tr>
+                <tr>
+                    <th>Datelnyj</th>
+                    <td>e</td>
+                    <td colspan=3>u</td>
+                </tr>
+                <tr>
+                    <th>Subpativnyj</th>
+                    <td>u</td>
+                    <td>a</td>
+                    <td>-</td>
+                    <td>e</td>
+                </tr>
+                <tr>
+                    <th>Tvornyj</th>
+                    <td>ey</td>
+                    <td colspan=2>om</td>
+                    <td>em</td>
+                </tr>
+            </table>
+
+            <h4>Plural</h4>
+            <table border>
+                <tr>
+                    <th>Case</th>
+                    <th>I</th>
+                    <th>II</th>
+                    <th>III</th>
+                    <th>IV</th>
+                </tr>
+                <tr>
+                    <th>Nazvanyj</th>
+                    <td>i</td>
+                    <td>y</td>
+                    <td colspan=2>a</td>
+                </tr>
+                <tr>
+                    <th>Čewotelnyj</th>
+                    <td>ek</td>
+                    <td colspan=2>ov</td>
+                    <td>î-</td>
+                </tr>
+                <tr>
+                    <th>Datelnyj</th>
+                    <td colspan=3>am</td>
+                    <td>em</td>
+                </tr>
+                <tr>
+                    <th>Subpativnyj</th>
+                    <td>ek</td>
+                    <td>y</td>
+                    <td>ov</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <th>Tvornyj</th>
+                    <td colspan=4>ami</td>
+                </tr>
+            </table>
+            <h3>Adjectives</h3>
+            <p>Endings <bold>-o*</bold> can be replaced with <bold>-i*</bold> or <bold>-y*</bold>.</p>
+            <table border>
+                <tr>
+                    <th>Case</th>
+                    <th>ʒen.</th>
+                    <th>muʒ.</th>
+                    <th>nej.</th>
+                    <th>mnoʒ.</th>
+                </tr>
+                <tr>
+                    <th>Nazvanyj</th>
+                    <td>aja</td>
+                    <td>oj</td>
+                    <td>oje</td>
+                    <td>ije</td>
+                </tr>
+                <tr>
+                    <th>Čewotelnyj</th>
+                    <td>oj</td>
+                    <td colspan=2>ovo</td>
+                    <td>ih</td>
+                </tr>
+                <tr>
+                    <th>Datelnyj</th>
+                    <td>oj</td>
+                    <td colspan=2>omu</td>
+                    <td>im</td>
+                </tr>
+                <tr>
+                    <th>Subpativnyj</th>
+                    <td>uju</td>
+                    <td>ovo</td>
+                    <td>oje</td>
+                    <td>ih</td>
+                </tr>
+                <tr>
+                    <th>Tvornyj</th>
+                    <td>oj</td>
+                    <td colspan=2>im</td>
+                    <td>imi</td>
+                </tr>
+            </table>
+            <h3>Verb</h3>
+            <table border>
+                <tr>
+                    <th>Pronounce</th>
+                    <th>proß.</th>
+                    <th>nast. & bud.</th>
+                </tr>
+                <tr>
+                    <th>Infinitiv</th>
+                    <td colspan=2>tj</td>
+                </tr>
+                <tr>
+                    <th>y</th>
+                    <td rowspan=2>- / a</td>
+                    <td>ju</td>
+                </tr>
+                <tr>
+                    <th>ty</th>
+                    <td>jeß</td>
+                </tr>
+                <tr>
+                    <th>my</th>
+                    <td rowspan=3>i</td>
+                    <td>jem</td>
+                </tr>
+                <tr>
+                    <th>vy</th>
+                    <td>jete</td>
+                </tr>
+                <tr>
+                    <th>oni</th>
+                    <td>jut</td>
+                </tr>
+                <tr>
+                    <th>on</th>
+                    <td>-</td>
+                    <td rowspan="3">jet</td>
+                </tr>
+                <tr>
+                    <th>ona</th>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <th>ono</td>
+                </tr>
+            </table>
+        </main>
+        <main id="ru">
+            
+            <p>* ´ — знак ударения.</p>
+
+            <h2>Алфавит и звуки</h2>
+
+            <ul>
+                <li>Aa — /а/</li>
+                <li>Bb — /б/</li>
+                <li>Cc — /в/</li>
+                <li>Čč — /ц/</li>
+                <li>Dd — /д/</li>
+                <li>Ee — /э/</li>
+                <li>Ff — /ф/</li>
+                <li>Gg — /г/</li>
+                <li>Hh — /х/</li>
+                <li>Ii — /и/</li>
+                <li>Yy — /ы/</li>
+                <li>Jj — /й/</li>
+                <li>Kk — /к/</li>
+                <li>Ll — /л/</li>
+                <li>Mm — /м/</li>
+                <li>Nn — /н/</li>
+                <li>Oo — /о/</li>
+                <li>Pp — /п/</li>
+                <li>Rr — /р/</li>
+                <li>Ss — /с/</li>
+                <li>ß — /ш/</li>
+                <li>Tt — /т/</li>
+                <li>Uu — /у/</li>
+                <li>Vv — /в/</li>
+                <li>Ww — /в/у/</li>
+                <li>Zz — /з/</li>
+                <li>Ʒʒ — /ж/</li>
+            </ul>
+
+
+            <h2>Местоимения</h2>
+
+            <ul>
+                <li>ya — я</li>
+                <li>ty — ты</li>
+                <li>my — мы</li>
+                <li>vy — вы</li>
+                <li>on — он</li>
+                <li>ona — она</li>
+                <li>ono — оно</li>
+                <li>oni — они</li>
+            </ul>
+            <ul>
+                <li>* ce — это</li>
+                <li>* cetot/ceta/ceto — этот/эта/это</li>
+                <li>* tot/ta/to — тот/та/то</li>
+            </ul>
+
+
+            <h2>Предлоги</h2>
+
+            <ul>
+                <li>ko — к</li>
+                <li>káko — как</li>
+                <li>la — для</li>
+                <li>po — по</li>
+                <li>z — с</li>
+                <li>bez — без</li>
+
+            </ul>
+            <h3><italic>Мéста</italic></h3>
+            <ul>
+                <li>na — на</li>
+                <li>w — в</li>
+                <li>nádo — над</li>
+                <li>pódo — под</li>
+                <li>u — у</li>
+                <li>rjádo — рядом</li>
+                <li>támo — там</li>
+                <li>zédes — здесь</li>
+                <li>wus — все/всё</li>
+            </ul>
+
+
+            <h2>Частицы и союзы</h2>
             
             <ul>
                 <li>a — but (um)</li>

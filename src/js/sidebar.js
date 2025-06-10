@@ -8,8 +8,8 @@ document.getElementsByTagName("sidebar")[0].innerHTML = `
 <div id="lang">
     <label>Language: </label>
     <select id="langch">
-        <option value="en">en/US</option>
-        <option value="hl" selected>hl/HL</option>
+        <option value="en" selected>en/US</option>
+        <option value="hl">hl/HL</option>
         <option value="ru">ru/RU</option>
     </select>
 </div>
