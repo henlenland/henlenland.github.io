@@ -2,7 +2,6 @@
 document.getElementsByTagName("sidebar")[0].innerHTML = `
 
 <a class="sec" href="/">Home</a>
-<a class="sec" href="/language">Language</a>
 <a class="sec" href="/constitution">Constitution</a>
 
 <div id="lang">
