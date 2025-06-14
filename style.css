@@ -1,8 +1,8 @@
 
 html {
-    font-family: "Inter";
-    font-size: 16pt;
-    background-color: #333;
+    font-family: "Cormorant SC";
+    font-size: 18pt;
+    background-color: #444;
     color: #fff;
     letter-spacing: 0.4px;
 }
@@ -18,7 +18,7 @@ html {
 }
 
 select, button {
-    font-family: "Inter";
+    font-family: "Cormorant SC";
     font-size: 18pt;
     border-radius: 10px;
     background-color: #000;
@@ -47,7 +47,7 @@ body {
 
 sidebar {
     margin: 0px;
-    width: 150px;
+    width: 200px;
     height: 100%;
     position: fixed;
     background-color: #000;
@@ -79,16 +79,16 @@ sidebar .sec {
 }
 
 sidebar .sec:hover {
-    background-color: #fff;
+    background-color: #eee;
     color: #000;
 }
 
-sidebar inner {
-    margin-left: 10px;
+sidebar .inner {
+    margin-left: 30px;
 }
 
 main, footer, #banner {
-    margin-left: 150px;
+    margin-left: 200px;
 }
 
 footer {
@@ -98,7 +98,6 @@ footer {
 }
 
 main {
-    background-color: #555;
     padding: 25px;
 }
 
@@ -120,11 +119,10 @@ img {
     height: 100%;
     width: 100%;
     top: 0;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) brightness(0.5);
     align-content: center;
-    border-radius: 10px;
     color: #fff;
-    text-shadow: 3pt 4pt #000;
+    text-shadow: 3pt 1pt #000;
 }
 
 div {
@@ -139,7 +137,7 @@ table {
 }
 
 td, th {
-    padding: 5px;
+    padding: 10px;
     max-width: 60pt;
 }
 
@@ -166,27 +164,19 @@ a::after {
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("/src/font/r.otf");
-    font-style: normal;
+    font-family: "Cormorant SC";
+    src: url("/src/font/reg.ttf") format("truetype");
+    font-weight: normal;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("/src/font/it.otf");
-    font-style: italic;
+    font-family: "Cormorant SC";
+    src: url("/src/font/med.ttf") format("truetype");
+    font-weight: medium;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("/src/font/b.otf");
+    font-family: "Cormorant SC";
+    src: url("/src/font/bold.ttf") format("truetype");
     font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Inter";
-    src: url("/src/font/bit.otf");
-    font-weight: bold;
-    font-style: italic;
 }
