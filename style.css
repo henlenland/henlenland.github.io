@@ -67,6 +67,18 @@ sidebar .sec {
     text-align: left;
 }
 
+.prole {
+    color: #62a5f1
+}
+
+.phelprole {
+    color: #6285e5
+}
+
+.pheadrole {
+    color: #6070d0
+}
+
 sidebar .sec:hover {
     background-color: #fff;
     color: #000;
