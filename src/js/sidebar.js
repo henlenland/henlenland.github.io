@@ -4,6 +4,7 @@ document.getElementsByTagName("sidebar")[0].innerHTML = `
 <a class="sec" href="/">Home</a>
 <a class="sec" href="/constitution">Constitution</a>
 <a class="sec" href="/parlament">Parlament</a>
+<a class="sec" href="/national-symbols">National Symbols</a>
 
 <div id="lang">
     <label>Language: </label>
