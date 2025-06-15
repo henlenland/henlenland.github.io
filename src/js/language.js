@@ -7,8 +7,8 @@ function chan(){
 }
 
 function changePage(value){
-    en.className = (value === `en`) ? `` : `hidden`
-    ru.className = (value === `ru`) ? `` : `hidden`
+    en.className = (value === `en`) ? ((sidebar.className === ``) ? `sidebarsh` : ``): `hidden`
+    ru.className = (value === `ru`) ? ((sidebar.className === ``) ? `sidebarsh` : ``): `hidden`
 }
 
 changePage(swit.value)
