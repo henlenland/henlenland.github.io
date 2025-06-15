@@ -127,6 +127,8 @@ img {
 
 #chsidebar {
     width: auto;
+    padding-block: 5px;
+    padding-inline: 10px;
     top: 10px;
     left: 10px;
     position: fixed;
