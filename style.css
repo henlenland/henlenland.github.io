@@ -87,7 +87,7 @@ sidebar .inner {
     margin-left: 30px;
 }
 
-main, footer, #banner {
+.sidebarsh {
     margin-left: 200px;
 }
 
@@ -123,6 +123,14 @@ img {
     align-content: center;
     color: #fff;
     text-shadow: 3pt 1pt #000;
+}
+
+#chsidebar {
+    width: auto;
+    top: 10px;
+    left: 10px;
+    position: fixed;
+    z-index: 1;
 }
 
 div {

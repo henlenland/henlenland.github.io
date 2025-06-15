@@ -1,5 +1,6 @@
 
-document.getElementsByTagName("sidebar")[0].innerHTML = `
+const sidebar = document.getElementsByTagName("sidebar")[0]
+sidebar.innerHTML = `
 
 <a class="sec" href="/">Home</a>
 <a class="sec" href="/constitution">Constitution</a>
