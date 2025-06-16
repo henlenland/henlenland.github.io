@@ -1,16 +1,4 @@
 @font-face {
     font-family: "Font";
-    src: url("/src/font/reg.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Font";
-    src: url("/src/font/it.ttf") format("truetype");
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Font";
-    src: url("/src/font/bold.ttf") format("truetype");
-    font-weight: bold;
+    src: url("/src/font/reg.otf");
 }
