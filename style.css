@@ -3,7 +3,7 @@
 
 html {
     font-family: "Font";
-    font-size: 24px;
+    font-size: 24pt;
     background-color: #424549;
     color: #fff;
 }
@@ -20,12 +20,19 @@ html {
 
 select, button {
     font-family: "Font";
-    font-size: 24px;
+    font-size: 24pt;
     border-radius: 10px;
     background-color: #000;
     border: 2px #fff solid;
     color: #fff;
     width: 100px;
+}
+
+figure {
+    text-align: center;
+    font-style: italic;
+    display: inline-block;
+    width: 40%;
 }
 
 bold {
@@ -68,12 +75,12 @@ sidebar .sec {
     text-align: left;
 }
 
-.prole {
-    color: #c93838
+.role {
+    color: #ff6d6d
 }
 
-.pleadrole {
-    color: #a82c2c
+.leader {
+    color: #ff4c4c
 }
 
 sidebar .sec:hover {
