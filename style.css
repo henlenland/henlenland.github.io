@@ -11,11 +11,16 @@ html {
 
 .hidden {
     display: none;
+    position:fixed;
 }
 
 .sep {
     width: 50%;
     display: inline-block;
+}
+
+video {
+    border-radius: 15px;
 }
 
 select, button {
