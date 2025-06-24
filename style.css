@@ -23,7 +23,7 @@ video {
     border-radius: 15px;
 }
 
-select, button {
+select, button, input {
     font-family: "Font";
     font-size: 20pt;
     border-radius: 10px;
@@ -31,6 +31,14 @@ select, button {
     border: 2px #fff solid;
     color: #fff;
     width: 100px;
+}
+
+input {
+    width: 200px;
+}
+
+input[type="radio"] {
+    width: 25px;
 }
 
 figure {
