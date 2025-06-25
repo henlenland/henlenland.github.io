@@ -21,7 +21,7 @@
         </div>
 
         <main>
-            <form name="inputs">
+            <form name="inputs" onchange="relo()">
                 <p><input type="text" name="name" placeholder="Name"/>
                 <input type="text" name="lastname" placeholder="Last name"/></p>
                 <p><label>Birthdate: <input type="text" name="birthdate" placeholder="DD-MM-YYYY" value="30-04-1889"/></label></p>
@@ -29,7 +29,6 @@
                 <label><input type="radio" name="gender" value="male"/>male</label>
                 <label><input type="radio" name="gender" value="female"/>female</label></p>
             </form>
-            <p><button onclick="relo()">Reload</button>
             <button onclick="save()">Save</button></p>
             <canvas id="cnv" width="800" height="1200"></canvas>
         </main>

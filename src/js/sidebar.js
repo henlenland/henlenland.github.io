@@ -6,6 +6,5 @@ sidebar.innerHTML = `
 <a class="sec" href="/lawbook">Ген. кодекс</a>
 <a class="sec" href="/newslist">Новости</a>
 <a class="sec" href="/language">Язык</a>
-<a class="sec inner" href="/language/dictionary">Словарь</a>
-<a class="sec" href="/passport">Паспорт</a>
-`
+<a class="sec inner" href="/language/dictionary">Словарь</a>`
+// <a class="sec" href="/passport">Паспорт</a>

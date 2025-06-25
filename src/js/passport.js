@@ -30,7 +30,7 @@ function save() {
     const canvas = document.getElementById(`cnv`)
     const dataURL = canvas.toDataURL('image/jpeg');
     const link = document.createElement('a');
-    link.download = 'passport.jpeg';
+    link.download = 'passport.jpg';
     link.href = dataURL;
     document.body.appendChild(link);
     link.click();
