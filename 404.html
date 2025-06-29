@@ -3,30 +3,31 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="/style.css"/>
-        <title>404</title>
+        <title>Русежениция</title>
         <style id="banner-style"></style>
-        <script src="/src/js/banner.js"></script>
+        <script src="/src/js/banner.js" defer></script>
+        <script src="/src/js/footer.js" defer></script>
+        <script src="/src/js/sidebarch.js" defer></script>
         <link rel="icon" href="/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
 
-        <sidebar></sidebar>
+        <sidebar class="hidden"></sidebar>
         <script src="/src/js/sidebar.js"></script>
-
+        <button id="chsidebar">☰</button>
+        
         <div id="banner">
-            <div class="blayer"></div>
+            <div class="blayer">
+                <h1>Русежениция</h1>
+            </div>
         </div>
-
-        <main id="en">
-            <p>It looks like you're lost. Home page is <a href="/">here.</a></p>
+        
+        <main>
+            <h2>404 (Файл не найден!)</h2>
+            <p>Возможно, вы (или админ-рукожоп) ошиблись адресом страницы. Кликните <a href="/">здесь</a>, чтобы перейти на главную.</p>
         </main>
-
-        <main id="ru">
-            <p>Похоже, вы затерялись. Главная страница <a href="/">здесь.</a></p>
-        </main>
-
         <footer></footer>
-        <script src="/src/js/footer.js"></script>
-        <script src="/src/js/language.js"></script>
+        
     </body>
 </html>
