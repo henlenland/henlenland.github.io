@@ -44,8 +44,6 @@ input[type="radio"] {
 figure {
     text-align: center;
     font-style: italic;
-    display: inline-block;
-    width: 40%;
 }
 
 bold {
