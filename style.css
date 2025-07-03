@@ -1,9 +1,9 @@
 
-@import url("/src/font/fontface.css");
+@import url("https://fonts.googleapis.com/css?family=Inter");
 
 html {
-    font-family: "Font";
-    font-size: 21pt;
+    font-family: "Inter";
+    font-size: 20pt;
     background-color: #222;
     color: #fff;
 }
@@ -11,7 +11,7 @@ html {
 
 .hidden {
     display: none;
-    position:fixed;
+    position: fixed;
 }
 
 .sep {
@@ -24,8 +24,8 @@ video {
 }
 
 select, button, input {
-    font-family: "Font";
-    font-size: 24pt;
+    font-family: "Inter";
+    font-size: 20pt;
     border-radius: 10px;
     background-color: #000;
     border: 2px #fff solid;
@@ -46,8 +46,9 @@ figure {
     font-style: italic;
 }
 
+
 bold {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 italic {
@@ -66,7 +67,7 @@ body {
 
 sidebar {
     margin: 0px;
-    width: 400px;
+    width: 450px;
     height: 100%;
     position: fixed;
     background-color: #000;
@@ -104,7 +105,7 @@ sidebar .inner {
 }
 
 .sidebarsh {
-    margin-left: 400px;
+    margin-left: 450px;
 }
 
 footer {
@@ -114,8 +115,8 @@ footer {
 }
 
 .brightless {
-    filter: brightness(0.6);
-    backdrop-filter: brightness(0.6);
+    filter: brightness(0.4);
+    backdrop-filter: brightness(0.4);
 }
 
 main {
@@ -140,7 +141,7 @@ img {
     height: 100%;
     width: 100%;
     top: 0;
-    backdrop-filter: blur(10px) brightness(0.5);
+    backdrop-filter: blur(10px) brightness(0.55);
     align-content: center;
     color: #fff;
     text-shadow: 3pt 1pt #000;
