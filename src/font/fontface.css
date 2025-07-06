@@ -9,17 +9,6 @@
 }
 @font-face {
     font-family: "Font";
-    src: url("/src/font/m.ttf");
-    font-weight: 600;
-}
-@font-face {
-    font-family: "Font";
-    src: url("/src/font/mit.ttf");
-    font-weight: 600;
-    font-style: italic;
-}
-@font-face {
-    font-family: "Font";
     src: url("/src/font/b.ttf");
     font-weight: bold;
 }
