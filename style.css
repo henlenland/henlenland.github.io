@@ -1,9 +1,9 @@
 
-@import url("https://fonts.googleapis.com/css?family=Inter");
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
 
 html {
-    font-family: "Inter";
-    font-size: 18pt;
+    font-family: "Alegreya";
+    font-size: 24pt;
     background-color: #222;
     color: #fff;
 }
@@ -24,8 +24,8 @@ video {
 }
 
 select, button, input {
-    font-family: "Inter";
-    font-size: 18pt;
+    font-family: "Alegreya";
+    font-size: 24pt;
     border-radius: 10px;
     background-color: #000;
     border: 2px #fff solid;
