@@ -3,11 +3,14 @@
 
 html {
     font-family: "Alegreya";
-    font-size: 24pt;
+    font-size: 25pt;
     background-color: #222;
     color: #fff;
 }
 
+h2, h3, h4, h5, h6 {
+    text-align: center;
+}
 
 .hidden {
     display: none;
@@ -25,7 +28,7 @@ video {
 
 select, button, input {
     font-family: "Alegreya";
-    font-size: 24pt;
+    font-size: 25pt;
     border-radius: 10px;
     background-color: #000;
     border: 2px #fff solid;
