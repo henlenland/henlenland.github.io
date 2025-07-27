@@ -4,7 +4,11 @@ sidebar.innerHTML = `
 
 <p><a href="/ru" style="font-size:30pt">Хенленция</a></p>
 
-<p><a href="/ru/laws#const">Конституция</a><a href="/ru/laws#lw">Законы</a><a href="/ru/newslist">Новости</a><a href="/ru/newsview?v=latest">Новейшее</a></p>
+<a href="/ru/laws#const">Конституция</a>
+<a href="/ru/laws#lw">Законы</a>
+<a href="/ru/newslist">Новости</a>
+<a href="/ru/newsview?v=latest">Новейшее</a>
+
 <select name="lang">
     <option value="en">English</option>
     <option value="ru" selected>Русский</option>
