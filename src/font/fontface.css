@@ -2,19 +2,3 @@
     font-family: "Font";
     src: url("/src/font/reg.ttf");
 }
-@font-face {
-    font-family: "Font";
-    src: url("/src/font/it.ttf");
-    font-style: italic;
-}
-@font-face {
-    font-family: "Font";
-    src: url("/src/font/b.ttf");
-    font-weight: bold;
-}
-@font-face {
-    font-family: "Font";
-    src: url("/src/font/bit.ttf");
-    font-weight: bold;
-    font-style: italic;
-}

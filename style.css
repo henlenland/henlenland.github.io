@@ -1,9 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Open%20Sans');
+@import url('/src/font/fontface.css');
 
 html {
-    font-family: "Open Sans";
-    font-size: 15pt;
+    font-family: Font;
+    font-size: 16pt;
     background-color: #333;
     color: #fff;
 }
@@ -27,8 +27,8 @@ video {
 }
 
 select, button, input {
-    font-family: "Open Sans";
-    font-size: 15pt;
+    font-family: Font;
+    font-size: 16pt;
     border-radius: 10px;
     background-color: #000;
     border: 2px #fff solid;
