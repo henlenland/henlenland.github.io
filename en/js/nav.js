@@ -17,7 +17,7 @@ sidebar.innerHTML = `
 
 <br />
 <p>
-    <a href="https://t.me/henlenland">Telegram-канал</a>
-    <a href="https://t.me/henlenland">Telegram-чат</a>
+    <a href="https://t.me/henlenland">Telegram-channel</a>
+    <a href="https://t.me/henlenland">Telegram-chat</a>
 </p>
 `
