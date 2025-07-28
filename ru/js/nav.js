@@ -8,9 +8,16 @@ sidebar.innerHTML = `
 <a href="/ru/laws#lw">Законы</a>
 <a href="/ru/newslist">Новости</a>
 <a href="/ru/newsview?v=latest">Новейшее</a>
+
 <br />
 <select name="lang">
-    <option value="en">English</option>
-    <option value="ru" selected>Русский</option>
+<option value="en">English</option>
+<option value="ru" selected>Русский</option>
 </select>
+
+<br />
+<p>
+    <a href="https://t.me/henlenland">Telegram-канал</a>
+    <a href="https://t.me/henlenland">Telegram-чат</a>
+</p>
 `
