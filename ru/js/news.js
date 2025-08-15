@@ -7,19 +7,28 @@ async function newsv(path){
 
 const main = document.getElementsByTagName('main')[0]
 
-fetch(`/news.json`).then(data => data.json()).then(dat => {
-    for (const it of dat){
-        let date = 
-            it.substring(0, 2) + '.' + 
-            it.substring(2, 4) + '.' + 
-            it.substring(4, 6)
+fetch(`/news.json`).then(data => data.json()).then(async (dt) => {
 
-        newsv(it).then(data => {
-            main.innerHTML += `
-            <h2>${date}</h1>
-            ${data}
+    for (const it of dt){
+
+        const dat = Object.values(dt);
+
+        const newsItems = await Promise.all(
+            dat.map(async (it) => {
+                const date = 
+                    it.substring(0, 2) + '.' + 
+                    it.substring(2, 4) + '.' + 
+                    it.substring(4, 6);
+                const content = await newsv(it);
+                return { date, content };
+            })
+        );
+
+        main.innerHTML = newsItems.map(item => `
+            <h2>${item.date}</h2>
+            ${item.content}
             <hr />
-            `
-        })
+        `).join('');
+        main.innerHTML += `${it}\n`
     }
 })
