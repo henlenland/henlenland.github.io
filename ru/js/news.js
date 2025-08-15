@@ -29,6 +29,5 @@ fetch(`/news.json`).then(data => data.json()).then(async (dt) => {
             ${item.content}
             <hr />
         `).join('');
-        main.innerHTML += `${it}\n`
     }
 })
