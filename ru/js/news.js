@@ -1,6 +1,6 @@
 
 async function newsv(path){
-    let response = await fetch(`/ru/news/${path}.html`)
+    let response = await fetch(`/ru/newsvars/${path}.html`)
     let data = await response.text()
     return data
 }
