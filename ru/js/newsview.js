@@ -1,16 +1,27 @@
 
-const args = document.location.search.substr(1).split('&')
-
-args[0] = args[0].substr(2)
-
-if (args[0] != 'latest'){
-    fetch(`/ru/news/${args[0]}.html`).then(resu => resu.text()).then(text => {
-        document.getElementsByTagName('news')[0].innerHTML = text
-    })
-} else {
-    fetch(`/news.json`).then(resu => resu.json()).then(path => {
-        fetch(`/ru/news/${path['latest']}.html`).then(resu => resu.text()).then(text => {
-            document.getElementsByTagName('news')[0].innerHTML = text
-        })
-    })
+function newsv(path){
+    fetch(`/ru/news/${path}.html`)
+    .then(result => result.text())
+    .then(data => {
+        return data
+    }).catch(err => {return `error ${err}`})
 }
+
+const main = document.getElementsByTagName('main')[0]
+
+fetch(`/news.json`).then(data => data.json()).then(ls => {
+    for (let i = 0; i < ls.length; i++){
+
+        let it = ls[i]
+        let date = 
+            it.substring(0, 2) + '.' + 
+            it.substring(2, 4) + '.' + 
+            it.substring(4, 6)
+
+        main.innerHTML += `
+        <h2>${date}</h1>
+        ${newsv(it)}
+        <hr />
+        `
+    }
+})
