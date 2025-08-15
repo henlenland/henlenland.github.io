@@ -5,8 +5,7 @@ sidebar.innerHTML = `
 <p><a href="/en" style="font-size:20pt">Henlencia</a></p>
 
 <a href="/en/laws">Constitution</a>
-<a href="/en/newslist">News</a>
-<a href="/en/newsview?v=latest">Latest</a>
+<a href="/en/news">News</a>
 
 <br />
 <select name="lang">
