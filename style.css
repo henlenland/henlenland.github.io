@@ -1,8 +1,8 @@
 
-@import url('/src/font/fontface.css');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 html {
-    font-family: Font;
+    font-family: Jost;
     font-size: 16pt;
     background-color: #333;
     color: #fff;
@@ -28,7 +28,7 @@ video {
 }
 
 select, button, input {
-    font-family: Font;
+    font-family: Jost;
     font-size: 16pt;
     border-radius: 10px;
     background-color: #000;
