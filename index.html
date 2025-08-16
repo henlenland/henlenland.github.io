@@ -3,42 +3,30 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="/style.css"/>
-        <title>Henlenland</title>
+        <title>Хенленция &mdash; Главная</title>
+        <style id="banner-style"></style>
+        <script src="/src/js/banner.js" defer></script>
+        <script src="/src/js/nav.js" defer></script>
         <link rel="icon" href="/favicon.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-        <script>
         
-            const region = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            console.log(region)
-
-            if (!(             ['Europe/Kaliningrad', 
-                                'Europe/Moskow', 
-                                'Europe/Samara', 
-                                'Asia/Yekaterinburg', 
-                                'Asia/Omsk', 
-                                'Asia/Krasnoyarsk', 
-                                'Asia/Irkutsk', 
-                                'Asia/Yakutsk', 
-                                'Asia/Vladivostok', 
-                                'Asia/Magadan', 
-                                'Asia/Kamchatka', 
-                                'Europe/Minsk', 
-                                'Asia/Almaty', 
-                                'Asia/Qyzylorda', 
-                                'Asia/Qostanay', 
-                                'Asia/Aqtobe', 
-                                'Asia/Aqtau', 
-                                'Asia/Atyrau', 
-                                'Asia/Oral'
-                            ].includes(region))){
-                window.location.href = `/en`;
-            } else {
-                window.location.href = '/ru';
-            }
-
-        </script>
+        <div id="banner">
+            <div class="blayer">
+                <h1>Республика Хенленция</h1>
+                <nav></nav>
+            </div>
+        </div>
+        
+        <main>
+            
+            <h2>Приветствуем в нашей стране</h2>
+            <p>Мы &mdash; группа людей под предводительством Настоящего парламента, как управляющего органа, и президента Евгения &laquo;Sourcy&raquo;.</p>
+            <p>Эта страна была основана 8 июня 2025 года, сначала как Русежениция, с парламентом из двух друзей, oldniki и Евгения &laquo;Sourcy&raquo;, а потом и расширенная, постепенно до нынешнего населения.</p>
+            <p>В эту страну можно вступить через вступление в наш Telegram-канал, а затем и чат. Если вы будете активными, то сможете и, чрез время, вступить в Настоящий парламент.</p>
+            <p>Сейчас парламент состоит из трёх человек.</p>
+        </main>
         
     </body>
 </html>

@@ -1,13 +1,13 @@
 
 async function newsv(path){
-    let response = await fetch(`/ru/newsvars/${path}.html`)
+    let response = await fetch(`/src/newsvars/${path}.html`)
     let data = await response.text()
     return data
 }
 
 const main = document.getElementsByTagName('main')[0]
 
-fetch(`/news.json`).then(data => data.json()).then(async (dt) => {
+fetch(`/src/news.json`).then(data => data.json()).then(async (dt) => {
 
     for (const it of dt){
 
