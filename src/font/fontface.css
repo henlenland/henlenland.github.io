@@ -2,3 +2,7 @@
     font-family: "Font";
     src: url("/src/font/reg.ttf");
 }
+@font-face {
+    font-family: "Font";
+    src: url("/src/font/reg.otf");
+}

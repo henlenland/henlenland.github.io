@@ -1,12 +1,11 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('/src/font/fontface.css');
 
 html {
-    font-family: "Sansation";
-    font-size: 22px;
+    font-family: "Font";
+    font-size: 24px;
     background-color: #333;
     color: #fff;
-    line-height: 1.334;
 }
 
 main {
@@ -32,7 +31,7 @@ video {
 }
 
 select, button, input {
-    font-family: "Sansation";
+    font-family: "Font";
     font-size: 16pt;
     border-radius: 10px;
     background-color: #000;
