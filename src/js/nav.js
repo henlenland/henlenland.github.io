@@ -15,6 +15,6 @@ footer.innerHTML = `
 <a href="https://t.me/henlenland">Telegram-канал</a>
 <a href="https://t.me/henlenlande_chat">Telegram-чат</a>
 <br />
-Сайт Хенленции © - 2025
+Сайт <span class="small-caps">Республики Хенленция</span> © - 2025
 
 `
