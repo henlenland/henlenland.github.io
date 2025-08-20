@@ -2,12 +2,15 @@
 @import url('/src/font/fontface.css');
 
 :root {
-    font-family: "Font";
+    font-family: "SF Pro Text";
     font-size: 24px;
     background-color: #444;
     color: #fff;
     line-height: 1.5;
-    letter-spacing: 0.55mm;
+}
+
+p {
+    margin-block: 10px;
 }
 
 main {
@@ -23,28 +26,12 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
 }
 
-video {
-    border-radius: 15px;
-}
-
-input {
-    width: 200px;
-}
-
 input[type="radio"] {
     width: 25px;
 }
 
 figure {
     text-align: center;
-    font-style: italic;
-}
-
-bold {
-    font-weight: 600;
-}
-
-italic {
     font-style: italic;
 }
 

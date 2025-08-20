@@ -1,8 +1,42 @@
+
 @font-face {
-    font-family: "Font";
-    src: url("/src/font/reg.ttf");
+    font-family: "SF Pro Text";
+    src: url("/src/font/regular.ttf");
+    font-weight: 400;
+    font-style: normal;
 }
+
 @font-face {
-    font-family: "Font";
-    src: url("/src/font/reg.otf");
+    font-family: "SF Pro Text";
+    src: url("/src/font/italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("/src/font/bold.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("/src/font/bolditalic.ttf");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("/src/font/lightitalic.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("/src/font/lightitalic.ttf");
+    font-weight: 300;
+    font-style: italic;
 }
