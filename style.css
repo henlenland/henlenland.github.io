@@ -1,12 +1,12 @@
 
-@import url('/src/font/SFPro/fontface.css');
+@import url('/src/font/Alegreya/fontface.css');
 
 :root {
-    font-family: "SF Pro Text";
-    font-size: 14pt;
+    font-family: "Alegreya";
+    font-size: 15pt;
     background-color: #444;
     color: #fff;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 p {
