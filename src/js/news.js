@@ -15,17 +15,15 @@ fetch(`/src/news.json`).then(data => data.json()).then(async (dt) => {
 
         const newsItems = await Promise.all(
             dat.map(async (it) => {
-                const date = 
-                    it.substring(0, 2) + '.' + 
-                    it.substring(2, 4) + '.' + 
-                    it.substring(4, 6);
+                const numer = 
+                    `Выпуск №${it}`;
                 const content = await newsv(it);
-                return { date, content };
+                return { numer, content };
             })
         );
 
         main.innerHTML = newsItems.map(item => `
-            <h2>${item.date}</h2>
+            <h2>${item.numer}</h2>
             ${item.content}
             <hr />
         `).join('');
