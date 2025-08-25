@@ -1,8 +1,8 @@
 
-@import url('/src/font/Alegreya/fontface.css');
+@import url('/src/font/SFPro/fontface.css');
 
 :root {
-    font-family: "Alegreya";
+    font-family: "SF Pro Text";
     font-size: 15pt;
     background-color: #444;
     color: #fff;
@@ -21,20 +21,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.small-caps {
-    font-variant: small-caps;
-}
-
 .hidden {
     display: none;
     position: fixed;
 }
 
-input[type="radio"] {
-    width: 25px;
-}
-
-figure {
+figure, figcaption {
     text-align: center;
     font-style: italic;
 }
