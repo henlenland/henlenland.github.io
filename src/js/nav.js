@@ -2,7 +2,7 @@
 const nav = document.getElementsByTagName("nav")[0]
 nav.innerHTML = `
 
-<a href="/">Главная страница</a>
+<a href="/" style="font-size:18pt">Хенленция</a>
 <a href="/constitution">Конституция</a>
 <a href="/news">Новости</a>
 
@@ -15,6 +15,6 @@ footer.innerHTML = `
 <a href="https://t.me/henlenland">Telegram-канал</a>
 <a href="https://t.me/henlenlande_chat">Telegram-чат</a>
 <br />
-Сайт Хенленции © - 2025
+© 2025-2025 Хенленция
 
 `
