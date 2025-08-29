@@ -67,6 +67,10 @@ nav, footer {
     text-align: left;
 }
 
+footer {
+    text-align: center;
+}
+
 img {
     border-radius: 15px;
 }
