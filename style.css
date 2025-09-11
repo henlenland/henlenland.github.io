@@ -3,11 +3,10 @@
 
 :root {
     font-family: "SF Pro Text";
-    font-size: 15pt;
+    font-size: 16pt;
     background-color: #444;
     color: #fff;
     font-weight: 300;
-    letter-spacing: 0.5pt;
     line-height: 1.5;
 }
 
