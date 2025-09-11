@@ -1,13 +1,13 @@
 
 async function newsv(path){
-    let response = await fetch(`/src/news/${path}.html`)
+    let response = await fetch(`/src/orders/${path}.html`)
     let data = await response.text()
     return data
 }
 
 const main = document.getElementsByTagName('main')[0]
 
-fetch(`/src/news/news.json`).then(data => data.json()).then(async (dt) => {
+fetch(`/src/orders/orders.json`).then(data => data.json()).then(async (dt) => {
 
     for (const it of dt){
 
@@ -16,7 +16,7 @@ fetch(`/src/news/news.json`).then(data => data.json()).then(async (dt) => {
         const newsItems = await Promise.all(
             dat.map(async (it) => {
                 const numer = 
-                    `Выпуск №${it}`;
+                    `Указ Хенленции №${it}`;
                 const content = await newsv(it);
                 return { numer, content };
             })

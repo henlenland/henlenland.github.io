@@ -5,6 +5,7 @@ nav.innerHTML = `
 <a href="/" style="font-size:18pt">Хенленция</a>
 <a href="/constitution">Конституция</a>
 <a href="/news">Новости</a>
+<a href="/executive_orders">Указы</a>
 
 `
 
