@@ -1,13 +1,13 @@
 
-@import url('/src/font/HelveticaNeue/fontface.css');
+@import url('/src/font/SFPro/fontface.css');
 
 :root {
-    font-family: "Helvetica Neue";
+    font-family: "SF Pro Text";
     font-size: 15pt;
     background-color: #444;
     color: #fff;
     font-weight: 300;
-    letter-spacing: 0.67pt;
+    letter-spacing: 0.5pt;
     line-height: 1.5;
 }
 
@@ -16,7 +16,7 @@ p {
 }
 
 main {
-    padding: 25px;
+    margin: 25px;
 }
 
 h1, h2, h3, h4, h5, h6 {
