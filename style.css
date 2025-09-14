@@ -38,24 +38,24 @@ body {
     margin: 0;
 }
 
-#lang {
-    display: block;
-    padding: 20px;
-}
-
 nav a, footer a {
     display: inline-block;
     text-decoration: none;
     color: #fff;
-    border-radius: 15px;
-    margin: 5px;
-    padding: 5px;
+    border-radius: 20px;
+    padding: 0px;
+    padding-inline: 5px;
 }
 
 nav a:hover, footer a:hover {
     background-color: #fff;
     color: #000;
 }
+
+nav *, footer * {
+    margin: 7.5px;
+}
+
 
 nav, footer {
     display: block;
