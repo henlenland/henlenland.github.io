@@ -2,11 +2,17 @@
 const nav = document.getElementsByTagName("nav")[0]
 nav.innerHTML = `
 
-<a href="/" style="font-size:18pt">Хенленция</a>
-<a href="/constitution">Конституция</a>
-<a href="/news">Новости</a>
-<a href="/executive_orders">Указы</a>
-
+<p>
+    <a href="/" style="font-size: 20pt">Хенленция</a>
+    |
+    <a href="/executive_orders">Указы</a>
+    <a href="/constitution">Конституция</a>
+    <a href="/news">Новости</a>
+</p>
+<p><a href="#" style="font-size: 20pt">Развлечения</a>
+|
+<a href="/constitution_old_russian">(старославянск.) Ѹставъ</a>
+</p>
 `
 
 

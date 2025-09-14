@@ -1,5 +1,6 @@
 
 @import url('/src/font/SFPro/fontface.css');
+@import url('/src/font/Monomakh/fontface.css');
 
 :root {
     font-family: "SF Pro Text";
