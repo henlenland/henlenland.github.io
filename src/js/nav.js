@@ -2,21 +2,35 @@
 const nav = document.getElementsByTagName("nav")[0]
 nav.innerHTML = `
 
-<p>
-    <a href="/" style="font-size: 18pt">Хенленция</a>
-    |
-    <a href="/executive_orders">Указы</a>
-    <a href="/constitution">Конституция</a>
-    <a href="/fun">Развлечения</a>
-    <a href="/news">Новости</a>
-</p>
+<table>
+    <tr>
+        <td colspan="4">
+            <a href="/" style="font-size: 20pt">Хенленция</a>
+            <hr>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/executive_orders">Указы</a>
+        </td>
+        <td>
+            <a href="/constitution">Конституция</a>
+        </td>
+        <td>
+            <a href="/fun">Развлечения</a>
+        </td>
+        <td>
+            <a href="/news">Новости</a>
+        </td>
+    </tr>
+</table>
 `
 
 
 const footer = document.getElementsByTagName("footer")[0]
 footer.innerHTML = `
 
-<table width="100%">
+<table>
 
     <tr>
 
