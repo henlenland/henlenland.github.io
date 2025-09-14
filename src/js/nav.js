@@ -7,7 +7,7 @@ nav.innerHTML = `
     |
     <a href="/executive_orders">Указы</a>
     <a href="/constitution">Конституция</a>
-    <!-- <a href="/fun">Развлечения</a>-->
+    <a href="/fun">Развлечения</a>
     <a href="/news">Новости</a>
 </p>
 `
