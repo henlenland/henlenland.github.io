@@ -1,6 +1,6 @@
 
 const nav = document.getElementsByTagName("nav")[0]
-if (nav.clientWidth > 550){
+if (nav.clientWidth > 650){
     nav.innerHTML = `
 
     <table>
