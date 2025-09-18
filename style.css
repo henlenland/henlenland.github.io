@@ -1,13 +1,13 @@
 
-@import url('/src/font/SFPro/fontface.css');
+@import url('/src/font/JournalSans/fontface.css');
 @import url('/src/font/Monomakh/fontface.css');
 
 :root {
-    font-family: "SF Pro Text";
-    font-size: 16pt;
+    font-family: "Journal Sans";
+    font-size: 18pt;
     background-color: #444;
     color: #fff;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.5;
 }
 
