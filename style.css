@@ -1,14 +1,14 @@
 
-@import url('/src/font/JournalSans/fontface.css');
+@import url('/src/font/SFPro/fontface.css');
 @import url('/src/font/Monomakh/fontface.css');
 
 :root {
-    font-family: "Journal Sans";
-    font-size: 18pt;
-    background-color: #444;
-    color: #fff;
+    font-family: "SF Pro Text";
+    font-size: 14pt;
+    background-color: #fff;
+    color: #000;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.25;
 }
 
 p {
@@ -38,12 +38,41 @@ body {
     margin: 0;
 }
 
+table {
+    border: #000 2px solid;
+    border-radius: 15px;
+    max-width: 1000px;
+}
+
+footer table, nav table {
+    max-width: none;
+}
+
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.sounds {
+    td {
+        font-family: "Times New Roman", serif;
+    }
+}
+
 nav a, footer a {
     display: inline-block;
     text-decoration: none;
-    color: #fff;
+    color: #000;
     border-radius: 20px;
     padding: 5px;
+}    
+
+
+hr {
+    background-color: #000;
+    height: 2px;
+    border: none;
 }
 
 nav a:hover, footer a:hover {
@@ -55,16 +84,16 @@ nav *, footer * {
     margin: 10px;
 }
 
-
 nav, footer {
     display: block;
-    background-color: #222;
+    background-color: #e6c532;
     padding: 15px;
     margin: 25px;
     border-radius: 25px;
     height: fit-content;
     text-align: center;
 }
+
 
 table {
     width: 100%;
@@ -83,9 +112,9 @@ div {
 }
 
 a {
-    color: #fff;
+    color: #000;
 }
 
 a::after {
-    color: #fff;
+    color: #000;
 }

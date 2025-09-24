@@ -2,7 +2,7 @@
 const nav = document.getElementsByTagName("nav")[0]
 const footer = document.getElementsByTagName("footer")[0]
 
-if (!window.matchMedia('(max-width: 650px)').matches){
+if (!window.matchMedia('(max-width: 756px)').matches){
 
     footer.innerHTML = `
     
@@ -40,7 +40,7 @@ if (!window.matchMedia('(max-width: 650px)').matches){
 
     <table>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 <a href="/" style="font-size: 20pt">Хенленция</a>
                 <hr>
             </td>
@@ -57,6 +57,9 @@ if (!window.matchMedia('(max-width: 650px)').matches){
             </td>
             <td>
                 <a href="/news">Новости</a>
+            </td>
+            <td>
+                <a href="/language">Язык</a>
             </td>
         </tr>
     </table>
@@ -92,7 +95,7 @@ if (!window.matchMedia('(max-width: 650px)').matches){
 
     <table>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 <a href="/" style="font-size: 20pt">Хенленция</a>
                 <hr>
             </td>
@@ -108,6 +111,9 @@ if (!window.matchMedia('(max-width: 650px)').matches){
         </tr>
         <tr>
             <td><a href="/news">Новости</a></td>
+        </tr>
+        <tr>
+            <td><a href="/language">Язык</a></td>
         </tr>
     </table>
     `;
