@@ -41,7 +41,6 @@ body {
 table {
     border: #000 2px solid;
     border-radius: 15px;
-    max-width: 1000px;
 }
 
 footer table, nav table {
