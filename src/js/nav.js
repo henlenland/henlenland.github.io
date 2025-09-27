@@ -19,6 +19,7 @@ if (!window.matchMedia('(max-width: 756px)').matches){
                 <p>Контактная информация:</p>
                 <p>@Sourcy1000 в Telegram</p>
                 <p>@sourcy100 в Discord</p>
+                <p>eugenesourcy@gmail.com</p>
             </td>
     
         </tr>
@@ -77,6 +78,7 @@ if (!window.matchMedia('(max-width: 756px)').matches){
                 <p>Контактная информация:</p>
                 <p>@Sourcy1000 в Telegram</p>
                 <p>@sourcy100 в Discord</p>
+                <p>eugenesourcy@gmail.com</p>
             </td>
         </tr>
         <tr>
