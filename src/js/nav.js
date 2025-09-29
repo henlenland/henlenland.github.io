@@ -28,7 +28,7 @@ if (!window.matchMedia('(max-width: 590px)').matches){
     
             <td colspan="2">
                 <hr>
-                <p>© 06.2025 - 09.2025 Хенленция</p>
+                <p>© 06.2025 - 09.2025 Республика Хенленция</p>
             </td>
     
         </tr>
@@ -42,7 +42,7 @@ if (!window.matchMedia('(max-width: 590px)').matches){
     <table>
         <tr>
             <td colspan="5">
-                <a href="/" style="font-size: 20pt">Хенленция</a>
+                <a href="/" style="font-size: 20pt">Республика Хенленция</a>
                 <hr>
             </td>
         </tr>
@@ -82,7 +82,7 @@ if (!window.matchMedia('(max-width: 590px)').matches){
     
             <td>
                 <hr>
-                <p>© 06.2025 - 09.2025 Хенленция</p>
+                <p>© 06.2025 - 09.2025 Республика Хенленция</p>
             </td>
     
         </tr>
@@ -95,7 +95,7 @@ if (!window.matchMedia('(max-width: 590px)').matches){
     <table>
         <tr>
             <td colspan="5">
-                <a href="/" style="font-size: 20pt">Хенленция</a>
+                <a href="/" style="font-size: 20pt">Республика Хенленция</a>
                 <hr>
             </td>
         </tr>
