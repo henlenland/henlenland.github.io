@@ -2,7 +2,7 @@
 const nav = document.getElementsByTagName("nav")[0]
 const footer = document.getElementsByTagName("footer")[0]
 
-if (!window.matchMedia('(max-width: 756px)').matches){
+if (!window.matchMedia('(max-width: 590px)').matches){
 
     footer.innerHTML = `
     
@@ -59,9 +59,6 @@ if (!window.matchMedia('(max-width: 756px)').matches){
             <td>
                 <a href="/news">Новости</a>
             </td>
-            <td>
-                <a href="/language">Язык</a>
-            </td>
         </tr>
     </table>
     `;
@@ -113,9 +110,6 @@ if (!window.matchMedia('(max-width: 756px)').matches){
         </tr>
         <tr>
             <td><a href="/news">Новости</a></td>
-        </tr>
-        <tr>
-            <td><a href="/language">Язык</a></td>
         </tr>
     </table>
     `;
