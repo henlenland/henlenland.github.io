@@ -1,9 +1,8 @@
 
-@import url('/src/font/HelveticaNeue/fontface.css');
-@import url('/src/font/Monomakh/fontface.css');
+@import url('/src/font/OldStand/fontface.css');
 
 :root {
-    font-family: "Helvetica Neue";
+    font-family: "Old Stand";
     font-size: 14pt;
     background-color: #fff;
     color: #000;
