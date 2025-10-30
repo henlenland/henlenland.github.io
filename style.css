@@ -90,6 +90,7 @@ ref {
     word-wrap: break-word;
     font-size: 75%;
     line-height: 1em;
+    z-index: -1;
 }
 
 

@@ -22,6 +22,6 @@ header.innerHTML = `
         <a href="/constitution">Конституция</a>
         <a href="/executive_orders">Указы</a>
         <a href="/wiki">Вики</a>
-        <a href="/timers">Отсчёты времени</a>
+        <a href="/timers">Отсчёты</a>
     </nav>
 `;
