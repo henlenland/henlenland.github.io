@@ -1,116 +1,27 @@
 
-const nav = document.getElementsByTagName("nav")[0]
+const header = document.getElementsByTagName("header")[0]
 const footer = document.getElementsByTagName("footer")[0]
 
-if (!window.matchMedia('(max-width: 590px)').matches){
-
-    footer.innerHTML = `
-    
-    <table>
-    
-        <tr>
-    
-            <td>
-                <p><a href="https://t.me/henlenland">Telegram-канал</a></p>
-                <p><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
-            </td>
-    
-            <td>
-                <p>Контактная информация:</p>
-                <p>@Sourcy1000 в Telegram</p>
-                <p>@sourcy100 в Discord</p>
-                <p>eugenesourcy@gmail.com</p>
-            </td>
-    
-        </tr>
-    
-        <tr>
-    
-            <td colspan="2">
-                <hr>
-                <p>© 06.2025 - 09.2025 Республика Хенленция</p>
-            </td>
-    
-        </tr>
-    
-    </table>
-    `;
+footer.innerHTML = `
+    <br>
+    <p><a href="https://t.me/henlenland">Telegram-канал</a></p>
+    <p><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
+    <br>
+    <p>@Sourcy1000 в Telegram</p>
+    <p>@sourcy100 в Discord</p>
+    <p>eugenesourcy@gmail.com</p>
+    <br>
+    <p>© 06.2025 - 09.2025 Республика Хенленция</p>
+    <br>
+`;
 
 
-    nav.innerHTML = `
-
-    <table>
-        <tr>
-            <td colspan="5">
-                <a href="/" style="font-size: 20pt">Республика Хенленция</a>
-                <hr>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="/executive_orders">Указы</a>
-            </td>
-            <td>
-                <a href="/constitution">Конституция</a>
-            </td>
-            <td>
-                <a href="/fun">Развлечения</a>
-            </td>
-            <td>
-                <a href="/news">Новости</a>
-            </td>
-        </tr>
-    </table>
-    `;
-} else {
-    footer.innerHTML = `
-    
-    <table>
-    
-        <tr>
-            <td>
-                <p><a href="https://t.me/henlenland">Telegram-канал</a></p>
-                <p><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
-                
-                <p>Контактная информация:</p>
-                <p>@Sourcy1000 в Telegram</p>
-                <p>@sourcy100 в Discord</p>
-                <p>eugenesourcy@gmail.com</p>
-            </td>
-        </tr>
-        <tr>
-    
-            <td>
-                <hr>
-                <p>© 06.2025 - 09.2025 Республика Хенленция</p>
-            </td>
-    
-        </tr>
-    
-    </table>
-    `;
-
-    nav.innerHTML = `
-
-    <table>
-        <tr>
-            <td colspan="5">
-                <a href="/" style="font-size: 20pt">Республика Хенленция</a>
-                <hr>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="/executive_orders">Указы</a></td>
-        </tr>
-        <tr>
-            <td><a href="/constitution">Конституция</a></td>
-        </tr>
-        <tr>
-            <td><a href="/fun">Развлечения</a></td>
-        </tr>
-        <tr>
-            <td><a href="/news">Новости</a></td>
-        </tr>
-    </table>
-    `;
-}
+header.innerHTML = `
+    <a href="/">Хенленция</a>
+    <nav>
+        <a href="/constitution">Конституция</a>
+        <a href="/executive_orders">Указы</a>
+        <a href="/wiki">Вики</a>
+        <a href="/timers">Отсчёты времени</a>
+    </nav>
+`;

@@ -1,13 +1,12 @@
 
-@import url('/src/font/HelveticaNeue/fontface.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-    font-family: "Helvetica Neue";
-    font-size: 14pt;
+    font-family: rubik;
+    font-size: 16pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
-    line-height: 1.25;
 }
 
 main.constitution {
@@ -21,12 +20,21 @@ main.constitution {
     }
 }
 
-p {
-    margin-block: 10px;
+body {
+    padding: 0;
+    margin: 0;
 }
 
+
 main {
-    margin: 25px;
+    padding-top: 60px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+p {
+    margin-block: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,87 +46,81 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
 }
 
-figure, figcaption {
-    text-align: center;
-    font-style: italic;
-}
-
-body {
-    padding: 0;
+figure {
+    display: inline-block;
+    font-style: normal;
     margin: 0;
+    margin-block: 10px;
 }
 
-table {
-    border: #000 2px solid;
-    border-radius: 15px;
-}
+header {
+    border-bottom: #000 2px solid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 15px;
+    background-color: #fcf482;
 
-footer table, nav table {
-    max-width: none;
-}
+    a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 15px;
+    }
 
+    a:hover {
+        background-color: #fff;
+    }
 
-td {
-    text-align: center;
-    padding: 5px;
-}
-
-.sounds {
-    td {
-        font-family: "Times New Roman", serif;
+    nav {
+        background-color: rgb(235, 211, 106);
+        float: right;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
-nav a, footer a {
-    display: inline-block;
-    text-decoration: none;
-    color: #000;
-    border-radius: 20px;
-    padding: 5px;
-}    
-
-
-hr {
-    background-color: #000;
-    height: 2px;
-    border: none;
+bold {
+    font-weight: 600;
 }
 
-nav a:hover, footer a:hover {
-    background-color: #fff;
-    color: #000;
+ref {
+    position: relative;
+    top: -0.45em;
+    word-wrap: break-word;
+    font-size: 75%;
+    line-height: 1em;
 }
 
-nav *, footer * {
-    margin: 10px;
-}
 
-nav, footer {
+box, info {
+    border: #000 2px solid;
     display: block;
-    background-color: #e7cf63;
+    float: right;
+    margin: 10px;
     padding: 15px;
-    margin: 25px;
-    border-radius: 25px;
-    height: fit-content;
+    max-width: 370px;
+    td {
+        text-align: center;
+        padding: 3px;
+        padding-block: 8px;
+    }
+    th {
+        padding: 3px;
+        padding-block: 8px;
+    }
+}
+
+info {
     text-align: center;
 }
 
-
-table {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+footer {
+    border-top: #000 2px solid;
+    background-color: #fcf482;
+    text-align: center;
 }
 
-img {
-    border-radius: 15px;
-}
-
-div {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
 
 a {
     color: #000;
