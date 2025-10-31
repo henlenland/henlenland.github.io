@@ -11,7 +11,7 @@ footer.innerHTML = `
     <p>@sourcy100 в Discord</p>
     <p>eugenesourcy@gmail.com</p>
     <br>
-    <p>© 06.2025 - 09.2025 Республика Хенленция</p>
+    <p>© 06.2025 - 11.2025 Республика Хенленция</p>
     <br>
 `;
 

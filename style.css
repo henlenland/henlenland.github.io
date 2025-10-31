@@ -63,6 +63,7 @@ header {
     background-color: #fcf482;
 
     a {
+        color: #000;
         text-decoration: none;
         display: inline-block;
         padding: 15px;
@@ -72,6 +73,11 @@ header {
         background-color: #fff;
     }
 
+    a::after {
+        color: #000;
+    }
+
+
     nav {
         background-color: rgb(235, 211, 106);
         float: right;
@@ -80,8 +86,21 @@ header {
     }
 }
 
+a {
+    color: #00a;
+    text-decoration: none;
+}
+
+a::after {
+    color: #00a;
+}
+
 bold {
     font-weight: 600;
+}
+
+italic {
+    font-style: italic;
 }
 
 ref {
@@ -94,21 +113,38 @@ ref {
 }
 
 
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+
+table, td, th{
+    border: #000 solid 2px;
+    border-collapse: collapse;
+}
+
+
 box, info {
     border: #000 2px solid;
     display: block;
     float: right;
-    margin: 10px;
+    margin: 5px;
+    margin-right: 0px;
     padding: 15px;
     max-width: 370px;
+    table {
+        border: none;
+    }
     td {
+        border: none;
         text-align: center;
-        padding: 3px;
-        padding-block: 8px;
+        padding: 2px;
+        padding-block: 5px;
     }
     th {
-        padding: 3px;
-        padding-block: 8px;
+        border: none;
+        padding: 2px;
+        padding-block: 5px;
     }
 }
 
@@ -117,16 +153,13 @@ info {
 }
 
 footer {
+    
     border-top: #000 2px solid;
     background-color: #fcf482;
     text-align: center;
-}
 
-
-a {
-    color: #000;
-}
-
-a::after {
-    color: #000;
+    a {
+        color: #000;
+    }
+    
 }
