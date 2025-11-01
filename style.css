@@ -3,7 +3,7 @@
 
 :root {
     font-family: rubik;
-    font-size: 16pt;
+    font-size: 14pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
@@ -131,7 +131,7 @@ box, info {
     margin: 5px;
     margin-right: 0px;
     padding: 15px;
-    max-width: 370px;
+    max-width: 400px;
     table {
         border: none;
     }
@@ -139,12 +139,10 @@ box, info {
         border: none;
         text-align: center;
         padding: 2px;
-        padding-block: 5px;
     }
     th {
         border: none;
         padding: 2px;
-        padding-block: 5px;
     }
 }
 
