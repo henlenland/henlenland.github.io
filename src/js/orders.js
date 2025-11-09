@@ -8,7 +8,7 @@ async function orderv(){
 
 orderv().then(function(value){
     const main = document.getElementsByTagName('main')[0]
-    main.innerHTML = `
+    main.innerHTML += `
         ${value}
     `
 });
