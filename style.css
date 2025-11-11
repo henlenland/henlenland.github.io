@@ -128,10 +128,11 @@ box, info {
     border: #000 2px solid;
     display: block;
     float: right;
-    margin: 5px;
+    margin: 10px;
     margin-right: 0px;
-    padding: 15px;
-    max-width: 400px;
+    padding: 10px;
+    padding-bottom: 15px;
+    max-width: 380px;
     table {
         border: none;
     }
@@ -139,11 +140,17 @@ box, info {
         border: none;
         text-align: center;
         padding: 2px;
+        padding-block: 10px;
     }
     th {
         border: none;
         padding: 2px;
+        padding-block: 10px;
     }
+}
+
+box {
+    width: auto;
 }
 
 info {
