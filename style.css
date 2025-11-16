@@ -60,7 +60,7 @@ header {
     left: 0;
     right: 0;
     padding-left: 15px;
-    background-color: #fcf482;
+    background-color: #82cbfc;
 
     a {
         color: #000;
@@ -79,7 +79,7 @@ header {
 
 
     nav {
-        background-color: rgb(235, 211, 106);
+        background-color: #57aae0;
         float: right;
         padding-left: 15px;
         padding-right: 15px;
@@ -160,7 +160,7 @@ info {
 footer {
     
     border-top: #000 2px solid;
-    background-color: #fcf482;
+    background-color: #82cbfc;
     text-align: center;
 
     a {
