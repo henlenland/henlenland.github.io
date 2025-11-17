@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="/style.css"/>
-        <title>Хенленция &mdash; Главная</title>
+        <title>Хенленция &mdash; Информация</title>
         <style id="banner-style"></style>
         <script src="/src/js/nav.js" defer></script>
         <link rel="icon" href="/favicon.ico"/>
@@ -14,8 +14,9 @@
         <header></header>
         
         <main>
-            <h1>Нынешняя территория:</h1>
-            <h1 style="font-size: 3rem;">43,75 м²</h1>
+            <h1>Информация</h1>
+            <h2>Нынешняя территория:</h2>
+            <h1 style="font-size: 3rem;">41,49 м²</h1>
             <br>
             <h2>Территория состоит из селений:</h2>
             <table style="margin-left: auto; margin-right: auto;">
@@ -32,10 +33,20 @@
                     <td>10,00 м²</td>
                 </tr>
                 <tr>
-                    <td>Аспектовое</td>
-                    <td>15,26 м²</td>
+                    <td>Староземское</td>
+                    <td>13,00 м²</td>
                 </tr>
             </table>
+            <h2>Нынешняя дата:</h2>
+            <span id="date"></span>
+            <script>
+                let dateSpan = document.getElementById('date')
+                let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+                let date = new Date()
+                date.setFullYear(date.getFullYear() + 5509)
+                date.setDate(date.getDate() - 13)
+                dateSpan.innerHTML += `<h1 style="font-size: 3rem;">${date.toLocaleDateString("ru-RU", options)}</h1>`
+            </script>
         </main>
 
         <footer></footer>
