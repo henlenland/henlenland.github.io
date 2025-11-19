@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="/style.css"/>
+        <title>Хенленция &mdash; Информация</title>
+        <style id="banner-style"></style>
+        <script src="/src/js/nav.js" defer></script>
+        <link rel="icon" href="/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        
+        <header></header>
+        
+        <main>
+            <h1>Информация</h1>
+            <h2>Нынешняя дата:</h2>
+            <span id="date"></span>
+            <script>
+                let dateSpan = document.getElementById('date')
+                let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+                let date = new Date()
+                date.setFullYear(date.getFullYear() + 5509)
+                date.setDate(date.getDate() - 13)
+                dateSpan.innerHTML += `<h1 style="font-size: 3rem;">${date.toLocaleDateString("ru-RU", options)}</h1>`
+            </script>
+            <h2>Нынешняя территория:</h2>
+            <h1 style="font-size: 3rem;">55,89 м²</h1>
+            <br>
+            <h2>Территория состоит из городов:</h2>
+            <table style="margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th>Название</th>
+                    <th>Площадь</th>
+                </tr>
+                <tr>
+                    <td>Всехенленцийск</td>
+                    <td>
+                        <p>ГО: 35,89&nbsp;м²</p>
+                        <p>Город: 18,49&nbsp;м²</p>
+                        
+                        <!--
+                        18,49 м²
+                        13,00 м²
+                         4,00 м²
+                        -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>Бештаувск</td>
+                    <td>
+                        <p>10,00&nbsp;м²</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Вранов</td>
+                    <td>
+                        <p>10,00&nbsp;м²</p>
+                    </td>
+                </tr>
+            </table>
+        </main>
+
+        <footer></footer>
+        
+    </body>
+</html>

@@ -18,10 +18,9 @@ footer.innerHTML = `
 
 header.innerHTML = `
     <a href="/">Хенленция</a>
+    <a href="/info">Информация</a>
     <nav>
         <a href="/law">Законы</a>
-        <a href="/orders">Указы</a>
         <a href="/wiki">Вики</a>
-        <a href="/land">Территория</a>
     </nav>
 `;
