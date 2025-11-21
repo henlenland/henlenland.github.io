@@ -1,22 +1,26 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('/src/font/Vesti/fontface.css');
 
 :root {
-    font-family: rubik;
+    font-family: Vesti;
     font-size: 14pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
+    line-height: 1.5;
 }
 
 main.constitution {
-    text-indent: 1em;
+    p {
+        text-indent: 1em;
+    }
+
     ul {
         padding-left: 1em;
     }
     p.state {
         text-indent: 0em;
-        font-weight: bold;
+        font-weight: 600;
     }
 }
 
@@ -60,7 +64,7 @@ header {
     left: 0;
     right: 0;
     padding-left: 15px;
-    background-color: #82cbfc;
+    background-color: #fcfa82;
 
     a {
         color: #000;
@@ -79,7 +83,7 @@ header {
 
 
     nav {
-        background-color: #57aae0;
+        background-color: #ecea6d;
         float: right;
         padding-left: 15px;
         padding-right: 15px;
@@ -160,7 +164,7 @@ info {
 footer {
     
     border-top: #000 2px solid;
-    background-color: #82cbfc;
+    background-color: #fcfa82;
     text-align: center;
 
     a {

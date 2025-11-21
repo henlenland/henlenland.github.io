@@ -21,6 +21,7 @@ header.innerHTML = `
     <a href="/info">Информация</a>
     <nav>
         <a href="/law">Законы</a>
+        <a href="/story">История</a>
         <a href="/wiki">Вики</a>
     </nav>
 `;
