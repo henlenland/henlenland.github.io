@@ -1,13 +1,13 @@
 
 @font-face {
-    font-family: "Old Stand";
+    font-family: "OldStand";
     src: url("/src/font/OldStand/reg.otf");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Old Stand";
+    font-family: "OldStand";
     src: url("/src/font/OldStand/it.otf");
     font-weight: 400;
     font-style: italic;

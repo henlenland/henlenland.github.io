@@ -17,7 +17,7 @@ footer.innerHTML = `
 
 
 header.innerHTML = `
-    <a href="/">Хенленция</a>
+    <a href="/" style="font-weight: 600">Хенленция</a>
     <a href="/info">Информация</a>
     <nav>
         <a href="/law">Законы</a>
