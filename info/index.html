@@ -39,15 +39,13 @@
                 date.setFullYear(date.getFullYear() + ((date.getMonth() + 1 >= 9) ? 5509 : 5508))
                 let st = `
                 <h1 style="font-size: 3rem; font-family:OldStand;">
-                    ${month[date.getMonth() + 1]} ${date.getDate()}-е, ${date.getFullYear()}
+                    ${month[date.getMonth() + 1]} ${date.getDate()}-е, ${date.getFullYear()}-го
                 </h1>`
                 dateSpan.innerHTML += st
             </script>
             <br>
             <h2>Территория Хенленции:</h2>
-            <h1 style="font-size: 3rem;">1413&nbsp;м²</h1>
-            <br>
-            <h2>Территория состоит из городов:</h2>
+            <h1 style="font-size: 3rem;">1373&nbsp;м²</h1>
             <table style="margin-left: auto; margin-right: auto;">
                 <tr>
                     <th>Название</th>
@@ -56,11 +54,10 @@
                 </tr>
                 <tr>
                     <td>Бештаувск</td>
-                    <td colspan="2">10&nbsp;м²</td>
+                    <td colspan="2" rowspan="2">10&nbsp;м²</td>
                 </tr>
                 <tr>
                     <td>Вранов</td>
-                    <td colspan="2">10&nbsp;м²</td>
                 </tr>
                 <tr>
                     <td>Всехенленцийск (столица)</td>
@@ -68,14 +65,11 @@
                     <td>1273&nbsp;м²</td>
                 </tr>
                 <tr>
-                    <td>Верхние Жабковерцы</td>
-                    <td>30&nbsp;м²</td>
-                    <td>70&nbsp;м²</td>
+                    <td>Нижние Жабковерцы</td>
+                    <td colspan="2" rowspan="2">30&nbsp;м²</td>
                 </tr>
                 <tr>
-                    <td>Нижние Жабковерцы</td>
-                    <td>30&nbsp;м²</td>
-                    <td>40&nbsp;м²</td>
+                    <td>Верхние Жабковерцы</td>
                 </tr>
                 <tr>
                     <td>Изий</td>
