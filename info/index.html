@@ -15,49 +15,21 @@
         
         <main>
             <h1>Информация</h1>
-            <h2>Дата по календарю Хенленции:</h2>
-            <span id="date"></span>
-            <script>
-                let dateSpan = document.getElementById('date')
-                let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-                let date = new Date()
-                let month = {
-                    1: 'Января', 
-                    2: 'Февраля', 
-                    3: 'Марта', 
-                    4: 'Апреля', 
-                    5: 'Мая', 
-                    6: 'Июня', 
-                    7: 'Июля', 
-                    8: 'Августа', 
-                    9: 'Сентября', 
-                    10: 'Октября', 
-                    11: 'Ноября', 
-                    12: 'Декабря'
-                }
-                date.setDate(date.getDate() - 13)
-                date.setFullYear(date.getFullYear() + ((date.getMonth() + 1 >= 9) ? 5509 : 5508))
-                let st = `
-                <h1 style="font-size: 3rem; font-family:OldStand;">
-                    ${month[date.getMonth() + 1]} ${date.getDate()}-е, ${date.getFullYear()}-го
-                </h1>`
-                dateSpan.innerHTML += st
-            </script>
-            <br>
-            <h2>Территория Хенленции:</h2>
-            <h1 style="font-size: 3rem;">1373&nbsp;м²</h1>
+            <h2>Территория* Хенленции:</h2>
+            <h1 style="font-size: 3rem;">1353&nbsp;м²</h1>
             <table style="margin-left: auto; margin-right: auto;">
                 <tr>
                     <th>Название</th>
                     <th>Город</th>
-                    <th>ГО</th>
+                    <th>Область</th>
                 </tr>
                 <tr>
                     <td>Бештаувск</td>
-                    <td colspan="2" rowspan="2">10&nbsp;м²</td>
+                    <td colspan="2">10&nbsp;м²</td>
                 </tr>
                 <tr>
                     <td>Вранов</td>
+                    <td colspan="2">10&nbsp;м²</td>
                 </tr>
                 <tr>
                     <td>Всехенленцийск (столица)</td>
@@ -65,15 +37,27 @@
                     <td>1273&nbsp;м²</td>
                 </tr>
                 <tr>
-                    <td>Нижние Жабковерцы</td>
-                    <td colspan="2" rowspan="2">30&nbsp;м²</td>
+                    <td>Жабковерцы</td>
+                    <td>30&nbsp;м²</td>
+                    <td>60&nbsp;м²</td>
+                </tr>
+            </table>
+
+            <h2>Дружит с микронациями:</h2>
+            <h3>Республика Молоссия</h3>
+            <h3>Конституционная Монархия Лэшбёрнии</h3>
+
+            <h2>Черный список Хенленции</h2>
+            <table>
+                <tr>
+                    <th>(Ранее) Житель</th>
+                    <th>Причина</th>
+                    <th>Дата</th>
                 </tr>
                 <tr>
-                    <td>Верхние Жабковерцы</td>
-                </tr>
-                <tr>
-                    <td>Изий</td>
-                    <td colspan="2">20&nbsp;м²</td>
+                    <td>А.&nbsp;Ю. Верш**ин</td>
+                    <td>полит. разговоры</td>
+                    <td>17.11.2025</td>
                 </tr>
             </table>
         </main>

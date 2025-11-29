@@ -2,7 +2,9 @@
 const header = document.getElementsByTagName("header")[0]
 const footer = document.getElementsByTagName("footer")[0]
 
-footer.innerHTML = `
+footer.innerHTML += `
+    <br>
+    <p>*Данная организация является сугубо шуточной и не несёт за собой цель нарушить суверенитет Российской Федерации. </p>
     <br>
     <p><a href="https://t.me/henlenland">Telegram-канал</a></p>
     <p><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
@@ -11,12 +13,12 @@ footer.innerHTML = `
     <p>@sourcy100 в Discord</p>
     <p>eugenesourcy@gmail.com</p>
     <br>
-    <p>© 06.2025 - 11.2025 Республика Хенленция</p>
+    <p>© 06.2025 - 12.2025 Республика Хенленция</p>
     <br>
 `;
 
 
-header.innerHTML = `
+header.innerHTML += `
     <a href="/" style="font-weight: 600">Хенленция</a>
     <a href="/info">Информация</a>
     <nav>
