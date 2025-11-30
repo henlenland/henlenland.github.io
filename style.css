@@ -8,7 +8,7 @@
 
 :root {
     font-family: Jost;
-    font-size: 20pt;
+    font-size: 16pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
@@ -36,7 +36,7 @@ body {
 
 
 main {
-    padding-top: 120px;
+    padding-top: 100px;
     padding-bottom: 40px;
     padding-left: 20px;
     padding-right: 20px;
@@ -107,6 +107,23 @@ a {
 
 a::after {
     color: #00a;
+}
+
+button {
+    font-family: Jost;
+    font-size: 16pt;
+    font-weight: 600;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    background-color: black;
+    a {
+        color: #fff;
+    }
+    a::after {
+        color: #fff;
+    }
 }
 
 bold {
