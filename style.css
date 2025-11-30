@@ -73,14 +73,14 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding-left: 15px;
+    padding-left: 10px;
     background-color: #fcfa82;
 
     a {
         color: #000;
         text-decoration: none;
         display: inline-block;
-        padding: 15px;
+        padding: 10px;
     }
 
     a:hover {
@@ -95,8 +95,8 @@ header {
     nav {
         background-color: #f0ee6c;
         float: right;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 

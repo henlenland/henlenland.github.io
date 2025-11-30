@@ -4,7 +4,7 @@ const footer = document.getElementsByTagName("footer")[0]
 
 footer.innerHTML += `
     <br>
-    <p>*Данная организация является сугубо шуточной и не несёт за собой цель нарушить суверенитет Российской Федерации. </p>
+    <p style="margin-left: 20px; margin-right: 20px;">*Данная организация является сугубо шуточной и не несёт за собой цель нарушить суверенитет Российской Федерации. </p>
     <br>
     <p><a href="https://t.me/henlenland">Telegram-канал</a></p>
     <p><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
@@ -24,6 +24,5 @@ header.innerHTML += `
     <nav>
         <a href="/law">Законы</a>
         <a href="/story">История</a>
-        <a href="/wiki">Вики</a>
     </nav>
 `;
