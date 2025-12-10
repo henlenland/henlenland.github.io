@@ -1,0 +1,14 @@
+
+@font-face {
+    font-family: "Gothe";
+    src: url("/src/font/Gothic/reg.ttf");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Goth";
+    src: url("/src/font/Gothic/reg2.otf");
+    font-weight: 900;
+    font-style: normal;
+}
