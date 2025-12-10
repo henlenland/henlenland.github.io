@@ -22,6 +22,7 @@ header.innerHTML += `
     <a href="/" style="font-weight: 600">Хенленция</a>
     <a href="/info">Информация</a>
     <nav>
+        <a href="/language">Язык</a>
         <a href="/law">Законы</a>
         <a href="/story">История</a>
     </nav>
