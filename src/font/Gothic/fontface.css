@@ -12,3 +12,10 @@
     font-weight: 900;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "Gothen";
+    src: url("/src/font/Gothic/reg3.ttf");
+    font-weight: 900;
+    font-style: normal;
+}
