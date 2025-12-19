@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 @import url('/src/font/Vesti/fontface.css');
 @import url('/src/font/JournalSans/fontface.css');
 @import url('/src/font/OldStand/fontface.css');
@@ -8,7 +8,7 @@
 @import url('/src/font/Gothic/fontface.css');
 
 :root {
-    font-family: Jost;
+    font-family: "TikTok Sans", sans-serif;
     font-size: 16pt;
     background-color: #fff;
     color: #000;
@@ -18,13 +18,12 @@
 
 main.laws {
 
-    ul {
+    ol {
         padding-left: 1em;
     }
     
     p.state {
-        text-indent: 0em;
-        font-weight: 600;
+        font-weight: 700;
     }
 }
 
