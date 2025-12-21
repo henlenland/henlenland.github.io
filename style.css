@@ -144,7 +144,8 @@ ref {
 
 td, th {
     text-align: center;
-    padding: 5px;
+    padding: 2px;
+    padding-inline: 10px;
 }
 
 table, td, th{
