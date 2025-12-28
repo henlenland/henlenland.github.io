@@ -1,18 +1,17 @@
 
-@import url('/src/font/Vesti/fontface.css');
-@import url('/src/font/JournalSans/fontface.css');
 @import url('/src/font/YandexSans/stylesheet.css');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto+Slab:wght@100..900&display=swap');
-
 :root {
-    font-family: "Roboto Flex", sans-serif;
+    font-family: "Yandex Sans Text", sans-serif;
     font-size: 16pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
     line-height: 1.3;
-    text-wrap: pretty;
+}
+
+n {
+    font-variant: small-caps;
 }
 
 main.laws {
@@ -54,10 +53,6 @@ h1 {
     text-align: center;
 }
 
-h1, h2, h3, h4, h5, p.state, quote {
-    font-family: 'Roboto Slab', serif;
-}
-
 .hidden {
     display: none;
     position: fixed;
@@ -71,24 +66,20 @@ figure {
 }
 
 header {
-    border-bottom: #000 2px solid;
+    background-color: #fcfa82;
+    margin-bottom: 30px;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    margin-bottom: 30px;
-    text-align: center;
-    font-family: 'Roboto Slab', serif;
-    background-color: #fcfa82;
+    border-bottom: #000 2px solid;
 
     a {
-        color: #000;
+        padding-block: 14px;
+        padding-inline: 18px;
         text-decoration: none;
         display: inline-block;
-        padding-block: 15px;
-        padding-inline: 10px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
+        color: #000;
     }
 
     a:hover {
@@ -99,6 +90,8 @@ header {
         color: #000;
     }
 }
+
+
 
 a {
     color: #00a;
