@@ -3,9 +3,11 @@
 @import url('/src/font/JournalSans/fontface.css');
 @import url('/src/font/YandexSans/stylesheet.css');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto+Slab:wght@100..900&display=swap');
+
 :root {
-    font-family: "Journal Sans", sans-serif;
-    font-size: 18pt;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 16pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
@@ -29,6 +31,18 @@ body {
     margin: 0;
 }
 
+quote {
+    background-color: #d2e1ff;
+    display: block;
+    border: #8993ff 3px solid;
+    border-left: #8993ff 10px solid;
+    border-radius: 20px;
+    padding: 20px;
+    padding-right: 82px;
+    background-image: url('/src/quote.png');
+    background-repeat: no-repeat;
+    background-position: 100% 40px;
+}
 
 main {
     padding-bottom: 40px;
@@ -36,9 +50,12 @@ main {
     padding-right: 30px;
 }
 
-
 h1 {
     text-align: center;
+}
+
+h1, h2, h3, h4, h5, p.state, quote {
+    font-family: 'Roboto Slab', serif;
 }
 
 .hidden {
@@ -61,6 +78,7 @@ header {
     right: 0;
     margin-bottom: 30px;
     text-align: center;
+    font-family: 'Roboto Slab', serif;
     background-color: #fcfa82;
 
     a {
@@ -68,8 +86,8 @@ header {
         text-decoration: none;
         display: inline-block;
         padding-block: 15px;
-        padding-inline: 15px;
-        letter-spacing: 3px;
+        padding-inline: 10px;
+        letter-spacing: 2px;
         text-transform: uppercase;
     }
 
