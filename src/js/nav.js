@@ -4,26 +4,19 @@ const footer = document.getElementsByTagName("footer")[0]
 
 footer.innerHTML += `
     <br>
-    <p style="margin-left: 20px; margin-right: 20px;">*Данная организация является сугубо шуточной и не несёт за собой цель нарушить суверенитет Российской Федерации. </p>
+    <p class="italic">*Данная организация является сугубо шуточной и не несёт за собой умысла нарушить суверенитет Российской Федерации. В ней действуют все законы Российской Федерации.</p>
     <br>
-    <p><a href="https://t.me/henlenland">Telegram-канал</a></p>
-    <p><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
+    <p style="font-weight: 600"><a href="https://t.me/henlenland">Telegram-канал</a></p>
+    <p style="font-weight: 600"><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
     <br>
-    <p>@Sourcy1000 в Telegram</p>
-    <p>@sourcy100 в Discord</p>
-    <p>eugenesourcy@gmail.com</p>
-    <br>
-    <p>© 06.2025 - 12.2025 Республика Хенленция</p>
+    <p>© Республика Хенленция, 2025 &mdash; 2026</p>
     <br>
 `;
 
 
 header.innerHTML += `
-    <a href="/" style="font-weight: 600">Хенленция</a>
+    <a href="/">Хенленция</a>
     <a href="/info">Информация</a>
-    <nav>
-        <a href="/language">Язык</a>
-        <a href="/law">Законы</a>
-        <a href="/story">История</a>
-    </nav>
+    <a href="/law">Законы</a>
+    <a href="/story">История</a>
 `;
