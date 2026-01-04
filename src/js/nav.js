@@ -9,7 +9,7 @@ footer.innerHTML += `
     <p style="font-weight: 600"><a href="https://t.me/henlenland">Telegram-канал</a></p>
     <p style="font-weight: 600"><a href="https://t.me/henlenlande_chat">Telegram-чат</a></p>
     <br>
-    <p>© Республика Хенленция, 2025 &mdash; 2026</p>
+    <p>&copy; Henlenland, 2025 &mdash; 2026</p>
     <br>
 `;
 
