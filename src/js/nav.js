@@ -17,7 +17,7 @@ footer.innerHTML += `
 header.innerHTML += `
     <a href="/">Хенленция</a>
     <a href="/info">Информация</a>
-    <a href="/law">Законы</a>
+    <a href="/law">Закон</a>
     <a href="/story">История</a>
     <a href="/orders">Указы</a>
 `;
