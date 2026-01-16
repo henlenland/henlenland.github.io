@@ -15,6 +15,36 @@
         
         <main>
             <h1>Информация</h1>
+
+            <h2>Календарь Хенленции</h2>
+            <p>В календаре Хенленции используется формат дат M/D/YY.</p>
+            <div id="date"></div>
+            <script>
+                let dateSpan = document.getElementById('date')
+                let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+                let date = new Date()
+                let month = {
+                    1: 'Января', 
+                    2: 'Февраля', 
+                    3: 'Марта', 
+                    4: 'Апреля', 
+                    5: 'Мая', 
+                    6: 'Июня', 
+                    7: 'Июля', 
+                    8: 'Августа', 
+                    9: 'Сентября', 
+                    10: 'Октября', 
+                    11: 'Ноября', 
+                    12: 'Декабря'
+                }
+                date.setDate(date.getDate() - 13)
+                date.setFullYear(date.getFullYear() + ((date.getMonth() + 1 >= 9) ? 5509 : 5508))
+                let st = `
+                <p style="font-size: 3rem;">
+                    <b>${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear().toString().substring(2)} (${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear().toString().substring(0)})</b>
+                </p>`
+                dateSpan.innerHTML += st
+            </script>
             <h2>Территория Хенленции</h2>
             <table>
                 <tr>
