@@ -3,15 +3,12 @@
 
 :root {
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 14pt;
+    font-size: 12pt;
     background-color: #fff;
     color: #000;
     font-weight: 400;
+    letter-spacing: .2pt;
     line-height: 1.2;
-}
-
-n {
-    font-variant: small-caps;
 }
 
 .dict {
@@ -64,6 +61,15 @@ quote {
     background-position: 100% 40px;
 }
 
+button {
+    background-color: #fff564;
+    border: #000 1px solid;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12pt;
+    padding: 10px;
+    border-radius: 15px;
+}
+
 main {
     padding-bottom: 40px;
     padding-left: 30px;
@@ -94,13 +100,18 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    font-weight: 500;
 
     a {
-        padding-block: 12px;
-        padding-inline: 15px;
+        padding-block: 10px;
+        padding-inline: 10px;
         text-decoration: none;
         display: inline-block;
         color: #000;
+
+        img {
+            border-radius: 5pt;
+        }
     }
 
     a:hover {

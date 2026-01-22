@@ -15,10 +15,9 @@ footer.innerHTML += `
 
 
 header.innerHTML += `
-    <a href="/">Хенленция</a>
+    <a href="/"><img src="/src/symbols/civil_flag.svg" height="12"> Хенленция</a>
     <a href="/info">Информация</a>
     <a href="/law">Закон</a>
     <a href="/story">История</a>
     <a href="/orders">Указы</a>
-    <a href="/language">Язык</a>
 `;
