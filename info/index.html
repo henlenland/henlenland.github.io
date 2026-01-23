@@ -15,21 +15,6 @@
         
         <main>
             <h1>Информация</h1>
-
-            <h2>Календарь Хенленции</h2>
-            <p>В календаре Хенленции используется формат дат M/D/YY.</p>
-            <div id="date"></div>
-            <script>
-                let dateSpan = document.getElementById('date')
-                let date = new Date()
-                date.setDate(date.getDate() - 13)
-                date.setFullYear(date.getFullYear() + ((date.getMonth() + 1 >= 9) ? 5509 : 5508))
-                let st = `
-                <p style="font-size: 3rem;">
-                    <b>${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear().toString().substring(2)} (${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear().toString().substring(0)})</b>
-                </p>`
-                dateSpan.innerHTML += st
-            </script>
             <h2>Территория Хенленции</h2>
             <table>
                 <tr>
@@ -53,11 +38,6 @@
                     <td>800</td>
                 </tr>
                 <tr>
-                    <td>Жабковерцы</td>
-                    <td>30</td>
-                    <td>60</td>
-                </tr>
-                <tr>
                     <td>Изий</td>
                     <td>20</td>
                     <td>20</td>
@@ -69,7 +49,7 @@
                 </tr>
                 <tr>
                     <th>Итого</th>
-                    <th colspan="2">2255,7&nbsp;м²</th>
+                    <th colspan="2">2195,7&nbsp;м²</th>
                 </tr>
             </table>
             <br>
