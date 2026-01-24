@@ -2,27 +2,40 @@
 @import url('/src/font/SFPro/fontface.css');
 
 :root {
-    font-family: "SF Pro Text", sans-serif;
-    font-size: 12pt;
+    --font-family: 'SF Pro Text';
+    --font-size: 12pt;
+    --indent: 1cm;
+}
+
+:root {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
     background-color: #fff;
     color: #000;
     font-weight: 400;
     line-height: 1.4;
 }
 
+main {
+
+    padding-bottom: var(--indent);
+    padding-left: var(--indent);
+    padding-right: var(--indent);
+
+}
+
 main.laws {
+    
+    p {
+        text-indent: var(--indent);
+    }
 
     ol {
-        
-        padding-left: 2em;
-
-    }
-    
-    p, ol {
-        margin-block: 0.75em;
+        padding-left: var(--indent);
     }
 
-    text-align: justify;
+    line-break: auto;
+
 }
 
 ul {
@@ -30,7 +43,7 @@ ul {
     padding-left: 0;
 
     li {
-        list-style-type: none;
+        list-style-type: square;
     }
 }
 
@@ -40,32 +53,34 @@ body {
 }
 
 quote {
-    background-color: #ffe0b1;
+
     display: block;
+    
+    background-color: #ffe0b1;
     border: #ffc368 3px solid;
     border-left: #ffc368 8px solid;
+
     border-radius: 20px;
     padding: 0px;
-    padding-left: 10px;
-    padding-right: 82px;
+    padding-left: 15px;
+    padding-right: calc(var(--indent) * 2);
     background-image: url('/src/quote.png');
     background-repeat: no-repeat;
     background-position: 100% 40px;
+
+}
+
+quote p {
+    text-indent: var(--indent)
 }
 
 button {
     background-color: #fff564;
     border: #000 1px solid;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 12pt;
+    font-family: var(--font);
+    font-size: var(--font-size);
     padding: 10px;
     border-radius: 15px;
-}
-
-main {
-    padding-bottom: 40px;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 h1 {

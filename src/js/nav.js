@@ -19,5 +19,4 @@ header.innerHTML += `
     <a href="/info">Информация</a>
     <a href="/law">Закон</a>
     <a href="/story">История</a>
-    <a href="/orders">Указы</a>
 `;
