@@ -40,7 +40,7 @@ function textparse(data){
     ).replace(
         /\<\<(.*?)\|(.*?)\>\>/g, '<img src="/wiki/images/$1.jpg" height="$2"/>' // <<name|size>>
     ).replace(
-        /^(?![{<])(.+)$/, '<p class="nl">$1</p>'
+        /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
     ).replaceAll(
         '\\\\', '<p></p>'
     ).replace(
