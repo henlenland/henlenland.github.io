@@ -1,9 +1,9 @@
 
-@import url('/src/font/SFPro/fontface.css');
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 
 :root {
-    --font-family: 'SF Pro Text';
-    --font-size: 12pt;
+    --font-family: 'TikTok Sans';
+    --font-size: 14pt;
     --indent: 1cm;
 }
 
@@ -70,6 +70,10 @@ quote {
 
 }
 
+p.nl {
+    margin-block: 0;
+}
+
 quote p {
     text-indent: var(--indent)
 }
@@ -81,10 +85,6 @@ button {
     font-size: var(--font-size);
     padding: 10px;
     border-radius: 15px;
-}
-
-h1 {
-    text-align: center;
 }
 
 .hidden {
@@ -141,6 +141,16 @@ a::after {
     color: #00a;
 }
 
+a.ne {
+    color: #a00;
+    text-decoration: none;
+    border-bottom: 2px dashed;
+}
+
+a.ne::after {
+    color: #a00;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -171,26 +181,34 @@ table, td, th {
 }
 
 
-info {
+info, box {
 
     border: #000 2px solid;
-    display: inline-block;
+    display: block;
     padding: 15px;
+    margin: 20px; margin-left: 0;
     max-width: min-content;
+    
 
     table {
         border: none;
     }
+
     td {
         border: none;
         text-align: center;
-        padding: 2px;
+        padding: 15px;
         padding-block: 10px;
     }
+
     th {
         border: none;
-        padding: 2px;
+        padding: 15px;
         padding-block: 10px;
+    }
+
+    p {
+        margin-block: var(--font-size);
     }
 }
 
