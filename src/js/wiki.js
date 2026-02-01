@@ -19,6 +19,28 @@ function templateAglorithm(match, data){
     return `<info>${nonTableLines}<table>\n${tableRows}</table></info>`
 }
 
+function tableAglorithm(match, data){
+    const contents = data.split('\n')
+    let firstLine = contents[0]
+    let tableRows = ''
+    let nonTableLines = ''
+    const regex = /^\s*\|\s*(.*?)[\s\S]$/g
+    contents.forEach(line => {
+        const pair = line.match(regex)
+        if (pair){
+            console.log(pair[0])
+            let x = pair[0].split('=')
+            let tds = ''
+            x.forEach(td => {
+                td = td.replace(/^\s*\|/, '')
+                tds += `<td>${td}</td>`
+            })
+            tableRows += `<tr>${tds}</tr>`
+        }
+    });
+    return `<table>\n${tableRows}</table>`
+}
+
 
 function textparse(data){
     data = data.replace(
@@ -45,6 +67,8 @@ function textparse(data){
         '\\\\', '<p></p>'
     ).replace(
         /{{([\s\S]*?)}}/g, (match, contents) => templateAglorithm(match, contents)
+    ).replace(
+        /\[\[\[([\s\S]*?)\]\]\]/g, (match, contents) => tableAglorithm(match, contents)
     )
     const main = document.getElementsByTagName("main")[0]
     main.innerHTML = data
