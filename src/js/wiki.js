@@ -44,6 +44,10 @@ function tableAglorithm(match, data){
 
 function textparse(data){
     data = data.replace(
+        /{(.*?)\|(.*?)}/g, '<a href="https://$1">$2</a>'
+    ).replace(
+        /{(.*?)}/g, '<a href="https://$1">$1</a>'
+    ).replace(
         /=====\s*(.*?)\s*=====/g, '<h1>$1</h1>'
     ).replace(
         /====\s*(.*?)\s*====/g, '<h2>$1</h2>'
@@ -56,11 +60,11 @@ function textparse(data){
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\[\[(.*?)\|\|(.*?)\]\]/g, '<a href="/wiki/view?id=$1">$2</a>'
+        /\[\[(.*?)\|\|(.*?)\]\]/g, '<a href="/view?id=$1">$2</a>'
     ).replace(
-        /\[\[(.*?)\|(.*?)\]\]/g, '<a href="/wiki/view?id=$1" class="ne">$2</a>'
+        /\[\[(.*?)\|(.*?)\]\]/g, '<a href="/view?id=$1" class="ne">$2</a>'
     ).replace(
-        /\<\<(.*?)\|(.*?)\>\>/g, '<img src="/wiki/images/$1.jpg" height="$2"/>' // <<name|size>>
+        /\<\<(.*?)\|(.*?)\>\>/g, '<img src="/src/images/$1.jpg" height="$2"/>' // <<name|size>>
     ).replace(
         /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
     ).replaceAll(
@@ -78,9 +82,9 @@ function textparse(data){
 let searchparams = new URLSearchParams(window.location.search).get("id")
 
 if (searchparams){
-    fetch(`/wiki/states/${
+    fetch(`/states/${
         searchparams
     }.txt`).then(result => (result.status == 404) ? "===== Эта страница была перемещена, удалена, или она ещё не написана. =====" : result.text()).then(data => textparse(data))
 } else {
-    window.location.href = "/wiki/view?id=main";
+    window.location.href = "/view?id=main";
 }
