@@ -1,7 +1,6 @@
 
 function templateAglorithm(match, data){
     const contents = data.split('\n')
-    let firstLine = contents[0]
     let tableRows = ''
     let nonTableLines = ''
     const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)[\s\S]$/g
