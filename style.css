@@ -1,8 +1,8 @@
 
-@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+@import url('/src/font/SFPro/fontface.css');
 
 :root {
-    --font-family: 'TikTok Sans';
+    --font-family: 'SF Pro Text';
     --font-size: 14pt;
     --indent: 1cm;
 }
