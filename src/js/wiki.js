@@ -3,10 +3,14 @@ function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
     let nonTableLines = ''
-    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)[\s\S]$/g
+    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s$/g
     contents.forEach(line => {
+
+        if (line.trim() === '') return
+
         const pair = line.match(regex)
         if (pair){
+
             tableRows += line.replace(
                 regex,
                 `<tr><th>$1</th><td>$2</td></tr>\n`)
@@ -59,9 +63,9 @@ function textparse(data){
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\[\[(.*?)\|\|(.*?)\]\]/g, '<a href="/view?id=$1">$2</a>'
+        /\[\[([^|\]\n]+)\|\|([^|\]\n]+)\]\]/g, '<a href="/view?id=$1">$2</a>'
     ).replace(
-        /\[\[(.*?)\|(.*?)\]\]/g, '<a href="/view?id=$1" class="ne">$2</a>'
+        /\[\[([^|\]\n]+)\|([^\]\n]+)\]\]/g, '<a href="/view?id=$1" class="ne">$2</a>'
     ).replace(
         /\<\<(.*?)\|(.*?)\>\>/g, '<img src="/src/images/$1.jpg" height="$2"/>' // <<name|size>>
     ).replace(

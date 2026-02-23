@@ -1,8 +1,8 @@
 
-@import url('/src/font/SFPro/fontface.css');
+@import url('/src/font/Vesti/fontface.css');
 
 :root {
-    --font-family: 'SF Pro Text';
+    --font-family: 'Vesti';
     --font-size: 14pt;
     --indent: 1cm;
 }
@@ -22,29 +22,6 @@ main {
     padding-left: var(--indent);
     padding-right: var(--indent);
 
-}
-
-main.laws {
-    
-    p {
-        text-indent: var(--indent);
-    }
-
-    ol {
-        padding-left: var(--indent);
-    }
-
-    line-break: auto;
-
-}
-
-ul {
-
-    padding-left: 0;
-
-    li {
-        list-style-type: square;
-    }
 }
 
 body {
