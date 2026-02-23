@@ -20,10 +20,8 @@ function templateAglorithm(match, data){
 
 function tableAglorithm(match, data){
     const contents = data.split('\n')
-    let firstLine = contents[0]
     let tableRows = ''
-    let nonTableLines = ''
-    const regex = /^\s*\|\s*(.*?)[\s\S]$/g
+    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)[\s\S]$/g
     contents.forEach(line => {
         const pair = line.match(regex)
         if (pair){
