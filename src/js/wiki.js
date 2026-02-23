@@ -40,6 +40,7 @@ function tableAglorithm(match, data){
 
 
 function textparse(data){
+    const j = data
     data = data.replace(
         /{(.*?)\|(.*?)}/g, '<a href="https://$1">$2</a>'
     ).replace(
@@ -57,7 +58,7 @@ function textparse(data){
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\[\[([^|\]\n]+)\|\|([^|\]\n]+)\]\]/g, '<a href="/view?id=$1">$2</a>'
+        /\[\[([^|\]\n]+)\|\|([^|\]\n]+)\]\]/g, '<a href="/view?id=$1" class="e">$2</a>'
     ).replace(
         /\[\[([^|\]\n]+)\|([^\]\n]+)\]\]/g, '<a href="/view?id=$1" class="ne">$2</a>'
     ).replace(
@@ -74,6 +75,7 @@ function textparse(data){
     const main = document.getElementsByTagName("main")[0]
     main.innerHTML = data
     console.log(data)
+    return j
 }
 
 let searchparams = new URLSearchParams(window.location.search).get("id")
@@ -81,7 +83,13 @@ let searchparams = new URLSearchParams(window.location.search).get("id")
 if (searchparams){
     fetch(`/states/${
         searchparams
-    }.txt`).then(result => (result.status == 404) ? "===== Эта страница была перемещена, удалена, или она ещё не написана. =====" : result.text()).then(data => textparse(data))
+    }.txt`).then(result => (result.status == 404) ? "===== Эта страница была перемещена, удалена, или она ещё не написана. =====" : result.text()).then(data => textparse(data)).then(text => {
+        const title = document.getElementsByTagName('title')[0]
+        title.innerHTML = `${text.match(/=====\s*(.*?)\s*=====/)[1]} &mdash; ХенленВики`
+    })
 } else {
     window.location.href = "/view?id=main";
 }
+
+const title = document.getElementsByTagName('title')[0]
+title.innerText = i
