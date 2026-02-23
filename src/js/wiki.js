@@ -3,14 +3,10 @@ function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
     let nonTableLines = ''
-    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s$/g
+    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)[\s\S]$/g
     contents.forEach(line => {
-
-        if (line.trim() === '') return
-
         const pair = line.match(regex)
         if (pair){
-
             tableRows += line.replace(
                 regex,
                 `<tr><th>$1</th><td>$2</td></tr>\n`)
