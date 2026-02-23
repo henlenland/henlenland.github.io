@@ -3,7 +3,7 @@
 
 :root {
     --font-family: 'Vesti';
-    --font-size: 14pt;
+    --font-size: 12pt;
     --indent: 1cm;
 }
 
@@ -149,7 +149,6 @@ ref {
 td, th {
     text-align: center;
     padding: 5px;
-    padding-inline: 10px;
 }
 
 table, td, th {
@@ -174,13 +173,13 @@ info, box {
     td {
         border: none;
         text-align: center;
-        padding: 15px;
+        padding: 5px;
         padding-block: 10px;
     }
 
     th {
         border: none;
-        padding: 15px;
+        padding: 5px;
         padding-block: 10px;
     }
 
