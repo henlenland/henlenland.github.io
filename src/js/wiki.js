@@ -39,14 +39,13 @@ function tableAglorithm(match, data){
 }
 
 
-function textparse(data){
-    const j = data
+async function textparse(data){
     data = data.replace(
         /{(.*?)\|(.*?)}/g, '<a href="https://$1">$2</a>'
     ).replace(
         /{(.*?)}/g, '<a href="https://$1">$1</a>'
     ).replace(
-        /=====\s*(.*?)\s*=====/g, '<h1>$1</h1>'
+        /=====\s*(.*?)\s*=====/g, '<h1>$1</h1><hr>'
     ).replace(
         /====\s*(.*?)\s*====/g, '<h2>$1</h2>'
     ).replace(
@@ -58,10 +57,6 @@ function textparse(data){
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\[\[([^|\]\n]+)\|\|([^|\]\n]+)\]\]/g, '<a href="/view?id=$1" class="e">$2</a>'
-    ).replace(
-        /\[\[([^|\]\n]+)\|([^\]\n]+)\]\]/g, '<a href="/view?id=$1" class="ne">$2</a>'
-    ).replace(
         /\<\<(.*?)\|(.*?)\>\>/g, '<img src="/src/images/$1.jpg" height="$2"/>' // <<name|size>>
     ).replace(
         /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
@@ -72,24 +67,98 @@ function textparse(data){
     ).replace(
         /\[\[\[([\s\S]*?)\]\]\]/g, (match, contents) => tableAglorithm(match, contents)
     )
+
+    const complexLinkRegex = /\[\[([^|\]\n]+)\|\|([^\]\n]+)\]\]/g
+    const simpleLinkRegex = /\[\[([^\]\n|]+)\]\]/g
+
+    const complexMatches = [...data.matchAll(complexLinkRegex)]
+    const simpleMatches = [...data.matchAll(simpleLinkRegex)]
+
+    for (const match of complexMatches) {
+        
+        const fullMatch = match[0]
+        const id = match[1].trim().replace(/\s+/g, '_')
+        const text = match[2]
+        
+        const resolvedId = await replaceState(id)
+        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}">${text}</a>`)
+    }
+
+    for (const match of simpleMatches) {
+        const fullMatch = match[0];
+        const id = match[1].trim().replace(/\s+/g, '_');
+        
+        const resolvedId = await replaceState(id);
+        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}">${match[1].trim()}</a>`);
+    }
+
+
     const main = document.getElementsByTagName("main")[0]
     main.innerHTML = data
     console.log(data)
-    return j
+}
+
+async function replaceState(state){
+
+    const resp = await fetch('/src/readress.txt')
+    const text = await resp.text()
+    
+    for (let st of text.split('\n')){
+
+        if (!st.includes('=')) continue
+
+        let matches = 0
+
+        let p = st.split('=')
+        let stateold_file_name = p[0].trim().replace(/\s+/g, '_').toLowerCase()
+        let statenew_file_name = p[1].trim().replace(/\s+/g, '_')
+
+        let state_trimmed = state.trim().replace(/\s+/g, '_').toLowerCase()
+
+        let limit = Math.min(state_trimmed.length, stateold_file_name.length) - 3
+
+        for (let g = 0; g<limit; g++){
+
+            if (state_trimmed.substring(g, g+4) === stateold_file_name.substring(g, g+4)){
+                matches++
+            }
+            
+        }
+
+        console.log(`${state}: ${matches / limit}`)
+        
+        if (matches / limit > 0.4){
+            return statenew_file_name
+        }
+        
+    }
+    
+    return state
 }
 
 let searchparams = new URLSearchParams(window.location.search).get("id")
 
 if (searchparams){
+
+    (async () => {
+        const newState = await replaceState(searchparams)
+        let newLocation = `/view?id=${newState}`
+        
+        if (newState !== searchparams){
+            window.location.href = newLocation
+            return
+        }
+
+    })()
+
+    const title = document.getElementsByTagName('title')[0]
+    title.innerHTML = `${searchparams} &mdash; ХенленВики`
+
+    searchparams = searchparams.replace(' ', '_')
     fetch(`/states/${
         searchparams
-    }.txt`).then(result => (result.status == 404) ? "===== Эта страница была перемещена, удалена, или она ещё не написана. =====" : result.text()).then(data => textparse(data)).then(text => {
-        const title = document.getElementsByTagName('title')[0]
-        title.innerHTML = `${text.match(/=====\s*(.*?)\s*=====/)[1]} &mdash; ХенленВики`
-    })
+    }.txt`).then(result => (result.status == 404) ? "===== Эта страница была перемещена, удалена, или она ещё не написана. =====" : result.text()).then(data => textparse(data))
+
 } else {
     window.location.href = "/view?id=main";
 }
-
-const title = document.getElementsByTagName('title')[0]
-title.innerText = i

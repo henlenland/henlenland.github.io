@@ -16,6 +16,10 @@
     line-height: 1.4;
 }
 
+h1 {
+    margin-block: 10px;
+}
+
 hr {
     border: none;
     height: 2px;
