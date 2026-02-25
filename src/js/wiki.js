@@ -3,7 +3,7 @@ function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
     let nonTableLines = ''
-    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)[\s\S]$/g
+    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s*$/g
     contents.forEach(line => {
         const pair = line.match(regex)
         if (pair){
@@ -21,7 +21,7 @@ function templateAglorithm(match, data){
 function tableAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
-    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)[\s\S]$/g
+    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s*$/g
     contents.forEach(line => {
         const pair = line.match(regex)
         if (pair){
@@ -100,14 +100,20 @@ async function textparse(data){
 
 async function replaceState(state){
 
-    const resp = await fetch('/src/readress.txt')
+    const resp = await fetch('/src/adress.txt')
     const text = await resp.text()
     
+    const getGrams = (word) => {
+        let grams = []
+        for (let i = 0; i <= word.length - 3; i++) {
+            grams.push(word.substring(i, i + 3))
+        }
+        return grams
+    }
+
     for (let st of text.split('\n')){
 
         if (!st.includes('=')) continue
-
-        let matches = 0
 
         let p = st.split('=')
         let stateold_file_name = p[0].trim().replace(/\s+/g, '_').toLowerCase()
@@ -115,19 +121,20 @@ async function replaceState(state){
 
         let state_trimmed = state.trim().replace(/\s+/g, '_').toLowerCase()
 
-        let limit = Math.min(state_trimmed.length, stateold_file_name.length) - 3
+        if (state_trimmed === stateold_file_name)
+            return statenew_file_name
 
-        for (let g = 0; g<limit; g++){
 
-            if (state_trimmed.substring(g, g+4) === stateold_file_name.substring(g, g+4)){
+        let matches = 0
+
+        getGrams(state_trimmed).forEach(gram =>{
+
+            if (getGrams(stateold_file_name).includes(gram))
                 matches++
-            }
             
-        }
-
-        console.log(`${state}: ${matches / limit}`)
+        })
         
-        if (matches / limit > 0.4){
+        if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.7){
             return statenew_file_name
         }
         

@@ -1,10 +1,14 @@
 
-@import url('/src/font/HelveticaNeue/fontface.css');
+@import url('/src/font/SFPro/fontface.css');
 
 :root {
-    --font-family: 'Helvetica Neue';
+    --font-family: 'SF Pro Text', sans-serif;
     --font-size: 12pt;
     --indent: 1cm;
+}
+
+math {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 :root {
