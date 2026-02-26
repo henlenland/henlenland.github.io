@@ -5,10 +5,9 @@ main = Главная
 Хенленцийская система мер = Хенляус
 Хенляус = Хенляус
 
-Le Château Henlenland = Les Clés de Henlenland
-&laquo;Le Château Henlenland&raquo; = Les Clés de Henlenland
-Les Clés de Fort Boyard = Les Clés de Henlenland
-Гимн Хенленции = Les Clés de Henlenland
+Le Fort Henlenland = Le Fort Henlenland
+&laquo;Le Fort Henlenland&raquo; = Le Fort Henlenland
+Гимн Хенленции = Le Fort Henlenland
 
 Законы Хенленции = Законы Хенленции
 
