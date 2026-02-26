@@ -47,13 +47,13 @@ async function textparse(data){
     ).replace(
         /=====\s*(.*?)\s*=====/g, '<h1>$1</h1><hr>'
     ).replace(
-        /====\s*(.*?)\s*====/g, '<h2>$1</h2>'
+        /====\s*(.*?)\s*====/g, '<h2 id="$1">$1</h2>'
     ).replace(
         /===\s*(.*?)\s*===/g, '<h3>$1</h3>'
     ).replace(
         /\*\*\s*(.*?)\s*\*\*/gs, '<b>$1</b>'
     ).replace(
-        /\/\/\s*(.*?)\/\//gs, '<i>$1</i>'
+        /\/\/\s*(.*?)\s*\/\//gs, '<i>$1</i>'
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
@@ -111,6 +111,16 @@ async function replaceState(state){
         return grams
     }
 
+    let tag = ''
+    let state_trimmed = state.trim()
+
+    if (state_trimmed.indexOf('#') !== -1){
+        tag = state.substring(state_trimmed.indexOf('#'))
+        state_trimmed.substring(0, state_trimmed.indexOf('#'))
+    }
+
+    state_trimmed = state_trimmed.replace(/\s+/g, '_').toLowerCase()
+    
     for (let st of text.split('\n')){
 
         if (!st.includes('=')) continue
@@ -119,10 +129,9 @@ async function replaceState(state){
         let stateold_file_name = p[0].trim().replace(/\s+/g, '_').toLowerCase()
         let statenew_file_name = p[1].trim().replace(/\s+/g, '_')
 
-        let state_trimmed = state.trim().replace(/\s+/g, '_').toLowerCase()
 
         if (state_trimmed === stateold_file_name)
-            return statenew_file_name
+            return `${statenew_file_name}${tag}`
 
 
         let matches = 0
@@ -135,12 +144,12 @@ async function replaceState(state){
         })
         
         if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.7){
-            return statenew_file_name
+            return `${statenew_file_name}${tag}`
         }
         
     }
     
-    return state
+    return `${state}`
 }
 
 let searchparams = new URLSearchParams(window.location.search).get("id")

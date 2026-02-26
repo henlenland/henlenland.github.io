@@ -1,0 +1,60 @@
+
+/* Century Gothic */
+
+@font-face {
+    font-family: "Century";
+    src: url("/src/font/Century/CENSCBK.TTF");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Century";
+    src: url("/src/font/Century/SCHLBKI.TTF");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Century";
+    src: url("/src/font/Century/SCHLBKB.TTF");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Century";
+    src: url("/src/font/Century/SCHLBKBI.TTF");
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Century Gothic */
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/src/font/Century/GOTHIC.TTF");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/src/font/Century/GOTHICI.TTF");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/src/font/Century/GOTHICB.TTF");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("/src/font/Century/GOTHICBI.TTF");
+    font-weight: 700;
+    font-style: italic;
+}
