@@ -51,13 +51,15 @@ async function textparse(data){
     ).replace(
         /===\s*(.*?)\s*===/g, '<h3>$1</h3>'
     ).replace(
-        /\*\*\s*(.*?)\s*\*\*/gs, '<b>$1</b>'
+        /\*\*\s*(.*?)\s*\*\*/g, '<b>$1</b>'
     ).replace(
-        /\/\/\s*(.*?)\s*\/\//gs, '<i>$1</i>'
+        /\/\/\s*(.*?)\s*\/\//g, '<i>$1</i>'
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\<\<(.*?)\|(.*?)\>\>/g, '<img src="/src/images/$1.jpg" height="$2"/>' // <<name|size>>
+        /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/assets/$1.jpg" height="$2"/>' // <<name|size>>
+    ).replace(
+        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>' // <<name|size>>
     ).replace(
         /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
     ).replaceAll(
