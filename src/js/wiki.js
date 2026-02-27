@@ -83,7 +83,8 @@ async function textparse(data){
         const text = match[2]
         
         const resolvedId = await replaceState(id)
-        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}">${text}</a>`)
+        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.txt`).then(sta => (sta.status !== 404))
+        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${text}</a>`)
     }
 
     for (const match of simpleMatches) {
@@ -91,7 +92,8 @@ async function textparse(data){
         const id = match[1].trim().replace(/\s+/g, '_');
         
         const resolvedId = await replaceState(id);
-        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}">${match[1].trim()}</a>`);
+        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.txt`).then(sta => (sta.status !== 404))
+        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${match[1].trim()}</a>`);
     }
 
 

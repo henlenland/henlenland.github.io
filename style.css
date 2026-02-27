@@ -43,6 +43,12 @@ main {
 
 }
 
+#preview {
+    margin: 2rem auto;
+    width: 320px;
+    box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.3), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -140,7 +146,7 @@ a::after {
 a.ne {
     color: #a00;
     text-decoration: none;
-    border-bottom: 2px dashed;
+    border-bottom: 1px dashed;
 }
 
 a.ne::after {
@@ -178,10 +184,11 @@ table, td, th {
 
 info, box {
 
+    float: right;
     border: #000 2px solid;
     display: block;
     padding: 15px;
-    margin: 20px; margin-left: 0;
+    margin: 10px;
     max-width: min-content;
     
 
