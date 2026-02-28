@@ -12,10 +12,11 @@ function templateAglorithm(match, data){
                 `<tr><th>$1</th><td>$2</td></tr>\n`)
             
         } else {
-            nonTableLines += `<p style="text-align: center">${line}</p>`
+            if (line)
+                nonTableLines += `${line}<br>`
         }
     });
-    return `<info>${nonTableLines}<table>\n${tableRows}</table></info>`
+    return `<table class="infobox"><tr><td colspan="2" style="text-align: center;" class="above">${nonTableLines}</td></tr>${tableRows}</table>`
 }
 
 function tableAglorithm(match, data){
@@ -45,9 +46,9 @@ async function textparse(data){
     ).replace(
         /{(.*?)}/g, '<a href="https://$1">$1</a>'
     ).replace(
-        /=====\s*(.*?)\s*=====/g, '<h1>$1</h1><hr>'
+        /=====\s*(.*?)\s*=====/g, '<h1 class="titles">$1</h1>'
     ).replace(
-        /====\s*(.*?)\s*====/g, '<h2 id="$1">$1</h2>'
+        /====\s*(.*?)\s*====/g, '<h2 class="titles" id="$1">$1</h2>'
     ).replace(
         /===\s*(.*?)\s*===/g, '<h3>$1</h3>'
     ).replace(
@@ -57,17 +58,21 @@ async function textparse(data){
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/assets/$1.jpg" height="$2"/>' // <<name|size>>
+        /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/assets/$1.jpg" height="$2"/>\\\\' // <<name|size>>
     ).replace(
-        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>' // <<name|size>>
+        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\\\' // <<name|size>>
     ).replace(
-        /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
+        /\<\<more\|(.*?)\>\>/g, '<p><i>Подробнее: <b>[[$1]]</b></i></p>\\\\' // <<name|size>>
+    ).replace(
+        /\<\<head_state\|(.*?)\>\>/g, '<p><i>Основная статья: <b>[[$1]]</b></i></p>\\\\' // <<name|size>>
     ).replaceAll(
         '\\\\', '<p></p>'
     ).replace(
         /{{([\s\S]*?)}}/g, (match, contents) => templateAglorithm(match, contents)
     ).replace(
         /\[\[\[([\s\S]*?)\]\]\]/g, (match, contents) => tableAglorithm(match, contents)
+    ).replace(
+        /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
     )
 
     const complexLinkRegex = /\[\[([^|\]\n]+)\|\|([^\]\n]+)\]\]/g

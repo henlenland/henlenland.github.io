@@ -9,6 +9,8 @@ Le Fort Henlenland = Le Fort Henlenland
 &laquo;Le Fort Henlenland&raquo; = Le Fort Henlenland
 Гимн Хенленции = Le Fort Henlenland
 
+Культура Хенленции = Культура Хенленции
+
 Законы Хенленции = Законы Хенленции
 
 Устав Хенленции = Законы Хенленции
