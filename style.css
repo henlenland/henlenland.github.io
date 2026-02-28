@@ -7,7 +7,7 @@
     --title-font-size: 188%;
     --subheader-font-size: 150%;
     --font-size: 12pt;
-    --indent: 1cm;
+    --indent: 10mm;
     --background-colour: #f8f9fa;
     --text-colour: #202122;
     --borders: 1px solid #a2a9b1;
@@ -120,7 +120,7 @@ header {
     border-bottom: var(--borders);
     padding-left: var(--indent);
     padding-right: var(--indent);
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     position: sticky;
     top: 20px;
     margin-left: 20px;
@@ -130,19 +130,19 @@ header {
 
     backdrop-filter: blur(8px) brightness(0.98);
 
-    a {
-        padding-block: 10px;
-        padding-inline: 10px;
+    .el {
+        padding-block: 5px;
+        padding-inline: 5px;
         text-decoration: none;
         display: inline-block;
         color: #000;
     }
 
-    a:hover {
+    .el:hover {
         background-color: #fff;
     }
 
-    a::after {
+    .el::after {
         color: #000;
     }
 }

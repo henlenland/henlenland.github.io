@@ -161,29 +161,97 @@ async function replaceState(state){
     return `${state}`
 }
 
-let searchparams = new URLSearchParams(window.location.search).get("id")
+function start_wiki(){
+    let searchparams = new URLSearchParams(window.location.search).get("id")
 
-if (searchparams){
+    if (searchparams){
 
-    (async () => {
-        const newState = await replaceState(searchparams)
-        let newLocation = `/view?id=${newState}`
+        (async () => {
+            const newState = await replaceState(searchparams)
+            let newLocation = `/view?id=${newState}`
+            
+            if (newState !== searchparams){
+                window.location.href = newLocation
+                return
+            }
+
+        })()
+
+        const title = document.getElementsByTagName('title')[0]
+        title.innerHTML = `${searchparams} &mdash; ХенленВики`
+
+        searchparams = searchparams.replace(' ', '_')
+        fetch(`/states/${
+            searchparams
+        }.txt`).then(result => (result.status == 404) ? `===== 404 =====\nТакой страницы не существует. {/search?state=${searchparams}|Попробуйте поискать.}` : result.text()).then(data => textparse(data))
+
+    } else {
+        window.location.href = "/view?id=main";
+    }
+}
+
+async function search_wiki(){
+    let searchparams = new URLSearchParams(window.location.search).get("id")
+
+    if (searchparams){
+
+        const resp = await fetch('/src/adress.txt')
+        const text = await resp.text()
+
+        let founds = []
+
+        const count = text.split('\n').filter(line => !line.includes('=')).length;
         
-        if (newState !== searchparams){
-            window.location.href = newLocation
-            return
+        const getGrams = (word) => {
+            let grams = []
+            for (let i = 0; i <= word.length - 3; i++) {
+                grams.push(word.substring(i, i + 3))
+            }
+            return grams
         }
 
-    })()
+        const state_trimmed = searchparams.trim().replace(/\s+/g, '_').toLowerCase()
+        const state_grams = getGrams(state_trimmed)
 
-    const title = document.getElementsByTagName('title')[0]
-    title.innerHTML = `${searchparams} &mdash; ХенленВики`
+        for (let st of text.split('\n')){
 
-    searchparams = searchparams.replace(' ', '_')
-    fetch(`/states/${
-        searchparams
-    }.txt`).then(result => (result.status == 404) ? "===== Эта страница была перемещена, удалена, или она ещё не написана. =====" : result.text()).then(data => textparse(data))
+            if (!st.includes('=')) continue;
 
-} else {
-    window.location.href = "/view?id=main";
+            let p = st.split('=')
+            let stateold_file_name = p[0].trim().replace(/\s+/g, '_').toLowerCase()
+            let statenew_file_name = p[1].trim()
+
+            if (founds.indexOf(statenew_file_name) !== -1) continue
+
+            let matches = 0
+
+            if (state_trimmed === stateold_file_name)
+                founds.push(`${statenew_file_name}`)
+
+            getGrams(state_trimmed).forEach(gram =>{
+
+                if (getGrams(stateold_file_name).includes(gram))
+                    matches++
+                
+            })
+            
+            if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.1){
+                founds.push(`${statenew_file_name}`)
+            }
+
+        }
+
+        let st1 = ''
+        founds.forEach(st =>{
+            st1 += `\n- [[${st}]]`
+        })
+
+        let russian_ending = ((founds.length % 10 === 0) || (founds.length % 10 >= 5) || (10 < founds.length && founds.length < 20)) ? 'ов' : (2 >= founds.length % 10 >= 4) ? 'а' : ''
+        st1 = `По запросу "${searchparams}" найден${(russian_ending !== '') ? 'o' : ''} ${founds.length} результат${russian_ending}${(founds.length !== 0) ? ':' : '.'}\\\\\n${st1}`
+
+        textparse(`===== Поиск... =====\n${st1}`)
+
+    } else {
+        textparse('What.')
+    }
 }
