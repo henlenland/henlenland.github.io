@@ -196,6 +196,7 @@ td, th {
 table, td, th {
     border: #000 solid 1px;
     border-collapse: collapse;
+    background-color: var(--background-colour);
 }
 
 
@@ -209,7 +210,6 @@ box {
 
 
 table.infobox {
-    background-color: var(--background-colour);
     display: table;
     border-collapse: collapse;
     line-height: 1.2em;

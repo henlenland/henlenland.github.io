@@ -56,6 +56,8 @@ async function textparse(data){
     ).replace(
         /\/\/\s*(.*?)\s*\/\//g, '<i>$1</i>'
     ).replace(
+        /\~\~\s*(.*?)\s*\~\~/g, '<s>$1</s>'
+    ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
         /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/assets/$1.jpg" height="$2"/>\\\\' // <<name|size>>
@@ -152,7 +154,7 @@ async function replaceState(state){
             
         })
         
-        if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.7){
+        if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.8){
             return `${statenew_file_name}${tag}`
         }
         
@@ -163,6 +165,7 @@ async function replaceState(state){
 
 function start_wiki(){
     let searchparams = new URLSearchParams(window.location.search).get("id")
+    // alert(12 / 65834 * ((318 + 8/15) * (318 + 8/15) * 2.25))
 
     if (searchparams){
 
@@ -178,12 +181,12 @@ function start_wiki(){
         })()
 
         const title = document.getElementsByTagName('title')[0]
-        title.innerHTML = `${searchparams} &mdash; ХенленВики`
+        title.innerHTML = `${searchparams.replace('_', ' ')} &mdash; ХенленВики`
 
         searchparams = searchparams.replace(' ', '_')
         fetch(`/states/${
             searchparams
-        }.txt`).then(result => (result.status == 404) ? `===== 404 =====\nТакой страницы не существует. {/search?state=${searchparams}|Попробуйте поискать.}` : result.text()).then(data => textparse(data))
+        }.txt`).then(result => (result.status == 404) ? `===== 404 =====\nТакой страницы не существует. Возможно, вы сделали ошибку, или статья ещё не была написана. {/search?state=${searchparams}|Попробуйте поискать.}` : result.text()).then(data => textparse(data))
 
     } else {
         window.location.href = "/view?id=main";
