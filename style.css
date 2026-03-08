@@ -1,20 +1,20 @@
 
-@import url('/src/font/Century/fontface.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-    --header-font-family: 'Linux Libertine', 'Georgia', 'Times', 'Source Serif 4', serif;
-    --font-family: sans-serif;
+    --header-font-family: Rubik;
+    --font-family: Rubik;
     --title-font-size: 188%;
     --subheader-font-size: 150%;
-    --font-size: 12pt;
+    --font-size: 16px;
     --indent: 10mm;
-    --background-colour: #f8f9fa;
-    --text-colour: #202122;
-    --borders: 1px solid #a2a9b1;
-}
-
-math {
-    font-family: 'Times New Roman', Times, serif;
+    --background-colour: #180d23;
+    --lighter-background: #29163a;
+    --text-colour: #e6e6e6;
+    --text-grey-colour: #737373;
+    --borders: 1px solid #29163a;
+    --link-colour: #53a6ff;
+    --link-ncolour: #ff5353;
 }
 
 img {
@@ -25,10 +25,10 @@ img {
 :root {
     font-family: var(--font-family);
     font-size: var(--font-size);
-    background-color: #fff;
+    background-color: var(--background-colour);
     color: var(--text-colour);
     font-weight: 400;
-    line-height: 1.625;
+    line-height: 1.75;
 }
 
 
@@ -49,19 +49,10 @@ h2 {
     line-height: 1.275;
 }
 
-
 main {
-
-    padding-bottom: var(--indent);
-    padding-left: var(--indent);
-    padding-right: var(--indent);
-
-}
-
-#preview {
-    margin: 2rem auto;
-    width: 320px;
-    box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.3), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding: 24px 36px;
+    background-color: #141414;
+    margin: var(--indent);
 }
 
 body {
@@ -69,44 +60,8 @@ body {
     margin: 0;
 }
 
-quote {
-
-    display: block;
-    
-    background-color: #ffe0b1;
-    border: #ffc368 3px solid;
-    border-left: #ffc368 8px solid;
-
-    border-radius: 20px;
-    padding: 0px;
-    padding-left: 15px;
-    padding-right: calc(var(--indent) * 2);
-    background-image: url('/src/quote.png');
-    background-repeat: no-repeat;
-    background-position: 100% 40px;
-
-}
-
 p.nl {
     margin-block: 0;
-}
-
-quote p {
-    text-indent: var(--indent)
-}
-
-button {
-    background-color: #fff564;
-    border: #000 1px solid;
-    font-family: var(--font);
-    font-size: var(--font-size);
-    padding: 10px;
-    border-radius: 15px;
-}
-
-.hidden {
-    display: none;
-    position: fixed;
 }
 
 figure {
@@ -116,34 +71,36 @@ figure {
     margin-block: 10px;
 }
 
+input {
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+    border: var(--borders);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
 header {
     border-bottom: var(--borders);
-    padding-left: var(--indent);
-    padding-right: var(--indent);
-    margin-bottom: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
     position: sticky;
     top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
     border-radius: 50px;
     font-weight: 500;
 
-    backdrop-filter: blur(8px) brightness(0.98);
+    backdrop-filter: blur(10px) brightness(1.85);
 
     .el {
         padding-block: 5px;
         padding-inline: 5px;
         text-decoration: none;
         display: inline-block;
-        color: #000;
-    }
-
-    .el:hover {
-        background-color: #fff;
+        color: var(--text-colour);
     }
 
     .el::after {
-        color: #000;
+        color: var(--text-colour);
     }
 }
 
@@ -151,42 +108,16 @@ audio {
     max-width: 190px;
 }
 
-a {
-    color: #00a;
+a, a::after {
+    color: var(--link-colour);
     text-decoration: none;
 }
 
-a::after {
-    color: #00a;
-}
-
-a.ne {
-    color: #a00;
+a.ne, a.ne::after {
+    color: var(--link-ncolour);
     text-decoration: none;
     border-bottom: 1px dashed;
 }
-
-a.ne::after {
-    color: #a00;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.italic {
-    font-style: italic;
-}
-
-ref {
-    position: relative;
-    top: -0.45em;
-    word-wrap: break-word;
-    font-size: 75%;
-    line-height: 1em;
-    z-index: -1;
-}
-
 
 td, th {
     text-align: left;
@@ -199,7 +130,6 @@ table, td, th {
     background-color: var(--background-colour);
 }
 
-
 box {
     background-color: var(--background-colour);
     display: block;
@@ -209,7 +139,7 @@ box {
 }
 
 
-table.infobox {
+.infobox {
     display: table;
     border-collapse: collapse;
     line-height: 1.2em;
@@ -226,9 +156,12 @@ table.infobox {
     
     td, th {
         border: none;
+        padding: 9px;
+        text-align: center;
     }
 
     .above {
+        background-color: var(--lighter-background);
         line-height: 1.675;
         font-size: 125%;
         font-weight: normal;
@@ -237,10 +170,7 @@ table.infobox {
 
 @media (min-width: 640px) {
     table.infobox {
-        width: 22em;
-        tr {
-            border-block-start: none;
-        }
+        width: 270px;
     }
 }
 

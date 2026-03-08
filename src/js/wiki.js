@@ -105,7 +105,7 @@ async function textparse(data){
 
 
     const main = document.getElementsByTagName("main")[0]
-    main.innerHTML = data
+    main.innerHTML += data
     console.log(data)
 }
 
@@ -202,8 +202,6 @@ async function search_wiki(){
         const text = await resp.text()
 
         let founds = []
-
-        const count = text.split('\n').filter(line => !line.includes('=')).length;
         
         const getGrams = (word) => {
             let grams = []
@@ -214,7 +212,6 @@ async function search_wiki(){
         }
 
         const state_trimmed = searchparams.trim().replace(/\s+/g, '_').toLowerCase()
-        const state_grams = getGrams(state_trimmed)
 
         for (let st of text.split('\n')){
 
@@ -249,12 +246,9 @@ async function search_wiki(){
             st1 += `\n- [[${st}]]`
         })
 
-        let russian_ending = ((founds.length % 10 === 0) || (founds.length % 10 >= 5) || (10 < founds.length && founds.length < 20)) ? 'ов' : (2 >= founds.length % 10 >= 4) ? 'а' : ''
-        st1 = `По запросу "${searchparams}" найден${(russian_ending !== '') ? 'o' : ''} ${founds.length} результат${russian_ending}${(founds.length !== 0) ? ':' : '.'}\\\\\n${st1}`
+        st1 = `По запросу "${searchparams}" найденo:\\\\\n${st1}`
 
         textparse(`===== Поиск... =====\n${st1}`)
 
-    } else {
-        textparse('What.')
     }
 }
