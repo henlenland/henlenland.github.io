@@ -207,7 +207,7 @@ function start_wiki(){
         })()
 
         const title = document.getElementsByTagName('title')[0]
-        title.innerHTML = `${searchparams.replace('_', ' ')} &mdash; ХенленВики`
+        title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
 
         searchparams = searchparams.replace(' ', '_')
         fetch(`/states/${
