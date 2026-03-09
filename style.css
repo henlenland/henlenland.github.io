@@ -157,8 +157,8 @@ box.toc {
 .infobox {
     display: table;
     border-collapse: collapse;
-    line-height: 1.2em;
-    font-size: 88%;
+    line-height: 1.2;
+    font-size: 80%;
     margin: 0.5em 0 0.5em 1em;
     float: right;
     clear: right;

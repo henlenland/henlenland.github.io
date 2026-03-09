@@ -29,25 +29,25 @@ function headerings(state){
     let temps = []
     let lastH2 = undefined
 
-    let ct = [1, 1]
+    let ct = 1
+    let ct_ = 0
 
     headers.forEach(header => {
         if (header.tagName === 'H2'){
             if (lastH2){
-                el += `<li><a href="#${lastH2.textContent}">${ct[0]}. ${lastH2.textContent}</a><ol>${temps.map(a => `<li><a href="#${a}">${a}</a></li>`).join(``)}</ol>`
-                ct[0]++
-                ct[1]=1
+                el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a><ol>${temps.map(a => {ct_++; return `<li><a href="#${a}">${ct}.${ct_}. ${a}</a></li>`}).join(``)}</ol>`
+                ct++
+                ct_ = 0
             }
             temps = []
             lastH2 = header
         } else {
-            temps.push(`${ct[1]}. ${header.textContent}`)
-            ct[1]++
+            temps.push(`${header.textContent}`)
         }
     })
     
     if (lastH2) {
-        el += `<li><a href="#${lastH2.textContent}">${ct[0]}. ${lastH2.textContent}</a><ol>${temps.map(a => `<li><a href="#${a}">${a}</a></li>`).join(``)}</ol>`
+        el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a><ol>${temps.map(a => {ct_++; return `<li><a href="#${a}">${ct}.${ct_}. ${a}</a></li>`}).join(``)}</ol>`
     }
     return `<box class="toc"><h2>Содержание</h4><hr><br>${el}</box>`
 }
