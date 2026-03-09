@@ -19,6 +19,39 @@ function templateAglorithm(match, data){
     return `<table class="infobox"><tr><td colspan="2" style="text-align: center;" class="above">${nonTableLines}</td></tr>${tableRows}</table>`
 }
 
+function headerings(state){
+    
+    let el = ''
+    
+    const parser = new DOMParser()
+    const headers = Array.from([...parser.parseFromString(state, 'text/html').querySelectorAll('h2, h3')])
+
+    let temps = []
+    let lastH2 = undefined
+
+    let ct = [1, 1]
+
+    headers.forEach(header => {
+        if (header.tagName === 'H2'){
+            if (lastH2){
+                el += `<li><a href="#${lastH2.textContent}">${ct[0]}. ${lastH2.textContent}</a><ol>${temps.map(a => `<li><a href="#${a}">${a}</a></li>`).join(``)}</ol>`
+                ct[0]++
+                ct[1]=1
+            }
+            temps = []
+            lastH2 = header
+        } else {
+            temps.push(`${ct[1]}. ${header.textContent}`)
+            ct[1]++
+        }
+    })
+    
+    if (lastH2) {
+        el += `<li><a href="#${lastH2.textContent}">${ct[0]}. ${lastH2.textContent}</a><ol>${temps.map(a => `<li><a href="#${a}">${a}</a></li>`).join(``)}</ol>`
+    }
+    return `<box class="toc"><h2>Содержание</h4><hr><br>${el}</box>`
+}
+
 function tableAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
@@ -39,8 +72,8 @@ function tableAglorithm(match, data){
     return `<table>\n${tableRows}</table>`
 }
 
-
 async function textparse(data){
+    
     data = data.replace(
         /{(.*?)\|(.*?)}/g, '<a href="https://$1">$2</a>'
     ).replace(
@@ -48,9 +81,9 @@ async function textparse(data){
     ).replace(
         /=====\s*(.*?)\s*=====/g, '<h1 class="titles">$1</h1>'
     ).replace(
-        /====\s*(.*?)\s*====/g, '<h2 class="titles" id="$1">$1</h2>'
+        /====\s*(.*?)\s*====/g, `<h2 class='titles' id='$1'>$1</h2>`
     ).replace(
-        /===\s*(.*?)\s*===/g, '<h3>$1</h3>'
+        /===\s*(.*?)\s*===/g, `<h3 id='$1'>$1</h3>`
     ).replace(
         /\*\*\s*(.*?)\s*\*\*/g, '<b>$1</b>'
     ).replace(
@@ -76,41 +109,34 @@ async function textparse(data){
     ).replace(
         /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
     )
-
+    
     const complexLinkRegex = /\[\[([^|\]\n]+)\|\|([^\]\n]+)\]\]/g
     const simpleLinkRegex = /\[\[([^\]\n|]+)\]\]/g
-
+    
     const complexMatches = [...data.matchAll(complexLinkRegex)]
     const simpleMatches = [...data.matchAll(simpleLinkRegex)]
-
-    for (const match of complexMatches) {
+    
+    for (const match of [...complexMatches, ...simpleMatches]){
         
         const fullMatch = match[0]
-        const id = match[1].trim().replace(/\s+/g, '_')
-        const text = match[2]
+        const id = match[1].trim()
+        const text = (match.length === 3) ? match[2] : id
         
-        const resolvedId = await replaceState(id)
+        const resolvedId = await replaceState(id.replace(/\s+/g, '_'))
         const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.txt`).then(sta => (sta.status !== 404))
         data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${text}</a>`)
     }
-
-    for (const match of simpleMatches) {
-        const fullMatch = match[0];
-        const id = match[1].trim().replace(/\s+/g, '_');
-        
-        const resolvedId = await replaceState(id);
-        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.txt`).then(sta => (sta.status !== 404))
-        data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${match[1].trim()}</a>`);
-    }
-
-
-    const main = document.getElementsByTagName("main")[0]
+    
+    let headses = headerings(data)
+    const main = document.querySelector("main")
     main.innerHTML += data
-    console.log(data)
+    const firstH2 = main.querySelector('h2')
+    firstH2.insertAdjacentHTML('beforebegin', headses)
+    
 }
 
 async function replaceState(state){
-
+    
     const resp = await fetch('/src/adress.txt')
     const text = await resp.text()
     
@@ -147,7 +173,7 @@ async function replaceState(state){
 
         let matches = 0
 
-        getGrams(state_trimmed).forEach(gram =>{
+        getGrams(state_trimmed).forEach(gram => {
 
             if (getGrams(stateold_file_name).includes(gram))
                 matches++

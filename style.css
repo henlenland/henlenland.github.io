@@ -11,7 +11,7 @@
     --background-colour: #180d23;
     --lighter-background: #29163a;
     --text-colour: #e6e6e6;
-    --text-grey-colour: #737373;
+    --text-grey-colour: #939393;
     --borders: 1px solid #29163a;
     --link-colour: #53a6ff;
     --link-ncolour: #ff5353;
@@ -52,7 +52,7 @@ h2 {
 main {
     padding: 24px 36px;
     background-color: #141414;
-    margin: var(--indent);
+    margin: 24px 36px;
 }
 
 body {
@@ -119,6 +119,11 @@ a.ne, a.ne::after {
     border-bottom: 1px dashed;
 }
 
+ul, ol {
+    padding-left: var(--indent);
+    color: var(--text-colour);
+}
+
 td, th {
     text-align: left;
     padding: 5px;
@@ -133,9 +138,19 @@ table, td, th {
 box {
     background-color: var(--background-colour);
     display: block;
-    padding: 0.3em;
     margin: 10px;
     width: min-content;
+}
+
+box.toc {
+    a, a::after {
+        color: var(--text-colour);
+        font-weight: bold;
+    }
+    ol, ul, li {
+        list-style: none;
+        list-style-type: none;
+    }
 }
 
 
@@ -145,7 +160,6 @@ box {
     line-height: 1.2em;
     font-size: 88%;
     margin: 0.5em 0 0.5em 1em;
-    padding: 0.2em;
     float: right;
     clear: right;
     max-width: 100%;
@@ -169,11 +183,12 @@ box {
 }
 
 @media (min-width: 640px) {
-    table.infobox {
+    .infobox {
         width: 270px;
     }
 }
 
 .infobox, box {
     border: var(--borders);
+    padding: 1em;
 }
