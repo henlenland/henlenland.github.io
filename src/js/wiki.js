@@ -35,7 +35,10 @@ function headerings(state){
     headers.forEach(header => {
         if (header.tagName === 'H2'){
             if (lastH2){
-                el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a><ol>${temps.map(a => {ct_++; return `<li><a href="#${a}">${ct}.${ct_}. ${a}</a></li>`}).join(``)}</ol>`
+                if (temps.length !== 0)
+                    el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a><ol>${temps.map(a => {ct_++; return `<li><a href="#${a}">${ct}.${ct_}. ${a}</a></li>`}).join(``)}</ol>`
+                else 
+                    el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a>`
                 ct++
                 ct_ = 0
             }
@@ -212,7 +215,7 @@ function start_wiki(){
         searchparams = searchparams.replace(' ', '_')
         fetch(`/states/${
             searchparams
-        }.txt`).then(result => (result.status == 404) ? `===== 404 =====\nТакой страницы не существует. Возможно, вы сделали ошибку, или статья ещё не была написана. {/search?state=${searchparams}|Попробуйте поискать.}` : result.text()).then(data => textparse(data))
+        }.txt`).then(result => (result.status == 404) ? `===== 404 =====\nТакой страницы не существует. Возможно, вы сделали ошибку, или статья ещё не была написана. Попробуйте поискать.` : result.text()).then(data => textparse(data))
 
     } else {
         window.location.href = "/view?id=main";

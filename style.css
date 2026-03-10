@@ -120,7 +120,8 @@ a.ne, a.ne::after {
 }
 
 ul, ol {
-    padding-left: var(--indent);
+    margin-left: 0;
+    padding-left: auto;
     color: var(--text-colour);
 }
 
@@ -143,6 +144,7 @@ box {
 }
 
 box.toc {
+    width: 100%;
     a, a::after {
         color: var(--text-colour);
         font-weight: bold;
@@ -185,6 +187,9 @@ box.toc {
 @media (min-width: 640px) {
     .infobox {
         width: 270px;
+    }
+    box.toc {
+        width: 320px;
     }
 }
 
