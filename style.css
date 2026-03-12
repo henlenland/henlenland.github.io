@@ -8,13 +8,15 @@
     --subheader-font-size: 150%;
     --font-size: 16px;
     --indent: 10mm;
-    --background-colour: #180d23;
-    --lighter-background: #29163a;
+    --background-colour: #0b0f12;
+    --lighter-background: #29494a;
+    --main-colour: #141d1f;
     --text-colour: #e6e6e6;
     --text-grey-colour: #939393;
-    --borders: 1px solid #29163a;
-    --link-colour: #53a6ff;
-    --link-ncolour: #ff5353;
+    --borders: 1px solid var(--lighter-background);
+    --link-colour: #53a69a;
+    --link-ncolour: #ada853;
+    --blurred: blur(5px) brightness(0.6);
 }
 
 img {
@@ -51,17 +53,13 @@ h2 {
 
 main {
     padding: 24px 36px;
-    background-color: #141414;
+    background-color: var(--main-colour);
     margin: 24px 36px;
 }
 
 body {
     padding: 0;
     margin: 0;
-}
-
-p.nl {
-    margin-block: 0;
 }
 
 figure {
@@ -80,16 +78,16 @@ input {
 }
 
 header {
+    overflow: hidden;
+    position: sticky;
     border-bottom: var(--borders);
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 15px;
-    position: sticky;
     top: 20px;
     border-radius: 50px;
+    backdrop-filter: var(--blurred);
     font-weight: 500;
-
-    backdrop-filter: blur(10px) brightness(1.85);
 
     .el {
         padding-block: 5px;
@@ -155,6 +153,21 @@ box.toc {
     }
 }
 
+img.S {
+    height: 69px;
+} img.M {
+    height: 96px;
+} img.L {
+    height: 128px;
+} img.XL {
+    height: 142px;
+}
+
+hr {
+    background-color: var(--lighter-background);
+    border: none;
+    height: 1px;
+}
 
 .infobox {
     display: table;

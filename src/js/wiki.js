@@ -52,7 +52,7 @@ function headerings(state){
     if (lastH2) {
         el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a><ol>${temps.map(a => {ct_++; return `<li><a href="#${a}">${ct}.${ct_}. ${a}</a></li>`}).join(``)}</ol>`
     }
-    return `<box class="toc"><h2>Содержание</h4><hr><br>${el}</box>`
+    return `<box class="toc"><h2>Содержание</h2><hr><br>${el}</box>`
 }
 
 function tableAglorithm(match, data){
@@ -90,27 +90,29 @@ async function textparse(data){
     ).replace(
         /\*\*\s*(.*?)\s*\*\*/g, '<b>$1</b>'
     ).replace(
-        /\/\/\s*(.*?)\s*\/\//g, '<i>$1</i>'
+        /\*\s*(.*?)\s*\*/g, '<i>$1</i>'
     ).replace(
         /\~\~\s*(.*?)\s*\~\~/g, '<s>$1</s>'
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
     ).replace(
-        /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/assets/$1.jpg" height="$2"/>\\\\' // <<name|size>>
+        /\<\<img\|(.*?)\|(.*?)\>\>/g, '\\n<img src="/assets/$1.jpg" class="$2"/>\\n' // <<name|size>>
     ).replace(
-        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\\\' // <<name|size>>
+        /\<\<mus\|(.*?)\>\>/g, '\\n<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\n' // <<name|size>>
     ).replace(
-        /\<\<more\|(.*?)\>\>/g, '<p><i>Подробнее: <b>[[$1]]</b></i></p>\\\\' // <<name|size>>
+        /\<\<more\|(.*?)\>\>/g, '\\n<p><i>Подробнее: <b>[[$1]]</b></i></p>\\n' // <<name|size>>
     ).replace(
-        /\<\<head_state\|(.*?)\>\>/g, '<p><i>Основная статья: <b>[[$1]]</b></i></p>\\\\' // <<name|size>>
+        /\<\<head_state\|(.*?)\>\>/g, '\\n<p><i>Основная статья: <b>[[$1]]</b></i></p>\\n' // <<name|size>>
     ).replaceAll(
-        '\\\\', '<p></p>'
+        /^\s*$/g, '<p></p>'
+    ).replaceAll(
+        '\\n', '<p></p>'
     ).replace(
         /{{([\s\S]*?)}}/g, (match, contents) => templateAglorithm(match, contents)
     ).replace(
         /\[\[\[([\s\S]*?)\]\]\]/g, (match, contents) => tableAglorithm(match, contents)
     ).replace(
-        /^(?![{|<])(.+)$/gm, '<p class="nl">$1</p>'
+        /^(?![{|<])(.+)$/gm, '<p>$1</p>'
     )
     
     const complexLinkRegex = /\[\[([^|\]\n]+)\|\|([^\]\n]+)\]\]/g
@@ -126,7 +128,7 @@ async function textparse(data){
         const text = (match.length === 3) ? match[2] : id
         
         const resolvedId = await replaceState(id.replace(/\s+/g, '_'))
-        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.txt`).then(sta => (sta.status !== 404))
+        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.md`).then(sta => (sta.status !== 404))
         data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${text}</a>`)
     }
     
@@ -215,7 +217,7 @@ function start_wiki(){
         searchparams = searchparams.replace(' ', '_')
         fetch(`/states/${
             searchparams
-        }.txt`).then(result => (result.status == 404) ? `===== 404 =====\nТакой страницы не существует. Возможно, вы сделали ошибку, или статья ещё не была написана. Попробуйте поискать.` : result.text()).then(data => textparse(data))
+        }.md`).then(result => (result.status == 404) ? `` : result.text()).then(data => textparse(data))
 
     } else {
         window.location.href = "/view?id=main";
