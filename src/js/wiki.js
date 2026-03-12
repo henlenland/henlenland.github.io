@@ -3,20 +3,26 @@ function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
     let nonTableLines = ''
+    let nonTableTableLines = ''
     const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s*$/g
+    const regexnt = /^\s*\|\s*(.*?)\s*$/g
     contents.forEach(line => {
         const pair = line.match(regex)
         if (pair){
             tableRows += line.replace(
                 regex,
                 `<tr><th>$1</th><td>$2</td></tr>\n`)
-            
+        } else if (line.match(regexnt)){
+            if (line)
+                tableRows += line.replace(
+                    regexnt,
+                    `<tr><td colspan="2">$1</td></tr>\n`)
         } else {
             if (line)
                 nonTableLines += `${line}<br>`
         }
     });
-    return `<table class="infobox"><tr><td colspan="2" style="text-align: center;" class="above">${nonTableLines}</td></tr>${tableRows}</table>`
+    return `<table class="infobox"><tr><td colspan="2" style="text-align: center;" class="above">${nonTableLines}</td></tr>${nonTableTableLines}${tableRows}</table>`
 }
 
 function headerings(state){
@@ -95,22 +101,24 @@ async function textparse(data){
         /\~\~\s*(.*?)\s*\~\~/g, '<s>$1</s>'
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
-    ).replace(
-        /\<\<img\|(.*?)\|(.*?)\>\>/g, '\\n<img src="/assets/$1.jpg" class="$2"/>\\n' // <<name|size>>
-    ).replace(
-        /\<\<mus\|(.*?)\>\>/g, '\\n<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\n' // <<name|size>>
-    ).replace(
-        /\<\<more\|(.*?)\>\>/g, '\\n<p><i>Подробнее: <b>[[$1]]</b></i></p>\\n' // <<name|size>>
-    ).replace(
-        /\<\<head_state\|(.*?)\>\>/g, '\\n<p><i>Основная статья: <b>[[$1]]</b></i></p>\\n' // <<name|size>>
     ).replaceAll(
         /^\s*$/g, '<p></p>'
-    ).replaceAll(
-        '\\n', '<p></p>'
     ).replace(
         /{{([\s\S]*?)}}/g, (match, contents) => templateAglorithm(match, contents)
     ).replace(
         /\[\[\[([\s\S]*?)\]\]\]/g, (match, contents) => tableAglorithm(match, contents)
+    ).replace(
+        /\<\<img\|(.*?)\|(.*?)\|(.*?)\>\>/g, '\\n<figure><img src="/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure>\\n'
+    ).replace(
+        /\<\<img\|(.*?)\|(.*?)\>\>/g, '\\n<img src="/assets/$1.jpg" alt="$1" class="$2"/>\\n'
+    ).replace(
+        /\<\<mus\|(.*?)\>\>/g, '\\n<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\n' // <<name|size>>
+    ).replace(
+        /\<\<more\|(.*?)\>\>/g, '\\n*Подробнее: **[[$1]]***\\n' // <<name|size>>
+    ).replace(
+        /\<\<head_state\|(.*?)\>\>/g, '\\n*Основная статья: **[[$1]]***\\n' // <<name|size>>
+    ).replaceAll(
+        '\\n', '<p></p>'
     ).replace(
         /^(?![{|<])(.+)$/gm, '<p>$1</p>'
     )
@@ -137,6 +145,7 @@ async function textparse(data){
     main.innerHTML += data
     const firstH2 = main.querySelector('h2')
     firstH2.insertAdjacentHTML('beforebegin', headses)
+    console.log(main.innerHTML)
     
 }
 

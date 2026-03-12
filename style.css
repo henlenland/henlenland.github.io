@@ -173,7 +173,7 @@ hr {
     display: table;
     border-collapse: collapse;
     line-height: 1.2;
-    font-size: 80%;
+    font-size: 85%;
     margin: 0.5em 0 0.5em 1em;
     float: right;
     clear: right;
@@ -194,6 +194,12 @@ hr {
         line-height: 1.675;
         font-size: 125%;
         font-weight: normal;
+    }
+
+    figure figcaption {
+        margin-top: 10px;
+        font-size: 100%;
+        font-style: italic;
     }
 }
 
