@@ -128,7 +128,7 @@ async function textparse(data){
         const text = (match.length === 3) ? match[2] : id
         
         const resolvedId = await replaceState(id.replace(/\s+/g, '_'))
-        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.md`).then(sta => (sta.status !== 404))
+        const exists = await fetch(`/states/${(resolvedId.indexOf('#') === -1) ? resolvedId : resolvedId.substring(0, resolvedId.indexOf('#'))}.txt`).then(sta => (sta.status !== 404))
         data = data.replace(fullMatch, `<a href="/view?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${text}</a>`)
     }
     
@@ -217,7 +217,7 @@ function start_wiki(){
         searchparams = searchparams.replace(' ', '_')
         fetch(`/states/${
             searchparams
-        }.md`).then(result => (result.status == 404) ? `` : result.text()).then(data => textparse(data))
+        }.txt`).then(result => (result.status == 404) ? `` : result.text()).then(data => textparse(data))
 
     } else {
         window.location.href = "/view?id=main";
