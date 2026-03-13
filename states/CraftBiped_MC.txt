@@ -1,4 +1,3 @@
-===== CraftBiped MC =====
 
 {{**CraftBiped**
 | Лого = <<img|craftbiped_logo|108>>

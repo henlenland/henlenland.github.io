@@ -81,8 +81,8 @@ function tableAglorithm(match, data){
     return `<table>\n${tableRows}</table>`
 }
 
-async function textparse(data){
-    
+async function textparse(data, stateparams){
+    data = `===== ${stateparams} =====\n${data}`
     data = data.replace(
         /{(.*?)\|(.*?)}/g, '<a href="https://$1">$2</a>'
     ).replace(
@@ -226,7 +226,7 @@ function start_wiki(){
         searchparams = searchparams.replace(' ', '_')
         fetch(`/states/${
             searchparams
-        }.txt`).then(result => (result.status == 404) ? `` : result.text()).then(data => textparse(data))
+        }.txt`).then(result => (result.status == 404) ? `` : result.text()).then(data => textparse(data, searchparams.replace('_', ' ')))
 
     } else {
         window.location.href = "/view?id=main";
