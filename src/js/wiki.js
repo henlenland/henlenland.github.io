@@ -101,8 +101,6 @@ async function textparse(data, stateparams){
         /\~\~\s*(.*?)\s*\~\~/g, '<s>$1</s>'
     ).replace(
         /^\-\s*(.*?)\s*$/gm, '<li>$1</li>'
-    ).replaceAll(
-        /^\s*$/g, '<p></p>'
     ).replace(
         /{{([\s\S]*?)}}/g, (match, contents) => templateAglorithm(match, contents)
     ).replace(
@@ -118,7 +116,9 @@ async function textparse(data, stateparams){
     ).replace(
         /\<\<head_state\|(.*?)\>\>/g, '\\n*Основная статья: **[[$1]]***\\n' // <<name|size>>
     ).replaceAll(
-        '\\n', '<p></p>'
+        /^\s*$/g, '<p></p>'
+    ).replaceAll(
+        '\\n', '<br>'
     ).replace(
         /^(?![{|<])(.+)$/gm, '<p>$1</p>'
     )
@@ -143,59 +143,55 @@ async function textparse(data, stateparams){
     let headses = headerings(data)
     const main = document.querySelector("main")
     main.innerHTML += data
-    const firstH2 = main.querySelector('h2')
-    firstH2.insertAdjacentHTML('beforebegin', headses)
+    try {
+        const firstH2 = main.querySelector('h2')
+        firstH2.insertAdjacentHTML('beforebegin', headses)
+    } catch {
+        // ...
+        console.log('нахуй нада')
+    }
     console.log(main.innerHTML)
     
 }
 
+const getGrams = (word) => {
+    const grams = new Set()
+    for (let i = 0; i <= word.length - 3; i++) {
+        grams.add(word.substring(i, i + 3))
+    }
+    return grams
+}
+
 async function replaceState(state){
     
-    const resp = await fetch('/src/adress.txt')
-    const text = await resp.text()
-    
-    const getGrams = (word) => {
-        let grams = []
-        for (let i = 0; i <= word.length - 3; i++) {
-            grams.push(word.substring(i, i + 3))
-        }
-        return grams
-    }
+    const resp = await fetch('/src/adress.json')
+    const json = await resp.json()
 
-    let tag = ''
     let state_trimmed = state.trim()
 
-    if (state_trimmed.indexOf('#') !== -1){
-        tag = state.substring(state_trimmed.indexOf('#'))
-        state_trimmed.substring(0, state_trimmed.indexOf('#'))
-    }
-
     state_trimmed = state_trimmed.replace(/\s+/g, '_').toLowerCase()
+
+    const keys = Object.keys(json)
     
-    for (let st of text.split('\n')){
-
-        if (!st.includes('=')) continue
-
-        let p = st.split('=')
-        let stateold_file_name = p[0].trim().replace(/\s+/g, '_').toLowerCase()
-        let statenew_file_name = p[1].trim().replace(/\s+/g, '_')
-
-
-        if (state_trimmed === stateold_file_name)
-            return `${statenew_file_name}${tag}`
-
-
-        let matches = 0
-
-        getGrams(state_trimmed).forEach(gram => {
-
-            if (getGrams(stateold_file_name).includes(gram))
-                matches++
-            
-        })
+    for (let key of keys){
         
-        if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.8){
-            return `${statenew_file_name}${tag}`
+        let matches = 0
+        let stateold_file_name = key.trim().replace(/\s+/g, '_').toLowerCase()
+        let statenew_file_name = json[key].trim().replace(/\s+/g, '_')
+        
+        
+        if (state_trimmed === stateold_file_name)
+            return `${statenew_file_name}`
+        
+        for (let gram of getGrams(state_trimmed)){
+            
+            if (getGrams(stateold_file_name).has(gram))
+                matches++
+
+        }
+        
+        if (matches / Math.max(getGrams(state_trimmed).size, getGrams(stateold_file_name).size) > 0.9){
+            return `${statenew_file_name}`
         }
         
     }
@@ -205,7 +201,6 @@ async function replaceState(state){
 
 function start_wiki(){
     let searchparams = new URLSearchParams(window.location.search).get("id")
-    // alert(12 / 65834 * ((318 + 8/15) * (318 + 8/15) * 2.25))
 
     if (searchparams){
 
@@ -218,15 +213,20 @@ function start_wiki(){
                 return
             }
 
+            const title = document.getElementsByTagName('title')[0]
+            title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
+
+            let result = await fetch(`/states/${
+                searchparams.replace(/\s/g, '_')
+            }.txt`)
+
+            if (result.status == 404){
+                textparse('===== 404 =====\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
+            } else {
+                textparse(await result.text(), searchparams.replaceAll('_', ' '))
+            }
+
         })()
-
-        const title = document.getElementsByTagName('title')[0]
-        title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
-
-        searchparams = searchparams.replace(' ', '_')
-        fetch(`/states/${
-            searchparams
-        }.txt`).then(result => (result.status == 404) ? `` : result.text()).then(data => textparse(data, searchparams.replace('_', ' ')))
 
     } else {
         window.location.href = "/view?id=main";
@@ -238,57 +238,52 @@ async function search_wiki(){
 
     if (searchparams){
 
-        const resp = await fetch('/src/adress.txt')
-        const text = await resp.text()
-
         let founds = []
+
+        const resp = await fetch('/src/adress.json')
+        const json = await resp.json()
+
+        let state_trimmed = searchparams.trim()
+
+        state_trimmed = state_trimmed.replace(/\s+/g, '_').toLowerCase()
+        let state_grams = getGrams(state_trimmed)
+
+        const keys = Object.keys(json)
         
-        const getGrams = (word) => {
-            let grams = []
-            for (let i = 0; i <= word.length - 3; i++) {
-                grams.push(word.substring(i, i + 3))
-            }
-            return grams
-        }
-
-        const state_trimmed = searchparams.trim().replace(/\s+/g, '_').toLowerCase()
-
-        for (let st of text.split('\n')){
-
-            if (!st.includes('=')) continue;
-
-            let p = st.split('=')
-            let stateold_file_name = p[0].trim().replace(/\s+/g, '_').toLowerCase()
-            let statenew_file_name = p[1].trim()
-
-            if (founds.indexOf(statenew_file_name) !== -1) continue
-
-            let matches = 0
-
-            if (state_trimmed === stateold_file_name)
-                founds.push(`${statenew_file_name}`)
-
-            getGrams(state_trimmed).forEach(gram =>{
-
-                if (getGrams(stateold_file_name).includes(gram))
-                    matches++
-                
-            })
+        for (let key of keys){
             
-            if (matches / Math.max(getGrams(state_trimmed).length, getGrams(stateold_file_name).length) > 0.1){
-                founds.push(`${statenew_file_name}`)
-            }
+            let matches = 0
+            let stateold_file_name = key.trim().replace(/\s+/g, '_').toLowerCase()
+            let statenew_file_name = json[key].trim()            
+            
+            if (state_trimmed === stateold_file_name)
+                founds.push([`${statenew_file_name}`, 1])
+            
+            for (let gram of state_grams){
+                
+                if (getGrams(stateold_file_name).has(gram))
+                    matches++
 
+            }
+            
+            if (matches / Math.max(state_grams.size, getGrams(stateold_file_name).size) > 0.1){
+                founds.push([`${statenew_file_name}`, matches / Math.max(state_grams.size, getGrams(stateold_file_name).size)])
+            }
+            
         }
 
         let st1 = ''
-        founds.forEach(st =>{
-            st1 += `\n- [[${st}]]`
+        let i = 0
+        founds.sort((b, a) => a[1] - b[1]).forEach(st =>{
+            if (!st1.includes(st[0])){
+                st1 += `\n- [[${st[0]}]]`
+                i++
+            }
         })
 
-        st1 = `По запросу "${searchparams}" найденo:\\\\\n${st1}`
+        st1 = `По запросу "${searchparams}" найденo (${i}):\n\n${st1}`
 
-        textparse(`===== Поиск... =====\n${st1}`)
+        textparse(st1, 'Поиск...')
 
     }
 }

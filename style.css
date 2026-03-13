@@ -75,6 +75,30 @@ input {
     border: var(--borders);
     font-family: var(--font-family);
     font-size: var(--font-size);
+    border-radius: 15px;
+}
+
+quote {
+
+    display: block;
+    
+    background-color: var(--background-colour);
+    border: var(--borders);
+    border-left: var(--lighter-background) 5px solid;
+
+    border-radius: 10px;
+    font-style: italic;
+    padding: 0px;
+    padding-left: 15px;
+    padding-right: calc(var(--indent) * 2);
+    background-image: url('/src/quote.png');
+    background-repeat: no-repeat;
+    background-position: 100% 40px;
+
+    p {
+        margin: 0;
+    }
+
 }
 
 header {
@@ -84,6 +108,7 @@ header {
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 15px;
+    padding: 15px;
     top: 20px;
     border-radius: 50px;
     backdrop-filter: var(--blurred);

@@ -2,7 +2,7 @@
 const header = document.getElementsByTagName("header")[0]
 
 header.innerHTML += `
-    <a href="/" class="el"><b>ХенленВики</b></a>
+    <a href="/" class="el"><b>ХенленВики</b></a> | 
     <a class="el">Powered by SourcyWiki (C)</a>
     <span style="float: right;" class="el">
         <label for="searchText">Поиск:    </label>
