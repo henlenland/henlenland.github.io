@@ -179,19 +179,24 @@ box.toc {
 }
 
 img.S {
-    height: 69px;
+    height: 80px;
 } img.M {
-    height: 96px;
+    height: 110px;
 } img.L {
-    height: 128px;
+    height: 140px;
 } img.XL {
-    height: 142px;
+    height: 180px;
 }
 
 hr {
     background-color: var(--lighter-background);
     border: none;
     height: 1px;
+}
+
+figure figcaption {
+    margin-top: 10px;
+    font-size: 100%;
 }
 
 .infobox {

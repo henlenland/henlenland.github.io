@@ -106,15 +106,17 @@ async function textparse(data, stateparams){
     ).replace(
         /\[\[\[([\s\S]*?)\]\]\]/g, (match, contents) => tableAglorithm(match, contents)
     ).replace(
-        /\<\<img\|(.*?)\|(.*?)\|(.*?)\>\>/g, '\\n<figure><img src="/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure>\\n'
+        /\<\<img\|(.*?)\|(.*?)\|(.*?)\>\>/g, '<figure><img src="/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure>'
     ).replace(
-        /\<\<img\|(.*?)\|(.*?)\>\>/g, '\\n<img src="/assets/$1.jpg" alt="$1" class="$2"/>\\n'
+        /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/assets/$1.jpg" alt="$1" class="$2"/>'
     ).replace(
-        /\<\<mus\|(.*?)\>\>/g, '\\n<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\n' // <<name|size>>
+        /\<\<box\|(.*?)\|(.*?)\|(.*?)\>\>/g, '<box><figure><img src="/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure></box>'
     ).replace(
-        /\<\<more\|(.*?)\>\>/g, '\\n*Подробнее: **[[$1]]***\\n' // <<name|size>>
+        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\n' // <<name|size>>
     ).replace(
-        /\<\<head_state\|(.*?)\>\>/g, '\\n*Основная статья: **[[$1]]***\\n' // <<name|size>>
+        /\<\<more\|(.*?)\>\>/g, '*Подробнее: **[[$1]]***' // <<name|size>>
+    ).replace(
+        /\<\<head_state\|(.*?)\>\>/g, '*Основная статья: **[[$1]]***' // <<name|size>>
     ).replaceAll(
         /^\s*$/g, '<p></p>'
     ).replaceAll(
