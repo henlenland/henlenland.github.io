@@ -250,7 +250,7 @@ function start_wiki(){
         })()
 
     } else {
-        window.location.href = "/view?id=main";
+        window.location.href = "/wiki/?id=main";
     }
 }
 
