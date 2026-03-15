@@ -91,7 +91,6 @@ quote {
     padding: 0px;
     padding-left: 15px;
     padding-right: calc(var(--indent) * 2);
-    background-image: url('/src/quote.png');
     background-repeat: no-repeat;
     background-position: 100% 40px;
 
@@ -108,7 +107,7 @@ header {
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 15px;
-    padding: 15px;
+    padding: 5px;
     top: 20px;
     border-radius: 50px;
     backdrop-filter: var(--blurred);
@@ -116,7 +115,7 @@ header {
 
     .el {
         padding-block: 5px;
-        padding-inline: 5px;
+        padding-inline: 15px;
         text-decoration: none;
         display: inline-block;
         color: var(--text-colour);
@@ -125,6 +124,14 @@ header {
     .el::after {
         color: var(--text-colour);
     }
+}
+
+footer {
+    overflow: hidden;
+    background-color: var(--lighter-background);
+    padding: 24px 36px;
+    margin: 24px 36px;
+    text-align: center;
 }
 
 audio {
