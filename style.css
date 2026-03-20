@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('/henlene_font/style.css');
 
 :root {
     --header-font-family: Rubik;
@@ -22,6 +23,22 @@
 img {
     border: var(--borders);
     vertical-align: middle;
+}
+
+.capital {
+    font-family: 'Jazyca_cap';
+    font-size: 450%;
+    line-height: 1;
+}
+
+span.capital {
+    display: block; float: left;
+}
+
+.slavic {
+    font-family: 'Jazyca';
+    font-size: 190%;
+    line-height: 1.70;
 }
 
 :root {
@@ -55,11 +72,18 @@ main {
     padding: 24px 36px;
     background-color: var(--main-colour);
     margin: 24px 36px;
+    flex: 1;
+    float: inline-start;
+    display: inline;
 }
 
 body {
     padding: 0;
     margin: 0;
+}
+
+.wrapper {
+    display: flex;
 }
 
 figure {
@@ -94,10 +118,6 @@ quote {
     background-repeat: no-repeat;
     background-position: 100% 40px;
 
-    p {
-        margin: 0;
-    }
-
 }
 
 header {
@@ -106,9 +126,11 @@ header {
     border-bottom: var(--borders);
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 24px;
+    margin-left: 36px;
+    margin-right: 36px;
     padding: 5px;
-    top: 20px;
+    top: 24px;
     border-radius: 50px;
     backdrop-filter: var(--blurred);
     font-weight: 500;
@@ -124,6 +146,16 @@ header {
     .el::after {
         color: var(--text-colour);
     }
+}
+
+aside {
+    padding: 24px 36px;
+    background-color: var(--lighter-background);
+    margin: 24px 36px 24px 0px;
+    width: 300px;
+    display: inline;
+    float: inline-end;
+    top: 0;
 }
 
 footer {
@@ -157,11 +189,11 @@ ul, ol {
 
 td, th {
     text-align: left;
-    padding: 5px;
+    padding: 7px;
 }
 
 table, td, th {
-    border: #000 solid 1px;
+    border: var(--borders);
     border-collapse: collapse;
     background-color: var(--background-colour);
 }
@@ -240,7 +272,7 @@ figure figcaption {
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1050px) {
     .infobox {
         width: 270px;
     }

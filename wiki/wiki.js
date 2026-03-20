@@ -78,37 +78,29 @@ function headerings(state){
 }
 
 function tableAglorithm(match, data){
-    const contents = data.split('\n')
-    let tableRows = ''
-    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s*$/g
-    contents.forEach(line => {
-        const pair = line.match(regex)
-        if (pair){
-            console.log(pair[0])
-            let x = pair[0].split('=')
-            let tds = ''
-            x.forEach(td => {
-                td = td.replace(/^\s*\|/, '')
-                tds += `<td>${td}</td>`
-            })
-            tableRows += `<tr>${tds}</tr>`
-        }
-    });
-    return `<table>\n${tableRows}</table>`
+    const regex = /^\|\s*(.*?)\s*\|$/gm
+    let green = true
+    const table = data.replace(regex, (match, d) => {
+        console.log(d)
+        let tdr = d.split('|').map(td => `<td style="${(green) ? 'background-color: var(--lighter-background);' : ''}">${td.trim()}</td>`).join('')
+        green = false
+        return `<tr>${tdr}</tr>`
+    })
+    return `<table>\n${table}</table>`
 }
 
 async function textparse(data, stateparams){
-    data = `===== ${stateparams} =====\n${data}`
-    data = data.replace(
+    data = `# ${stateparams}\n${data}`
+    data = data.trim().replace(
         /{(.*?)\|(.*?)}/g, '<a href="https://$1">$2 ➤</a>'
     ).replace(
         /{(.*?)}/g, '<a href="https://$1">$1 ➤</a>'
     ).replace(
-        /=====\s*(.*?)\s*=====/g, '<h1 class="titles">$1</h1>'
+        /^###\s(.*?)\s*$/gm, `<h3 id='$1'>$1</h3>`
     ).replace(
-        /====\s*(.*?)\s*====/g, `<h2 class='titles' id='$1'>$1</h2>`
+        /^##\s(.*?)\s*$/gm, `<h2 class='titles' id='$1'>$1</h2>`
     ).replace(
-        /===\s*(.*?)\s*===/g, `<h3 id='$1'>$1</h3>`
+        /^#\s(.*?)\s*$/gm, '<h1 class="titles">$1</h1>'
     ).replace(
         /\*\*\s*(.*?)\s*\*\*/g, '<b>$1</b>'
     ).replace(
@@ -128,22 +120,20 @@ async function textparse(data, stateparams){
     ).replace(
         /\<\<box\|(.*?)\|(.*?)\|(.*?)\>\>/g, '<box><figure><img src="/wiki/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure></box>'
     ).replace(
-        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/assets/$1.mp3">Your browser does not support the audio element.</audio>\\n' // <<name|size>>
+        /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/wiki/assets/$1.mp3">Your browser does not support the audio element.</audio>' // <<name|size>>
     ).replace(
         /\<\<more\|(.*?)\>\>/g, '<i>Подробнее: <b>[[$1]]</b></i>' // <<name|size>>
     ).replace(
-        /\[\[wiki\|(.*?)\|\|(.*?)\]\]/g, '<a href="https://ru.wikipedia.org/wiki/$1">$2 ➤</a>'
+        /\[\[wiki\|([^\]\n]+)\|\|([^\]\n]+)\]\]/g, '<a href="https://ru.wikipedia.org/wiki/$1">$2 ➤</a>'
     ).replace(
-        /\[\[wiki\|(.*?)\]\]/g, '<a href="https://ru.wikipedia.org/wiki/$1">$1 ➤</a>'
-    ).replaceAll(
-        /^\s*$/g, '<p></p>'
-    ).replaceAll(
-        '\\n', '<br>'
-    ).replace(
-        /^(?![{|<])(.+)$/gm, '<p>$1</p>'
-    )
+        /\[\[wiki\|([^\]\n]+)\]\]/g, '<a href="https://ru.wikipedia.org/wiki/$1">$1 ➤</a>'
+    ).split(
+        /\n\s*\n/
+    ).map(
+        p => `<p>${p.replace(/  $/gm, '<br>')}</p>`
+    ).join('\n')
     
-    const complexLinkRegex = /\[\[([^|\]\n]+)\|\|([^\]\n]+)\]\]/g
+    const complexLinkRegex = /\[\[([^\]\n]+)\|\|([^\]\n]+)\]\]/g
     const simpleLinkRegex = /\[\[([^\]\n|]+)\]\]/g
     
     const complexMatches = [...data.matchAll(complexLinkRegex)]
@@ -162,8 +152,9 @@ async function textparse(data, stateparams){
     
     let headses = headerings(data)
     const body = document.querySelector("body")
-    body.innerHTML += `<main><header><a href="/w/" class="el">ХенленВики</a><a href="/" class="el">Сайт</a><span style="float: right;" class="el"><label for="searchText">Поиск:</label><input type="text" id="searchText" onChange="window.location.href = \`/search?id=\$\{document.getElementById('searchText').value\}\`"></span></header>
-    ${data}</main><footer><p><b><i>DISCLAIMER: Хенленция является вымышленным и ненастоящим государством, но является национальностью.</i></b></p><p>Powered by SourcyWiki © 2025-2026<br>© 2025-2026 Henlenland. All rights reserved</p></footer>`
+    body.innerHTML += `<header></header><div class="wrapper"><main>
+    ${data}</main><aside></aside></div><footer></footer>`
+    nav()
     try {
         const firstH2 = body.querySelector('h2')
         firstH2.insertAdjacentHTML('beforebegin', headses)
