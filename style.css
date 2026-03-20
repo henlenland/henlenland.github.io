@@ -9,13 +9,13 @@
     --subheader-font-size: 150%;
     --font-size: 16px;
     --indent: 10mm;
-    --background-colour: #0b0f12;
-    --lighter-background: #29494a;
-    --main-colour: #141d1f;
+    --background-colour: #06080a;
+    --lighter-background: #1f3431;
+    --main-colour: #070d0d;
     --text-colour: #e6e6e6;
     --text-grey-colour: #939393;
     --borders: 1px solid var(--lighter-background);
-    --link-colour: #53a69a;
+    --link-colour: #53907a;
     --link-ncolour: #8d8853;
     --blurred: blur(5px) brightness(0.6);
 }
@@ -156,6 +156,10 @@ aside {
     display: inline;
     float: inline-end;
     top: 0;
+
+    hr {
+        background-color: var(--main-colour);
+    }
 }
 
 footer {
