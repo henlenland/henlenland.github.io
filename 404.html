@@ -24,12 +24,7 @@
 
 
         <script>
-            console.log(window.location.pathname)
-            if (window.location.pathname.includes('/wiki/')){
-                window.location.href = `/wiki/?id=${window.location.pathname.slice(3)}`
-            } else {
-                window.location.href = `/wiki/?id=main`
-            }
+            window.location.href = `/wiki/main`
         </script>
         
     </body>
