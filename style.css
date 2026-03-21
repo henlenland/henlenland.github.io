@@ -9,6 +9,7 @@
     --font-size: 16px;
     --indent: 10mm;
     --background-colour: #06080a;
+    --side-panel-colour: #051f20;
     --lighter-background: #1f3431;
     --main-colour: #070d0d;
     --text-colour: #e6e6e6;
@@ -16,7 +17,7 @@
     --borders: 1px solid var(--lighter-background);
     --link-colour: #53907a;
     --link-ncolour: #8d8853;
-    --paddings: 18px 24px;
+    --paddings: 24px 36px;
     --blurred: blur(5px) brightness(0.6);
 }
 
@@ -58,9 +59,16 @@ main {
     padding: var(--paddings);
     background-color: var(--main-colour);
     margin: var(--paddings);
+    margin-right: 0;
     flex: 1;
     float: inline-start;
     display: inline;
+    text-decoration-color: var(--text-colour);
+}
+
+abbr {
+    text-decoration: dashed 3px solid;
+    cursor: help;
 }
 
 body {
@@ -85,6 +93,8 @@ input {
     font-family: var(--font-family);
     font-size: var(--font-size);
     border-radius: 15px;
+    padding-block: 2px;
+    padding-inline: 8px;
 }
 
 blockquote, quote {
@@ -109,14 +119,12 @@ header {
     overflow: hidden;
     position: sticky;
     border-bottom: var(--borders);
+    background-color: var(--lighter-background);
     padding-left: 15px;
     padding-right: 15px;
-    margin: var(--paddings);
     margin-top: 0;
     padding: 5px;
-    top: 18px;
-    border-radius: 50px;
-    backdrop-filter: var(--blurred);
+    top: 0;
     font-weight: 500;
 
     .el {
@@ -133,9 +141,10 @@ header {
 }
 
 aside {
-    padding: 24px 36px;
-    background-color: var(--lighter-background);
-    margin: 24px 36px 24px 0px;
+    padding: var(--paddings);
+    background-color: var(--side-panel-colour);
+    margin: var(--paddings);
+    margin-left: 0;
     width: 300px;
     display: inline;
     float: inline-end;

@@ -1,44 +1,62 @@
 
-/*
-* Made by Sourcy1000 © 2025-2026.
-* -------------------------------
-* This is SourcyWiki engine to write your own single-language wiki on JavaScript.
-*
-* The project structure for everything to work should look like this:
-* assets/
-    some_pic.jpg; ONLY JPG. If you wanna use PNG, just change the extention.
-* states/
-    some_state.txt; Replace spaces with underscores
-    WeLl_In_SoMe_CaSeS_tOo_WoRkS.txt; Case-sensitive
-    И_на_других_языках.txt; Works with other languages
-* src/
-    adress.json; or invent your own system of recognizing states
-*/
-
 function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
-    let nonTableLines = ''
-    let nonTableTableLines = ''
-    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s*$/g
-    const regexnt = /^\s*\|\s*(.*?)\s*$/g
+    let above = ''
+    let decorative = ''
+    const regex = /^\s*\|\s*(.*?)\s*=\s*(.*?)\s*$/
     contents.forEach(line => {
         const pair = line.match(regex)
         if (pair){
-            tableRows += line.replace(
-                regex,
-                `<tr><th>$1</th><td>$2</td></tr>\n`)
-        } else if (line.match(regexnt)){
-            if (line)
+            console.log(pair[1])
+            if (pair[1] == "name"){
+                above += line.replace(
+                    regex,
+                    `<b>$2</b><br>`)
+            } else if (pair[1] == "altname"){
+                above += line.replace(
+                    regex,
+                    `$2<br>`)
+            } else if (pair[1] == "flag"){
+                decorative += line.replace(
+                    regex,
+                    `<<img|$2|M|Флаг>>`)
+            } else if (pair[1] == "logo"){
+                decorative += line.replace(
+                    regex,
+                    `<<img|$2|M|Лого>>`)
+            } else if (pair[1] == "coa"){
+                decorative += line.replace(
+                    regex,
+                    `<<img|$2|M|Герб>>`)
+            } else if (pair[1].startsWith('h-')){
+                tableRows += `<tr><th style="background-color: var(--lighter-background); text-align:center;" colspan="2">${pair[1].slice(2)}</th></tr>`
+            } else if (pair[1] == 'nicknames'){
+                tableRows += `<tr><th style="background-color: var(--lighter-background); text-align:center;" colspan="2">Называют также</th></tr>`
+            } else if (pair[1] == 'birthdate') {
                 tableRows += line.replace(
-                    regexnt,
-                    `<tr><td colspan="2" style="text-align: center;">$1</td></tr>\n`)
-        } else {
-            if (line)
-                nonTableLines += `${line}<br>`
+                    regex,
+                    `<tr><th>Дата рождения</th><td>$2</td></tr>\n`)
+            } else if (pair[1] == 'date') {
+                tableRows += line.replace(
+                    regex,
+                    `<tr><th>Дата</th><td>$2</td></tr>\n`)
+            } else if (pair[1] == 'madedate') {
+                tableRows += line.replace(
+                    regex,
+                    `<tr><th>Дата основания</th><td>$2</td></tr>\n`)
+            } else if (pair[1] == 'location') {
+                tableRows += line.replace(
+                    regex,
+                    `<tr><th>Местонахождение</th><td>$2</td></tr>\n`)
+            } else {
+                tableRows += line.replace(
+                    regex,
+                    `<tr><th>$1</th><td>$2</td></tr>\n`)
+            }
         }
     });
-    return `<table class="infobox"><tr><td colspan="2" style="text-align: center;" class="above">${nonTableLines}</td></tr>${nonTableTableLines}${tableRows}</table>`
+    return `<table class="infobox"><tr><td colspan="2" style="text-align: center;" class="above">${above}</td></tr>${(decorative != '') ? `<tr><td colspan="2" style="text-align:center;">${decorative}<hr></td></tr>` : ''}${tableRows}</table>`
 }
 
 function headerings(state){
@@ -122,11 +140,9 @@ async function textparse(data, stateparams){
     ).replace(
         /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/wiki/assets/$1.mp3">Your browser does not support the audio element.</audio>' // <<name|size>>
     ).replace(
+        /\<\<expl\|(.*?)\|(.*?)\>\>/g, '<abbr title="$2">$1</abbr>' // <<name|size>>
+    ).replace(
         /\<\<more\|(.*?)\>\>/g, '<i>Подробнее: <b>[[$1]]</b></i>' // <<name|size>>
-    ).replace(
-        /\[\[wiki\|([^\]\n]+)\|\|([^\]\n]+)\]\]/g, '<a href="https://ru.wikipedia.org/wiki/$1">$2 ➤</a>'
-    ).replace(
-        /\[\[wiki\|([^\]\n]+)\]\]/g, '<a href="https://ru.wikipedia.org/wiki/$1">$1 ➤</a>'
     ).split(
         /\n\s*\n/
     ).map(
@@ -134,7 +150,7 @@ async function textparse(data, stateparams){
     ).join('\n')
     
     const complexLinkRegex = /\[\[([^\]\n]+)\|\|([^\]\n]+)\]\]/g
-    const simpleLinkRegex = /\[\[([^\]\n|]+)\]\]/g
+    const simpleLinkRegex = /\[\[([^\]\n]+)\]\]/g
     
     const complexMatches = [...data.matchAll(complexLinkRegex)]
     const simpleMatches = [...data.matchAll(simpleLinkRegex)]
@@ -162,6 +178,8 @@ async function textparse(data, stateparams){
         // ...
         console.log('нахуй нада')
     }
+    const abbrs = body.querySelectorAll('abbr')
+    abbrs.forEach(ab => {ab.innerHTML = `${ab.innerHTML}<sup>?</sup>`})
     console.log(body.innerHTML)
     
 }
@@ -211,8 +229,8 @@ async function replaceState(state){
     return `${state}`
 }
 
-function start_wiki(){
-    let searchparams = new URLSearchParams(window.location.search).get("id")
+function start_wiki(searchparams = ""){
+    if (searchparams == "") searchparams = new URLSearchParams(window.location.search).get("id")
 
     if (searchparams){
 

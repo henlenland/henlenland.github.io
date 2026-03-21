@@ -24,10 +24,11 @@
 
 
         <script>
+            console.log(window.location.pathname)
             if (window.location.pathname.includes('/wiki/')){
-                window.location.href = `/wiki/view?id=${window.location.pathname.slice(3)}`
+                window.location.href = `/wiki/?id=${window.location.pathname.slice(3)}`
             } else {
-                document.querySelector('main').innerHTML = "чел ты не там"
+                window.location.href = `/wiki/?id=main`
             }
         </script>
         
