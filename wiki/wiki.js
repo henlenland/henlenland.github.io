@@ -229,8 +229,7 @@ async function replaceState(state){
     return `${state}`
 }
 
-function start_wiki(searchparams = ""){
-    if (searchparams == "") searchparams = new URLSearchParams(window.location.search).get("id")
+function start_wiki(searchparams){
 
     if (searchparams){
 
