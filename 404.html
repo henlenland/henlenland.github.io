@@ -6,22 +6,30 @@
         <title>ХенленВики &mdash; 404</title>
         <style id="banner-style"></style>
         <script src="/src/js/wikinav.js" defer></script>
-        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" type="image/x-icon" href="/wiki/assets/henlenland_flag.jpg"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
         
         <header></header>
-        
-        <main>
-            <script>
-                if (window.location.pathname.includes('/w/')){
-                    window.location.href = `/view?id=${window.location.pathname.slice(3)}`
-                }
-            </script>
-        </main>
-
+        <div class="wrapper">
+            <main>
+            </main>
+            <aside></aside>
+        </div>
         <footer></footer>
+        
+        <script src="/nav.js"></script>
+        <script>nav()</script>
+
+
+        <script>
+            if (window.location.pathname.includes('/wiki/')){
+                window.location.href = `/wiki/view?id=${window.location.pathname.slice(3)}`
+            } else {
+                document.querySelector('main').innerHTML = "чел ты не там"
+            }
+        </script>
         
     </body>
 </html>

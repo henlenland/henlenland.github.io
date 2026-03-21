@@ -1,6 +1,5 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('/henlene_font/style.css');
 
 :root {
     --header-font-family: Rubik;
@@ -17,28 +16,8 @@
     --borders: 1px solid var(--lighter-background);
     --link-colour: #53907a;
     --link-ncolour: #8d8853;
+    --paddings: 18px 24px;
     --blurred: blur(5px) brightness(0.6);
-}
-
-img {
-    border: var(--borders);
-    vertical-align: middle;
-}
-
-.capital {
-    font-family: 'Jazyca_cap';
-    font-size: 450%;
-    line-height: 1;
-}
-
-span.capital {
-    display: block; float: left;
-}
-
-.slavic {
-    font-family: 'Jazyca';
-    font-size: 190%;
-    line-height: 1.70;
 }
 
 :root {
@@ -50,6 +29,9 @@ span.capital {
     line-height: 1.75;
 }
 
+img {
+    vertical-align: middle;
+}
 
 h1 {
     font-size: var(--title-font-size);
@@ -60,10 +42,10 @@ h2 {
 }
 
 indent {
-    padding-left: var(--indent);
+    padding-left: calc(var(--indent) * 2);
 }
 
-.titles {
+h1, h2 {
     display: flex;
     font-family: var(--header-font-family);
     margin-bottom: 5px;
@@ -73,9 +55,9 @@ indent {
 }
 
 main {
-    padding: 24px 36px;
+    padding: var(--paddings);
     background-color: var(--main-colour);
-    margin: 24px 36px;
+    margin: var(--paddings);
     flex: 1;
     float: inline-start;
     display: inline;
@@ -93,8 +75,7 @@ body {
 figure {
     display: inline-block;
     font-style: normal;
-    margin: 0;
-    margin-block: 10px;
+    margin: 10px;
 }
 
 input {
@@ -130,11 +111,10 @@ header {
     border-bottom: var(--borders);
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 24px;
-    margin-left: 36px;
-    margin-right: 36px;
+    margin: var(--paddings);
+    margin-top: 0;
     padding: 5px;
-    top: 24px;
+    top: 18px;
     border-radius: 50px;
     backdrop-filter: var(--blurred);
     font-weight: 500;
@@ -161,8 +141,8 @@ aside {
     float: inline-end;
     top: 0;
 
-    hr {
-        background-color: var(--main-colour);
+    h2 {
+        border-bottom-color: var(--link-colour);
     }
 }
 
@@ -206,14 +186,19 @@ table, td, th {
     background-color: var(--background-colour);
 }
 
-box {
+.box {
     background-color: var(--background-colour);
+    border: var(--borders);
+    padding: 1em;
     display: block;
     margin: 10px;
     width: min-content;
+    figure {
+        margin: 0
+    }
 }
 
-box.toc {
+.toc-box {
     width: 100%;
     a, a::after {
         color: var(--text-colour);
@@ -226,13 +211,13 @@ box.toc {
 }
 
 img.S {
-    height: 80px;
+    height: 60px;
 } img.M {
-    height: 110px;
+    height: 90px;
 } img.L {
-    height: 140px;
+    height: 120px;
 } img.XL {
-    height: 180px;
+    height: 160px;
 }
 
 hr {
@@ -247,23 +232,18 @@ figure figcaption {
 }
 
 .infobox {
-    display: table;
+
     border-collapse: collapse;
     line-height: 1.2;
-    font-size: 85%;
+    font-size: 90%;
     margin: 0.5em 0 0.5em 1em;
     float: right;
     clear: right;
-    max-width: 100%;
-    
-    tr {
-        border-block-start: var(--borders);
-    }
+    width: 100%;
     
     td, th {
         border: none;
         padding: 9px;
-        text-align: center;
     }
 
     .above {
@@ -271,6 +251,7 @@ figure figcaption {
         line-height: 1.675;
         font-size: 125%;
         font-weight: normal;
+        text-align: center;
     }
 
     figure figcaption {
@@ -282,14 +263,14 @@ figure figcaption {
 
 @media (min-width: 1050px) {
     .infobox {
-        width: 270px;
+        width: 340px;
     }
-    box.toc {
-        width: 320px;
+    .toc-box {
+        width: 240px;
     }
 }
 
-.infobox, box {
+.infobox {
     border: var(--borders);
     padding: 1em;
 }

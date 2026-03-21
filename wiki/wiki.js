@@ -32,7 +32,7 @@ function templateAglorithm(match, data){
             if (line)
                 tableRows += line.replace(
                     regexnt,
-                    `<tr><td colspan="2">$1</td></tr>\n`)
+                    `<tr><td colspan="2" style="text-align: center;">$1</td></tr>\n`)
         } else {
             if (line)
                 nonTableLines += `${line}<br>`
@@ -74,7 +74,7 @@ function headerings(state){
     if (lastH2) {
         el += `<li><a href="#${lastH2.textContent}">${ct}. ${lastH2.textContent}</a><ol>${temps.map(a => {ct_++; return `<li><a href="#${a}">${ct}.${ct_}. ${a}</a></li>`}).join(``)}</ol>`
     }
-    return `<box class="toc"><h2>Содержание</h2><hr><br>${el}</box>`
+    return `<div class="toc-box"><h2>Содержание</h2>${(el == '') ? 'его нет' : el}</div>`
 }
 
 function tableAglorithm(match, data){
@@ -98,9 +98,9 @@ async function textparse(data, stateparams){
     ).replace(
         /^###\s(.*?)\s*$/gm, `<h3 id='$1'>$1</h3>`
     ).replace(
-        /^##\s(.*?)\s*$/gm, `<h2 class='titles' id='$1'>$1</h2>`
+        /^##\s(.*?)\s*$/gm, `<h2 id='$1'>$1</h2>`
     ).replace(
-        /^#\s(.*?)\s*$/gm, '<h1 class="titles">$1</h1>'
+        /^#\s(.*?)\s*$/gm, '<h1>$1</h1>'
     ).replace(
         /\*\*\s*(.*?)\s*\*\*/g, '<b>$1</b>'
     ).replace(
@@ -118,7 +118,7 @@ async function textparse(data, stateparams){
     ).replace(
         /\<\<img\|(.*?)\|(.*?)\>\>/g, '<img src="/wiki/assets/$1.jpg" alt="$1" class="$2"/>'
     ).replace(
-        /\<\<box\|(.*?)\|(.*?)\|(.*?)\>\>/g, '<box><figure><img src="/wiki/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure></box>'
+        /\<\<box\|(.*?)\|(.*?)\|(.*?)\>\>/g, '<div class="box"><figure><img src="/wiki/assets/$1.jpg" class="$2"/><figcaption>$3</figcaption></figure></div>'
     ).replace(
         /\<\<mus\|(.*?)\>\>/g, '<audio controls src="/wiki/assets/$1.mp3">Your browser does not support the audio element.</audio>' // <<name|size>>
     ).replace(
@@ -156,8 +156,8 @@ async function textparse(data, stateparams){
     ${data}</main><aside></aside></div><footer></footer>`
     nav()
     try {
-        const firstH2 = body.querySelector('h2')
-        firstH2.insertAdjacentHTML('beforebegin', headses)
+        const aside = body.querySelector('aside')
+        aside.insertAdjacentHTML('afterbegin', headses)
     } catch {
         // ...
         console.log('нахуй нада')
@@ -233,7 +233,7 @@ function start_wiki(){
             }.txt`)
 
             if (result.status == 404){
-                textparse('===== 404 =====\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
+                textparse('# 404\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
             } else {
                 textparse(await result.text(), searchparams.replaceAll('_', ' '))
             }
@@ -279,7 +279,7 @@ async function search_wiki(){
             }
             
             if (matches / Math.max(state_grams.size, getGrams(stateold_file_name).size) > 0.1){
-                founds.push([`${statenew_file_name}`, matches / Math.max(state_grams.size, getGrams(stateold_file_name).size)])
+                founds.push([`${statenew_file_name}`, matches / Math.max(state_grams.size, getGrams(stateold_file_name).size) * 100])
             }
             
         }
@@ -288,7 +288,7 @@ async function search_wiki(){
         let i = 0
         founds.sort((b, a) => a[1] - b[1]).forEach(st =>{
             if (!st1.includes(st[0])){
-                st1 += `\n- [[${st[0]}]]`
+                st1 += `\n- [[${st[0]}]] (на ${st[1].toString().slice(0, 5)}% схоже)`
                 i++
             }
         })
