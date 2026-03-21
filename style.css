@@ -59,6 +59,10 @@ h2 {
     font-size: var(--subheader-font-size);
 }
 
+indent {
+    padding-left: var(--indent);
+}
+
 .titles {
     display: flex;
     font-family: var(--header-font-family);
@@ -102,14 +106,14 @@ input {
     border-radius: 15px;
 }
 
-quote {
+blockquote, quote {
 
     display: block;
     
     background-color: var(--background-colour);
     border: var(--borders);
     border-left: var(--lighter-background) 5px solid;
-
+    margin: 0;
     border-radius: 10px;
     font-style: italic;
     padding: 0px;
