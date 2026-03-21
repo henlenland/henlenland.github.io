@@ -10,21 +10,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-        
-        <header></header>
-        <div class="wrapper">
-            <main>
-            </main>
-            <aside></aside>
-        </div>
-        <footer></footer>
-        
-        <script src="/nav.js"></script>
-        <script>nav()</script>
-
 
         <script>
-            window.location.href = `/wiki/main`
+            if (window.location.pathname.indexOf('/wiki/') === -1)
+                window.location.href = `/wiki/main`
         </script>
         
     </body>
