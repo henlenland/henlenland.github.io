@@ -163,7 +163,7 @@ async function textparse(data, stateparams){
         
         const resolvedId = await replaceState(id.replace(/\s+/g, '_'))
         const exists = await fetch(`/wiki/states/${resolvedId}.txt`).then(sta => (sta.status !== 404))
-        data = data.replace(fullMatch, `<a href="/wiki/?id=${resolvedId}" class="${(exists) ? '' : 'ne'}">${text}</a>`)
+        data = data.replace(fullMatch, `<a href="/wiki/${resolvedId}" class="${(exists) ? '' : 'ne'}">${text}</a>`)
     }
     
     let headses = headerings(data)
@@ -236,7 +236,7 @@ function start_wiki(searchparams = ""){
 
         (async () => {
             const newState = await replaceState(searchparams)
-            let newLocation = `/wiki/?id=${newState}`
+            let newLocation = `/wiki/${newState}`
             
             if (newState !== searchparams){
                 window.location.href = newLocation
@@ -259,7 +259,7 @@ function start_wiki(searchparams = ""){
         })()
 
     } else {
-        window.location.href = "/wiki/?id=main";
+        window.location.href = "/wiki/main";
     }
 }
 

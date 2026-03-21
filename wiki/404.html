@@ -12,7 +12,7 @@
     <body>
         
         <script src="/wiki/wiki.js"></script>
-        <script>start_wiki(window.location.pathname.slice(6))</script>
+        <script>const locate = window.location.pathname; start_wiki(locate.slice(6)); console.log(window.location.pathname)</script>
         
     </body>
 </html>
