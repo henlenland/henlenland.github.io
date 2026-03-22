@@ -315,11 +315,10 @@ async function search_wiki(){
 }
 
 async function init_wiki(args){
-    await fetch('/wiki/states/adress.json').then(k => (async () => {
-        adressFILE = await k.json()
-    })()).then(_ => {
-        if (args[1] == 0){
-            start_wiki(args[0])
-        } else search_wiki()
-    })
+    const resp = await fetch('/wiki/states/adress.json')
+    adressFILE = await resp.json()
+
+    if (args[1] == 0){
+        start_wiki(args[0])
+    } else search_wiki()
 }
