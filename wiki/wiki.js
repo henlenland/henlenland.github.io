@@ -318,6 +318,7 @@ async function init_wiki(args){
     const resp = await fetch('/wiki/states/adress.json')
     adressFILE = await resp.json()
 
+    console.log(adressFILE, ...args)
     if (args[1] == 0){
         start_wiki(args[0])
     } else search_wiki()
