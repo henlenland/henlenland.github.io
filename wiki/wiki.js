@@ -196,7 +196,7 @@ const getGrams = (word) => {
 
 async function replaceState(state){
     
-    const resp = adressFILE
+    const resp = await adressFILE
     const json = await resp.json()
 
     let state_trimmed = state.trim()
@@ -268,7 +268,7 @@ async function search_wiki(){
 
         let founds = []
 
-        const resp = adressFILE
+        const resp = await adressFILE
         const json = await resp.json()
 
         let state_trimmed = searchparams.trim()
@@ -318,9 +318,11 @@ async function search_wiki(){
 
 function init_wiki(args){
     (async () => {
-        adressFILE = await fetch('/wiki/states/adress.json')
-        if (args[1] == 0){
-            await start_wiki(args[0])
-        } else await search_wiki()
+        await fetch('/wiki/states/adress.json').then(k => {
+            adressFILE = k
+            if (args[1] == 0){
+                start_wiki(args[0])
+            } else search_wiki()
+        })
     })
 }
