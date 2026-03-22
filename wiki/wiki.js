@@ -1,7 +1,5 @@
 
-let adressFILE = await fetch('/wiki/states/adress.json')
-
-
+let adressFILE
 
 function templateAglorithm(match, data){
     const contents = data.split('\n')
@@ -233,33 +231,30 @@ async function replaceState(state){
     return `${state}`
 }
 
-function start_wiki(searchparams){
+async function start_wiki(searchparams){
 
     if (searchparams){
 
-        (async () => {
-            const newState = await replaceState(searchparams)
-            let newLocation = `/wiki/${newState}`
-            
-            if (newState !== searchparams){
-                window.location.href = newLocation
-                return
-            }
+        const newState = await replaceState(searchparams)
+        let newLocation = `/wiki/${newState}`
+        
+        if (newState !== searchparams){
+            window.location.href = newLocation
+            return
+        }
 
-            const title = document.getElementsByTagName('title')[0]
-            title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
+        const title = document.getElementsByTagName('title')[0]
+        title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
 
-            let result = await fetch(`/wiki/states/${
-                searchparams.replace(/\s/g, '_')
-            }.txt`)
+        let result = await fetch(`/wiki/states/${
+            searchparams.replace(/\s/g, '_')
+        }.txt`)
 
-            if (result.status == 404){
-                textparse('# 404\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
-            } else {
-                textparse(await result.text(), searchparams.replaceAll('_', ' '))
-            }
-
-        })()
+        if (result.status == 404){
+            textparse('# 404\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
+        } else {
+            textparse(await result.text(), searchparams.replaceAll('_', ' '))
+        }
 
     } else {
         window.location.href = "/wiki/main";
@@ -319,4 +314,13 @@ async function search_wiki(){
         textparse(st1, 'Поиск...')
 
     }
+}
+
+function init_wiki(args){
+    (async () => {
+        adressFILE = await fetch('/wiki/states/adress.json')
+        if (args[1] == 0){
+            await start_wiki(args[0])
+        } else await search_wiki()
+    })
 }
