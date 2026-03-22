@@ -1,4 +1,10 @@
 
+(async() => {
+    const adressFILE = await fetch('/wiki/states/adress.json')
+})()
+
+
+
 function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
@@ -194,7 +200,7 @@ const getGrams = (word) => {
 
 async function replaceState(state){
     
-    const resp = await fetch('/wiki/states/adress.json')
+    const resp = adressFILE
     const json = await resp.json()
 
     let state_trimmed = state.trim()
@@ -269,7 +275,7 @@ async function search_wiki(){
 
         let founds = []
 
-        const resp = await fetch('/wiki/states/adress.json')
+        const resp = adressFILE
         const json = await resp.json()
 
         let state_trimmed = searchparams.trim()
