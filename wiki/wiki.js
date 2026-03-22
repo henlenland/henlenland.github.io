@@ -1,8 +1,5 @@
 
-let adressFILE = null
-(async () => {
-    adressFILE = await fetch('/wiki/states/adress.json')
-})()
+let adressFILE = await fetch('/wiki/states/adress.json')
 
 
 
