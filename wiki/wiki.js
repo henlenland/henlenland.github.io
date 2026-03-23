@@ -194,7 +194,8 @@ const getGrams = (word) => {
 
 async function replaceState(state){
     
-    const json = adressFILE
+    const resp = await fetch('/wiki/states/adress.json')
+    const json = await resp.json()
 
     let state_trimmed = state.trim()
 
@@ -228,30 +229,33 @@ async function replaceState(state){
     return `${state}`
 }
 
-async function start_wiki(searchparams){
+function start_wiki(searchparams){
 
     if (searchparams){
 
-        const newState = await replaceState(searchparams)
-        let newLocation = `/wiki/${newState}`
-        
-        if (newState !== searchparams){
-            window.location.href = newLocation
-            return
-        }
+        (async () => {
+            const newState = await replaceState(searchparams)
+            let newLocation = `/wiki/${newState}`
+            
+            if (newState !== searchparams){
+                window.location.href = newLocation
+                return
+            }
 
-        const title = document.getElementsByTagName('title')[0]
-        title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
+            const title = document.getElementsByTagName('title')[0]
+            title.innerHTML = `${searchparams.replaceAll('_', ' ')} &mdash; ХенленВики`
 
-        let result = await fetch(`/wiki/states/${
-            searchparams.replace(/\s/g, '_')
-        }.txt`)
+            let result = await fetch(`/wiki/states/${
+                searchparams.replace(/\s/g, '_')
+            }.txt`)
 
-        if (result.status == 404){
-            textparse('# 404\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
-        } else {
-            textparse(await result.text(), searchparams.replaceAll('_', ' '))
-        }
+            if (result.status == 404){
+                textparse('# 404\nДанной статьи не существет, ебать.', searchparams.replaceAll('_', ' '))
+            } else {
+                textparse(await result.text(), searchparams.replaceAll('_', ' '))
+            }
+
+        })()
 
     } else {
         window.location.href = "/wiki/main";
@@ -265,7 +269,8 @@ async function search_wiki(){
 
         let founds = []
 
-        const json = adressFILE
+        const resp = await fetch('/wiki/states/adress.json')
+        const json = await resp.json()
 
         let state_trimmed = searchparams.trim()
 
@@ -310,14 +315,4 @@ async function search_wiki(){
         textparse(st1, 'Поиск...')
 
     }
-}
-
-async function init_wiki(args){
-    const resp = await fetch('/wiki/states/adress.json')
-    const adressFILE = await resp.json()
-
-    console.log(adressFILE, ...args)
-    if (args[1] == 0){
-        start_wiki(args[0])
-    } else search_wiki()
 }
