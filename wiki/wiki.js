@@ -1,6 +1,4 @@
 
-let adressFILE
-
 function templateAglorithm(match, data){
     const contents = data.split('\n')
     let tableRows = ''
@@ -316,7 +314,7 @@ async function search_wiki(){
 
 async function init_wiki(args){
     const resp = await fetch('/wiki/states/adress.json')
-    adressFILE = await resp.json()
+    const adressFILE = await resp.json()
 
     console.log(adressFILE, ...args)
     if (args[1] == 0){
