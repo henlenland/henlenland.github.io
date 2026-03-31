@@ -25,6 +25,10 @@ function templateAglorithm(match, data){
                 decorative += line.replace(
                     regex,
                     `<<img|$2|M|Лого>>`)
+            } else if (pair[1] == "pic"){
+                decorative += line.replace(
+                    regex,
+                    `<<img|$2|M|>>`)
             } else if (pair[1] == "coa"){
                 decorative += line.replace(
                     regex,
