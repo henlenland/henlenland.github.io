@@ -1,7 +1,6 @@
 
 {{
-| name = Костюков Никита
-| altname = Кастюкоў Нікіта
+| name = oldniki
 | birthdate = 15 апреля 2012
 | Деятельность = Minecraft-сервера
 | nicknames = 
@@ -9,7 +8,7 @@
 | [[Eugene Sourcy]] = олд, <<expl|ники|использовалось при игре Eugene от имён Vanya_Narodaw и salovek228>>, Некит
 }}
 
-**Костюков Никита**, известный как **oldniki**, &mdash; создатель и владелец Minecraft-серверов [[CraftBiped]] и [[BipedCraft]], а также один из премьер-министров [[Хенленция||Хенленция]]. 
+**oldniki** &mdash; создатель и владелец Minecraft-серверов [[CraftBiped]] и [[BipedCraft]], а также один из премьер-министров [[Хенленция||Хенленция]]. 
 
 ## Биография
 Начал играть в Minecraft в 2022 году на Bedrock-издании. Изначально играл на Dygers.ru.  

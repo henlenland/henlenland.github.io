@@ -1,6 +1,7 @@
 
-{{германский хенленцийский язык
-Deutsche Henlene Sprech
+{{
+| name = германский хенленцийский язык
+| altname = Deutsche Henlene Sprech
 | Группа языков = германская
 | Носители = 0
 }}
