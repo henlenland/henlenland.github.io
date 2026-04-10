@@ -115,6 +115,10 @@ blockquote, quote {
 
 }
 
+blockquote.citate {
+    text-transform: uppercase;
+}
+
 header {
     overflow: hidden;
     position: sticky;
@@ -196,15 +200,16 @@ table, td, th {
 }
 
 .box {
-    background-color: var(--background-colour);
-    border: var(--borders);
-    padding: 1em;
-    display: block;
-    margin: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    float: left;
     width: min-content;
     figure {
-        margin: 0
+        margin: 0;
     }
+    img {
+        width: 150px;
+    } 
 }
 
 .toc-box {
@@ -240,6 +245,10 @@ figure figcaption {
     font-size: 100%;
 }
 
+.centred {
+    text-align: center;
+}
+
 .infobox {
 
     border-collapse: collapse;
@@ -263,11 +272,17 @@ figure figcaption {
         text-align: center;
     }
 
-    figure figcaption {
-        margin-top: 10px;
-        font-size: 100%;
-        font-style: italic;
+    .subts {
+        text-align: center;
+        background-color: var(--lighter-background);
     }
+
+}
+
+figure figcaption {
+    margin-top: 10px;
+    font-size: 100%;
+    font-style: italic;
 }
 
 @media (min-width: 1050px) {
